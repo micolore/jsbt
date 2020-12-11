@@ -1,20 +1,22 @@
 package com.kubrick.annotation.dao;
 
-import com.kubrick.annotation.entity.User;
-import com.kubrick.annotation.intceptor.InterceptAnnotation;
 
+import com.kubrick.annotation.entity.UserEntity;
+
+/**
+ * @author k
+ */
 public interface UserDao {
-    int deleteByPrimaryKey(Integer id);
+	/**
+	 * 根据用户名查找用户
+	 * @param username
+	 * @return
+	 */
+	UserEntity getUserByUsername(String username);
+	/**
+	 * 新增用户
+	 * @param user
+	 */
+	void insertUser(UserEntity user);
 
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    @InterceptAnnotation
-    User selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }
-

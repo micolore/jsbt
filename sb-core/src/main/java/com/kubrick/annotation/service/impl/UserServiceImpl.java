@@ -1,23 +1,25 @@
 package com.kubrick.annotation.service.impl;
 
 import com.kubrick.annotation.dao.UserDao;
-import com.kubrick.annotation.entity.User;
+import com.kubrick.annotation.entity.UserEntity;
 import com.kubrick.annotation.service.UserService;
-import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * @author k
  */
 @Service
-@NoArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao;
+	@Autowired
+	private UserDao userDao;
+	/**
+	 * 保存用户
+	 */
+	@Override
+	public void saveUser(UserEntity user) {
+		userDao.insertUser(user);
+	}
 
-    @Override
-    public void find() {
-        User user = userDao.selectByPrimaryKey(1);
-        System.out.println("user:" + user.getUserName());
-    }
 }
