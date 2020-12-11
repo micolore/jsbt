@@ -11,5 +11,5 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis:
-  typeAliasesPackage: com.xdd.entity
+  typeAliasesPackage: com.kubrick.annotation.entity
   mapperLocations: classpath:mapper/*.xml
