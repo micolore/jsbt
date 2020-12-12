@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.gen;
+package com.kubrick.sbt.gen;
 
 
 import java.sql.SQLException;

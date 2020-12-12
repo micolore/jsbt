@@ -1,4 +1,6 @@
-*  my  sbt
+*  my sbt
+
 **  sbt-web
+
 **  sbt-gen
 
