@@ -6,6 +6,8 @@
 		<id property="id" column="id"/>
 		<result property="username" column="username"/>
 		<result property="password" column="password"/>
+		<result property="organization" column="organization"/>
+		<result property="createBy" column="create_by"/>
 		<result property="createBy" column="create_by"/>
 	</resultMap>
 

@@ -13,6 +13,7 @@ import java.util.Properties;
  * @date 2020/12/8 下午12:39
  */
 public class PermissionHelper implements Interceptor {
+
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         return null;

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * @author k
@@ -15,11 +16,11 @@ public abstract class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 4034437877924885763L;
 	protected Long id;
-	protected Integer state;
-	protected String creator;
-	protected String createTime;
-	protected String updator;
-	protected String updateTime;
+	protected Integer status;
+	protected LocalDate createAt;
+	protected LocalDate updateAt;
+	protected Long createBy;
+	protected Long updateBy;
 	protected Boolean deleted=false;
 
 }

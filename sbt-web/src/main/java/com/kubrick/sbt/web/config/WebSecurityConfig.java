@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.config;
 
-import com.kubrick.sbt.web.handler.CustomAccessDeniedHandler;
+import com.kubrick.sbt.web.auth.handler.CustomAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;

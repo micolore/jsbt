@@ -6,9 +6,9 @@ import com.kubrick.sbt.web.dao.MenuDao;
 import com.kubrick.sbt.web.dao.RoleDao;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.entity.Menu;
-import com.kubrick.sbt.web.entity.MyUserDetails;
 import com.kubrick.sbt.web.entity.Role;
 import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.service.OrganizationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -33,6 +33,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private MenuDao menuDao;
 
+    @Autowired
+    private OrganizationService organizationService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.getUserByUsername(username);
@@ -52,8 +55,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
             Map map = new HashMap<String, Object>();
             map.put("ds", roles.get(0).getDataScope());
             Integer dataScope = roles.get(0).getDataScope();
-//            return new MyUserDetails(user.getUsername(), user.getPassword(), authorities, menus, dataScope);
-            return new User(user.getUsername(), user.getPassword(), authorities, menus, dataScope);
+
+            List<Long> organizationIds = organizationService.list(user.getOrganization());
+            return new User(user.getUsername(), user.getPassword(), authorities, menus, dataScope, organizationIds);
         } else {
             log.info("{} no found", username);
             throw new UsernameNotFoundException(username + " not found");

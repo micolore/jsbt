@@ -18,10 +18,12 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private Integer organization;
     private Integer createBy;
     private List<Role> userRoles;
     private List<Menu> roleMenus;
     private Integer dataScope;
+    private List<Long> organizationIds;
 
     private Collection<? extends GrantedAuthority> authorities;
 
@@ -30,12 +32,13 @@ public class User implements UserDetails {
     }
 
     public User(String username, String password, Collection<? extends GrantedAuthority> authorities,
-                List<Menu> roleMenus,Integer dataScope) {
+                List<Menu> roleMenus, Integer dataScope, List<Long> organizationIds) {
         this.username = username;
         this.password = password;
         this.authorities = authorities;
         this.roleMenus = roleMenus;
         this.dataScope = dataScope;
+        this.organizationIds = organizationIds;
     }
 
     @Override

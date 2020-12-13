@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.handler;
+package com.kubrick.sbt.web.auth.handler;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -2,6 +2,7 @@ package com.kubrick.sbt.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.service.OrganizationService;
 import com.kubrick.sbt.web.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,17 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private OrganizationService organizationService;
 
     @GetMapping("/list")
     @ResponseBody
     public JSONObject toHome() {
         List<User> list = userService.list();
         log.info("user size:{}", list.size());
+        List<Long> organizationList = organizationService.list(1);
+        log.info("organizationList:{}",organizationList);
+
         JSONObject json = new JSONObject();
         json.put("code", 200);
         json.put("msg", "请求成功");
