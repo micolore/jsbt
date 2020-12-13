@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSONObject;
  */
 @RestController
 @RequestMapping("/test")
-public class HttptestController {
+public class HttpTestController {
 
     @PostMapping("/public")
     public JSONObject doPublicHandler(Long id) {
