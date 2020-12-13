@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.common;
+package com.kubrick.sbt.web.annotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,7 +13,7 @@ public class MyLogAspect {
     // 2. PointCut表示这是一个切点，@annotation表示这个切点切到一个注解上，后面带该注解的全类名
     // 切面最主要的就是切点，所有的故事都围绕切点发生
     // logPointCut()代表切点名称
-    @Pointcut("@annotation(com.kubrick.sbt.web.common.MyLog)")
+    @Pointcut("@annotation(com.kubrick.sbt.web.annotation.MyLog)")
     public void logPointCut(){};
 
     // 3. 环绕通知

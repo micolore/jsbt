@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.intceptor;
+package com.kubrick.sbt.web.interceptor;
 
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Invocation;

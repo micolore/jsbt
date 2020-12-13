@@ -14,13 +14,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- * prePostEnabled :决定Spring Security的前注解是否可用 [@PreAuthorize,@PostAuthorize,..]
- * secureEnabled : 决定是否Spring Security的保障注解 [@Secured] 是否可用
- * jsr250Enabled ：决定 JSR-250 annotations 注解[@RolesAllowed..] 是否可用.
+ * 1、prePostEnabled :决定Spring Security的前注解是否可用 [@PreAuthorize,@PostAuthorize,..]
+ * 2、secureEnabled : 决定是否Spring Security的保障注解 [@Secured] 是否可用
+ * 3、jsr250Enabled ：决定 JSR-250 annotations 注解[@RolesAllowed..] 是否可用.
+ * 4、开启 Spring Security 方法级安全注解 @EnableGlobalMethodSecurity
  */
 @Configurable
 @EnableWebSecurity
-//开启 Spring Security 方法级安全注解 @EnableGlobalMethodSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 

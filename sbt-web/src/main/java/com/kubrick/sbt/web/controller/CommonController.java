@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.controller;
 
-import com.kubrick.sbt.web.common.MyLog;
+import com.kubrick.sbt.web.annotation.MyLog;
 import com.kubrick.sbt.web.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

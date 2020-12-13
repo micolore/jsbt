@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.common;
+package com.kubrick.sbt.web.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

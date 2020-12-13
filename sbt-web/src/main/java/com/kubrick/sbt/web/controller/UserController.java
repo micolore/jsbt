@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -28,14 +29,14 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/list")
-    public String toHome() {
+    @ResponseBody
+    public JSONObject toHome() {
         List<User> list = userService.list();
         log.info("user size:{}", list.size());
         JSONObject json = new JSONObject();
-
         json.put("code", 200);
         json.put("msg", "请求成功");
-        return json.toJSONString();
+        return json;
     }
 
 }

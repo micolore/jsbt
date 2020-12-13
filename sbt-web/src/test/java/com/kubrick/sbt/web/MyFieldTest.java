@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web;
 
-import com.kubrick.sbt.web.common.MyField;
+import com.kubrick.sbt.web.annotation.MyField;
 import org.junit.Test;
 
 import java.lang.reflect.Field;

@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.interceptor;
 
-import com.kubrick.sbt.web.common.LoginRequired;
+import com.kubrick.sbt.web.annotation.LoginRequired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

@@ -1,17 +1,21 @@
 package com.kubrick.sbt.web.entity;
 
-import java.util.Collection;
-import java.util.List;
-
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * @author k
+ * @version 1.0.0
+ * @ClassName MyUserDetails
+ * @description: TODO
+ * @date 2020/12/13 下午12:31
  */
 @Data
-public class User implements UserDetails {
+public class MyUserDetails implements UserDetails {
 
     private static final long serialVersionUID = -9005214545793249372L;
 
@@ -19,18 +23,15 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private Integer createBy;
+
     private List<Role> userRoles;
     private List<Menu> roleMenus;
     private Integer dataScope;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public User() {
-
-    }
-
-    public User(String username, String password, Collection<? extends GrantedAuthority> authorities,
-                List<Menu> roleMenus,Integer dataScope) {
+    public MyUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities,
+                         List<Menu> roleMenus, Integer dataScope) {
         this.username = username;
         this.password = password;
         this.authorities = authorities;
@@ -41,6 +42,16 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 
     @Override
@@ -62,5 +73,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 }

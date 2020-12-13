@@ -1,4 +1,9 @@
-package com.kubrick.sbt.web.intceptor;
+package com.kubrick.sbt.web.interceptor;
+
+import com.kubrick.sbt.web.annotation.InterceptAnnotation;
+import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.auth.utils.SecurityUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -7,6 +12,7 @@ import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.stereotype.Component;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -15,6 +21,7 @@ import java.util.Properties;
 /**
  * @author k
  */
+@Slf4j
 @Component
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
 public class MySqlInterceptor implements Interceptor {
@@ -53,11 +60,18 @@ public class MySqlInterceptor implements Interceptor {
             }
         }
 
+        String currentUserName = SecurityUtils.getCurrentUserName();
+        User currentUser = SecurityUtils.getCurrentUser();
+        if (currentUser != null) {
+            log.info("currentUser:{}", currentUser.toString());
+        }
+        log.info("currentUserName:{}", currentUserName);
+
         //通过反射修改sql语句
         Field field = boundSql.getClass().getDeclaredField("sql");
         field.setAccessible(true);
         field.set(boundSql, mSql);
-        System.out.println("mSql:"+mSql);
+        System.out.println("mSql:" + mSql);
         return invocation.proceed();
     }
 

@@ -1,18 +1,18 @@
 package com.kubrick.sbt.web.service.impl;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 import com.kubrick.sbt.web.dao.MenuDao;
 import com.kubrick.sbt.web.dao.RoleDao;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.entity.Menu;
+import com.kubrick.sbt.web.entity.MyUserDetails;
 import com.kubrick.sbt.web.entity.Role;
 import com.kubrick.sbt.web.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -34,9 +34,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private MenuDao menuDao;
 
     @Override
-    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.getUserByUsername(username);
-        System.out.println(user);
+
         if (user != null) {
             log.info("UserDetailsService current user is:{}", user.toString());
             //根据用户id获取用户角色
@@ -48,7 +48,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
             }
             //填充权限菜单
             List<Menu> menus = menuDao.getRoleMenuByRoles(roles);
-            return new User(username, user.getPassword(), authorities, menus);
+            //可能有多个角色，理论上应该取最大的那一个，亦或者每个人的数据权限单独进行设置
+            Map map = new HashMap<String, Object>();
+            map.put("ds", roles.get(0).getDataScope());
+            Integer dataScope = roles.get(0).getDataScope();
+//            return new MyUserDetails(user.getUsername(), user.getPassword(), authorities, menus, dataScope);
+            return new User(user.getUsername(), user.getPassword(), authorities, menus, dataScope);
         } else {
             log.info("{} no found", username);
             throw new UsernameNotFoundException(username + " not found");

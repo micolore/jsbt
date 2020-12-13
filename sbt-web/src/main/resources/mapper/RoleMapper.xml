@@ -5,6 +5,7 @@
 	<resultMap type="com.kubrick.sbt.web.entity.Role" id="role">
 		<id property="id" column="id"/>
 		<result property="roleName" column="role_name"/>
+		<result property="dataScope" column="data_scope"/>
 	</resultMap>
 	<!-- 根据用户id获取用户角色 -->
 	<select id="getUserRoleByUserId" resultMap="role">

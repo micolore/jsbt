@@ -2,7 +2,7 @@ package com.kubrick.sbt.web.dao;
 
 
 import com.kubrick.sbt.web.entity.User;
-import com.kubrick.sbt.web.intceptor.InterceptAnnotation;
+import com.kubrick.sbt.web.annotation.InterceptAnnotation;
 
 import java.util.List;
 
