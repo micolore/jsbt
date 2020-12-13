@@ -11,6 +11,7 @@
 <br>
 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" id="hidCSRF">
 <button class="layui-btn" id="btnPublic">公共权限请求按钮</button>
+<button class="layui-btn" id="btnList">获取用于列表</button>
 <br>
 <br>
 <button class="layui-btn" id="btnVip">VIP权限请求按钮</button>
@@ -25,12 +26,12 @@
 					type:"POST",
 					data:{id:1},
 					beforeSend:function(xhr){
-						xhr.setRequestHeader('X-CSRF-TOKEN',$("#hidCSRF").val());	
+						xhr.setRequestHeader('X-CSRF-TOKEN',$("#hidCSRF").val());
 					},
 					success:function(res){
 						alert(res.code+":"+res.msg);
-				
-					}	
+
+					}
 				});
 			});
 			$("#btnVip").click(function(){
@@ -39,11 +40,24 @@
 					type:"POST",
 					data:{id:2},
 					beforeSend:function(xhr){
-						xhr.setRequestHeader('X-CSRF-TOKEN',$("#hidCSRF").val());	
+						xhr.setRequestHeader('X-CSRF-TOKEN',$("#hidCSRF").val());
 					},
 					success:function(res){
 						alert(res.code+":"+res.msg);
-						
+
+					}
+				});
+			});
+			$("#btnList").click(function(){
+				$.ajax({
+					url:"/user/list",
+					type:"GET",
+					beforeSend:function(xhr){
+						xhr.setRequestHeader('X-CSRF-TOKEN',$("#hidCSRF").val());
+					},
+					success:function(res){
+						alert(res.code+":"+res.msg);
+
 					}
 				});
 			});

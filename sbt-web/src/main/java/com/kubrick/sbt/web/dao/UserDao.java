@@ -1,7 +1,10 @@
 package com.kubrick.sbt.web.dao;
 
 
-import com.kubrick.sbt.web.entity.UserEntity;
+import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.intceptor.InterceptAnnotation;
+
+import java.util.List;
 
 /**
  * @author k
@@ -12,11 +15,19 @@ public interface UserDao {
 	 * @param username
 	 * @return
 	 */
-	UserEntity getUserByUsername(String username);
+	User getUserByUsername(String username);
 	/**
 	 * 新增用户
 	 * @param user
 	 */
-	void insertUser(UserEntity user);
+	void insertUser(User user);
+
+	/**
+	 * list user
+	 * @return
+	 */
+	@InterceptAnnotation
+	List<User> list();
+
 
 }

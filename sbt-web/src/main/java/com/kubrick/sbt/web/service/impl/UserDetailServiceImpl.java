@@ -9,7 +9,7 @@ import com.kubrick.sbt.web.dao.RoleDao;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.entity.Menu;
 import com.kubrick.sbt.web.entity.Role;
-import com.kubrick.sbt.web.entity.UserEntity;
+import com.kubrick.sbt.web.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,12 +34,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private MenuDao menuDao;
 
     @Override
-    public UserEntity loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 根据用户名查找用户
-        UserEntity user = userDao.getUserByUsername(username);
+    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userDao.getUserByUsername(username);
         System.out.println(user);
         if (user != null) {
-            System.out.println("UserDetailsService");
+            log.info("UserDetailsService current user is:{}", user.toString());
             //根据用户id获取用户角色
             List<Role> roles = roleDao.getUserRoleByUserId(user.getId());
             // 填充权限
@@ -49,9 +48,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
             }
             //填充权限菜单
             List<Menu> menus = menuDao.getRoleMenuByRoles(roles);
-            return new UserEntity(username, user.getPassword(), authorities, menus);
+            return new User(username, user.getPassword(), authorities, menus);
         } else {
-            System.out.println(username + " not found");
+            log.info("{} no found", username);
             throw new UsernameNotFoundException(username + " not found");
         }
     }

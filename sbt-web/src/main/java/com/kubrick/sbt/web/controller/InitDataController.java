@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.controller;
 
-import com.kubrick.sbt.web.entity.UserEntity;
+import com.kubrick.sbt.web.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,12 +21,12 @@ public class InitDataController {
 	@RequestMapping("/initUserData")
 	public @ResponseBody String initUserData() {
 		//普通用户
-		UserEntity user=new UserEntity();
+		User user=new User();
 		user.setUsername("user");
 		user.setPassword(new BCryptPasswordEncoder().encode("user"));
 		userService.saveUser(user);
 		//管理员
-		UserEntity admin=new UserEntity();
+		User admin=new User();
 		admin.setUsername("admin");
 		admin.setPassword(new BCryptPasswordEncoder().encode("admin"));
 		userService.saveUser(admin);

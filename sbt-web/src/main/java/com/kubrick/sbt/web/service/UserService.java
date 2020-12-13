@@ -1,7 +1,9 @@
 package com.kubrick.sbt.web.service;
 
 
-import com.kubrick.sbt.web.entity.UserEntity;
+import com.kubrick.sbt.web.entity.User;
+
+import java.util.List;
 
 /**
  * @author k
@@ -12,6 +14,7 @@ public interface UserService {
      *
      * @param user
      */
-    void saveUser(UserEntity user);
+    void saveUser(User user);
 
+    List<User> list();
 }

@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.controller;
 
 import com.kubrick.sbt.web.common.MyLog;
-import com.kubrick.sbt.web.entity.UserEntity;
+import com.kubrick.sbt.web.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +25,7 @@ public class CommonController {
     @ResponseBody
     public String hello() {
         System.out.println("hello");
-        UserEntity user = new UserEntity();
+        User user = new User();
         user.setPassword("123");
         user.setUsername("k");
         userService.saveUser(user);
