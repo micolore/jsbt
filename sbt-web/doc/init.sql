@@ -1,7 +1,7 @@
 #
 # SQL Export
 # Created by Querious (201067)
-# Created: 2020年12月13日 GMT+8 上午10:54:15
+# Created: 2020年12月13日 GMT+8 下午10:54:44
 # Encoding: Unicode (UTF-8)
 #
 
@@ -33,9 +33,24 @@ CREATE TABLE `t_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
+CREATE TABLE `t_organization` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pid` int DEFAULT '0',
+  `deep` tinyint DEFAULT '0',
+  `status` tinyint DEFAULT '0',
+  `create_at` timestamp NULL DEFAULT NULL,
+  `create_by` bigint DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 CREATE TABLE `t_role` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT '角色id',
   `role_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '角色名称',
+  `data_scope` int DEFAULT '0' COMMENT '1、全部 2、自己',
+  `create_at` timestamp NULL DEFAULT NULL,
+  `create_by` bigint DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -52,8 +67,10 @@ CREATE TABLE `t_user` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '密码',
+  `organization` int DEFAULT '0' COMMENT '部门id',
+  `status` tinyint DEFAULT '0',
   `create_by` bigint DEFAULT '0',
-  `unnamedColumn` timestamp NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -89,11 +106,23 @@ ALTER TABLE `t_menu` ENABLE KEYS;
 UNLOCK TABLES;
 
 
+LOCK TABLES `t_organization` WRITE;
+ALTER TABLE `t_organization` DISABLE KEYS;
+INSERT INTO `t_organization` (`id`, `name`, `pid`, `deep`, `status`, `create_at`, `create_by`) VALUES 
+	(1,'google',0,0,1,NULL,1),
+	(2,'google_1',1,1,0,NULL,1),
+	(3,'google_2',1,1,0,NULL,1),
+	(4,'google_1_1',2,2,0,NULL,1),
+	(5,'google_2_1',3,2,0,NULL,1);
+ALTER TABLE `t_organization` ENABLE KEYS;
+UNLOCK TABLES;
+
+
 LOCK TABLES `t_role` WRITE;
 ALTER TABLE `t_role` DISABLE KEYS;
-INSERT INTO `t_role` (`id`, `role_name`) VALUES 
-	(1,'ROLE_USER'),
-	(2,'ROLE_ADMIN');
+INSERT INTO `t_role` (`id`, `role_name`, `data_scope`, `create_at`, `create_by`) VALUES 
+	(1,'ROLE_USER',2,NULL,0),
+	(2,'ROLE_ADMIN',1,NULL,0);
 ALTER TABLE `t_role` ENABLE KEYS;
 UNLOCK TABLES;
 
@@ -119,12 +148,12 @@ UNLOCK TABLES;
 
 LOCK TABLES `t_user` WRITE;
 ALTER TABLE `t_user` DISABLE KEYS;
-INSERT INTO `t_user` (`id`, `username`, `password`, `create_by`, `unnamedColumn`) VALUES 
-	(1,'user','$2a$10$D5E9lza7z8uea6fP/oNOJeuRq/a/y8RXQWslTDONsqxQTPlgW7Hr6',1,NULL),
-	(2,'admin','$2a$10$on7jUGJN.4CyjPZzyroZce0ugjCQFzA6dRuOTcEFTBLLhe3oYe5Gu',0,NULL),
-	(3,'1',NULL,1,NULL),
-	(4,'2',NULL,1,NULL),
-	(5,'3',NULL,1,NULL);
+INSERT INTO `t_user` (`id`, `username`, `password`, `organization`, `status`, `create_by`, `create_at`) VALUES 
+	(1,'user','$2a$10$D5E9lza7z8uea6fP/oNOJeuRq/a/y8RXQWslTDONsqxQTPlgW7Hr6',0,0,1,NULL),
+	(2,'admin','$2a$10$on7jUGJN.4CyjPZzyroZce0ugjCQFzA6dRuOTcEFTBLLhe3oYe5Gu',1,0,0,NULL),
+	(3,'1',NULL,0,0,1,NULL),
+	(4,'2',NULL,0,0,1,NULL),
+	(5,'3',NULL,0,0,1,NULL);
 ALTER TABLE `t_user` ENABLE KEYS;
 UNLOCK TABLES;
 
