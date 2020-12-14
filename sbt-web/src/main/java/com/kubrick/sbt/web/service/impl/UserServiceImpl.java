@@ -1,5 +1,6 @@
 package com.kubrick.sbt.web.service.impl;
 
+import com.kubrick.sbt.web.cache.RedisCache;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.entity.User;
 import com.kubrick.sbt.web.service.UserService;
@@ -24,9 +25,9 @@ public class UserServiceImpl implements UserService {
 	public void saveUser(User user) {
 		userDao.insertUser(user);
 	}
-
+	@RedisCache(key = "'userid:' + #id +':'")
 	@Override
-	public List<User> list() {
+	public List<User> list(int id) {
 
 		return userDao.list();
 	}
