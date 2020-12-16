@@ -19,6 +19,7 @@
     <modules>
         <module>sbt-gen</module>
         <module>sbt-web</module>
+        <module>sbt-agent</module>
     </modules>
 
 </project>
