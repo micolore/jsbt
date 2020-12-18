@@ -17,60 +17,66 @@ import java.util.List;
 @Data
 public class MyUserDetails implements UserDetails {
 
-    private static final long serialVersionUID = -9005214545793249372L;
+	private static final long serialVersionUID = -9005214545793249372L;
 
-    private Long id;
-    private String username;
-    private String password;
-    private Integer createBy;
+	private Long id;
 
-    private List<Role> userRoles;
-    private List<Menu> roleMenus;
-    private Integer dataScope;
+	private String username;
 
-    private Collection<? extends GrantedAuthority> authorities;
+	private String password;
 
-    public MyUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities,
-                         List<Menu> roleMenus, Integer dataScope) {
-        this.username = username;
-        this.password = password;
-        this.authorities = authorities;
-        this.roleMenus = roleMenus;
-        this.dataScope = dataScope;
-    }
+	private Integer createBy;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
+	private List<Role> userRoles;
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+	private List<Menu> roleMenus;
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
+	private Integer dataScope;
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	private Collection<? extends GrantedAuthority> authorities;
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	public MyUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities,
+			List<Menu> roleMenus, Integer dataScope) {
+		this.username = username;
+		this.password = password;
+		this.authorities = authorities;
+		this.roleMenus = roleMenus;
+		this.dataScope = dataScope;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.authorities;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	@Override
+	public String getUsername() {
+		return username;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
 }

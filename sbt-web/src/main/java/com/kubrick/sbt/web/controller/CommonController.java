@@ -16,19 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("common")
 public class CommonController {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @MyLog
-    //@LoginRequired
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    @ResponseBody
-    public String hello() {
-        System.out.println("hello");
-        User user = new User();
-        user.setPassword("123");
-        user.setUsername("k");
-        userService.saveUser(user);
-        return "ok";
-    }
+	@MyLog
+	// @LoginRequired
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@ResponseBody
+	public String hello() {
+		System.out.println("hello");
+		User user = new User();
+		user.setPassword("123");
+		user.setUsername("k");
+		userService.saveUser(user);
+		return "ok";
+	}
+
 }

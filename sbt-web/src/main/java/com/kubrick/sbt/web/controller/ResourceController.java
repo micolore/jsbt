@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ResourceController {
 
-    @GetMapping("/publicResource")
-    public String toPublicResource() {
-        return "resource/public";
-    }
+	@GetMapping("/publicResource")
+	public String toPublicResource() {
+		return "resource/public";
+	}
 
-    @GetMapping("/vipResource")
-    public String toVipResource() {
-        return "resource/vip";
-    }
+	@GetMapping("/vipResource")
+	public String toVipResource() {
+		return "resource/vip";
+	}
+
 }

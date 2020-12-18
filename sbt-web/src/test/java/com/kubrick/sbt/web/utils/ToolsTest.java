@@ -13,16 +13,13 @@ import org.junit.Test;
  */
 public class ToolsTest {
 
+	/**
+	 *
+	 */
+	@Test
+	public void bulong() {
+		BloomFilter<Integer> filter = BloomFilter.create(Funnels.integerFunnel(), 500, 0.01);
 
-    /**
-     *
-     */
-    @Test
-    public void bulong() {
-        BloomFilter<Integer> filter = BloomFilter.create(
-                Funnels.integerFunnel(),
-                500,
-                0.01);
+	}
 
-    }
 }

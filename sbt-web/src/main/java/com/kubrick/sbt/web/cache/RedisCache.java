@@ -9,6 +9,9 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Documented
 public @interface RedisCache {
-    String key();
-    long expire() default -1;
+
+	String key();
+
+	long expire() default -1;
+
 }

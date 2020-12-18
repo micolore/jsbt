@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
 	public void saveUser(User user) {
 		userDao.insertUser(user);
 	}
+
 	@RedisCache(key = "'userid:' + #id +':'")
 	@Override
 	public List<User> list(int id) {

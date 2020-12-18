@@ -14,18 +14,19 @@ import java.util.Properties;
  */
 public class PermissionHelper implements Interceptor {
 
-    @Override
-    public Object intercept(Invocation invocation) throws Throwable {
-        return null;
-    }
+	@Override
+	public Object intercept(Invocation invocation) throws Throwable {
+		return null;
+	}
 
-    @Override
-    public Object plugin(Object o) {
-        return null;
-    }
+	@Override
+	public Object plugin(Object o) {
+		return null;
+	}
 
-    @Override
-    public void setProperties(Properties properties) {
+	@Override
+	public void setProperties(Properties properties) {
 
-    }
+	}
+
 }

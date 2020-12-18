@@ -25,24 +25,24 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
 
+	@Autowired
+	private UserService userService;
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private OrganizationService organizationService;
+	@Autowired
+	private OrganizationService organizationService;
 
-    @GetMapping("/list")
-    @ResponseBody
-    public JSONObject toHome() {
-        List<User> list = userService.list(12);
-        log.info("user size:{}", list.size());
-        List<Long> organizationList = organizationService.list(1);
-        log.info("organizationList:{}",organizationList);
+	@GetMapping("/list")
+	@ResponseBody
+	public JSONObject toHome() {
+		List<User> list = userService.list(12);
+		log.info("user size:{}", list.size());
+		List<Long> organizationList = organizationService.list(1);
+		log.info("organizationList:{}", organizationList);
 
-        JSONObject json = new JSONObject();
-        json.put("code", 200);
-        json.put("msg", "请求成功");
-        return json;
-    }
+		JSONObject json = new JSONObject();
+		json.put("code", 200);
+		json.put("msg", "请求成功");
+		return json;
+	}
 
 }

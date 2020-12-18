@@ -9,7 +9,8 @@ package com.kubrick.sbt.test.agent;
  */
 public class MainClass {
 
-    public static void main(String[] args) {
-        System.out.println("main execute hello world!");
-    }
+	public static void main(String[] args) {
+		System.out.println("main execute hello world!");
+	}
+
 }

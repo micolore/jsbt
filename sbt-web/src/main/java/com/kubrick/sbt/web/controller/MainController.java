@@ -12,29 +12,31 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-    @GetMapping("/main")
-    public ModelAndView toMainPage() {
-        //获取登录的用户名
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username = null;
-        if (principal instanceof UserDetails) {
-            username = ((UserDetails) principal).getUsername();
-        } else {
-            username = principal.toString();
-        }
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("main");
-        mav.addObject("username", username);
-        return mav;
-    }
+	@GetMapping("/main")
+	public ModelAndView toMainPage() {
+		// 获取登录的用户名
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username = null;
+		if (principal instanceof UserDetails) {
+			username = ((UserDetails) principal).getUsername();
+		}
+		else {
+			username = principal.toString();
+		}
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main");
+		mav.addObject("username", username);
+		return mav;
+	}
 
-    @GetMapping("/home")
-    public String toHome() {
-        return "home";
-    }
+	@GetMapping("/home")
+	public String toHome() {
+		return "home";
+	}
 
-    @GetMapping("/error")
-    public String toErrorPage() {
-        return "error/error";
-    }
+	@GetMapping("/error")
+	public String toErrorPage() {
+		return "error/error";
+	}
+
 }

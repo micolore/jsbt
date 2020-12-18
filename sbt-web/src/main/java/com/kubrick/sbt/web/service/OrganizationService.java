@@ -11,12 +11,11 @@ import java.util.List;
  */
 public interface OrganizationService {
 
-    /**
-     * list
-     *
-     * @param organizationId
-     * @return
-     */
-    List<Long> list(Integer organizationId);
+	/**
+	 * list
+	 * @param organizationId
+	 * @return
+	 */
+	List<Long> list(Integer organizationId);
 
 }

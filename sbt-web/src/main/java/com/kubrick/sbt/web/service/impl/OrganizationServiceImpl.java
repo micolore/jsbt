@@ -21,28 +21,29 @@ import java.util.List;
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
 
-    @Autowired
-    private OrganizationDao organizationDao;
+	@Autowired
+	private OrganizationDao organizationDao;
 
-    @Override
-    public List<Long> list(Integer organizationId) {
-        List<Organization> organizations = organizationDao.list();
-        List<Long> result = new ArrayList<>();
-        recursiveOrganizations(result, organizations, organizationId);
-        return result;
-    }
+	@Override
+	public List<Long> list(Integer organizationId) {
+		List<Organization> organizations = organizationDao.list();
+		List<Long> result = new ArrayList<>();
+		recursiveOrganizations(result, organizations, organizationId);
+		return result;
+	}
 
-    public List<Long> recursiveOrganizations(List<Long> result, List<Organization> organizations, Integer organizationId) {
+	public List<Long> recursiveOrganizations(List<Long> result, List<Organization> organizations,
+			Integer organizationId) {
 
-        for (Organization og : organizations) {
-            Integer parentId = og.getPid();
-            Long id = og.getId();
-            if (parentId.equals(organizationId)) {
-                recursiveOrganizations(result, organizations, Integer.valueOf(String.valueOf(id)));
-                result.add(id);
-            }
-        }
-        return result;
-    }
+		for (Organization og : organizations) {
+			Integer parentId = og.getPid();
+			Long id = og.getId();
+			if (parentId.equals(organizationId)) {
+				recursiveOrganizations(result, organizations, Integer.valueOf(String.valueOf(id)));
+				result.add(id);
+			}
+		}
+		return result;
+	}
 
 }

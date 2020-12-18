@@ -8,6 +8,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyField {
-    String description();
-    int length();
+
+	String description();
+
+	int length();
+
 }

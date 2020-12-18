@@ -14,7 +14,10 @@ import lombok.ToString;
 @ToString
 public class Organization extends BaseEntity {
 
-    private String name;
-    private Integer pid;
-    private Integer deep;
+	private String name;
+
+	private Integer pid;
+
+	private Integer deep;
+
 }

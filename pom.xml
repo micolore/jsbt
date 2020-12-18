@@ -21,5 +21,13 @@
         <module>sbt-web</module>
         <module>sbt-agent</module>
     </modules>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-maven-plugin</artifactId>
+                <version>0.0.26</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

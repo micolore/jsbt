@@ -15,19 +15,20 @@ import com.alibaba.fastjson.JSONObject;
 @RequestMapping("/test")
 public class HttpTestController {
 
-    @PostMapping("/public")
-    public JSONObject doPublicHandler(Long id) {
-        JSONObject json = new JSONObject();
-        json.put("code", 200);
-        json.put("msg", "请求成功" + id);
-        return json;
-    }
+	@PostMapping("/public")
+	public JSONObject doPublicHandler(Long id) {
+		JSONObject json = new JSONObject();
+		json.put("code", 200);
+		json.put("msg", "请求成功" + id);
+		return json;
+	}
 
-    @PostMapping("/vip")
-    public JSONObject doVipHandler(Long id) {
-        JSONObject json = new JSONObject();
-        json.put("code", 200);
-        json.put("msg", "请求成功" + id);
-        return json;
-    }
+	@PostMapping("/vip")
+	public JSONObject doVipHandler(Long id) {
+		JSONObject json = new JSONObject();
+		json.put("code", 200);
+		json.put("msg", "请求成功" + id);
+		return json;
+	}
+
 }
