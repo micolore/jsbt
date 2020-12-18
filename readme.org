@@ -1,7 +1,0 @@
-*  my sbt
-
-**  sbt-web
-
-**  sbt-gen
-
-**  agent

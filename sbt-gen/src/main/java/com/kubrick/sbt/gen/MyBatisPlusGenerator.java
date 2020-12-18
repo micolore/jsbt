@@ -1,8 +1,6 @@
 package com.kubrick.sbt.gen;
-
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -84,7 +82,7 @@ public class MyBatisPlusGenerator {
 	}
 
 	public static void main(String[] args) throws SQLException {
-		String javaPath = "/Users/kubrick/Documents/workspace/java/study/my-sbt/code";
+		String javaPath = "/Users/kubrick/Documents/workspace/java/study/sbt";
 		String driverName = "com.mysql.jdbc.Driver";
 		// String url = "jdbc:mysql://192.168.1.4:3306/scrm_bus";
 		// 192.168.1.4 3306 scrm_proxy

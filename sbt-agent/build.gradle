@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

@@ -26,8 +26,8 @@ import java.util.Objects;
  *
  * @author k
  */
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
 public class DataScopeSqlProcessor extends JsqlParserSupport {
 
 	/**
