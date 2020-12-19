@@ -28,3 +28,25 @@ target
 *.iml
 .idea
 .DS_Store
+
+# gradle start
+.classpath
+.project
+.settings
+tags
+*.log
+*.orig
+.gradle
+.gradle/*
+local.properties
+**/build/*
+lib/dokka.jar
+lib/quasar.jar
+**/logs/*
+*.iml
+/gradle-plugins/.idea/
+!.idea/compiler.xml
+/gradle-plugins/gradle*
+*.ipr
+*.iws
+# gradle end
