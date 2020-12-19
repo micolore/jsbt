@@ -20,18 +20,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableSwagger2WebMvc
 public class Knife4jConfiguration {
 
-	@Bean(value = "defaultApi2")
+	@Bean(value = "defaultApi")
 	public Docket defaultApi2() {
 		Docket docket = new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(new ApiInfoBuilder()
-						// .title("swagger-bootstrap-ui-demo RESTful APIs")
-						.description("# sbt swagger-bootstrap-ui-demo RESTful APIs")
-						.termsOfServiceUrl("http://localhost:10001").version("1.0").build())
+				.apiInfo(new ApiInfoBuilder().title("sbt  RESTful APIs")
+						.description("# sbt RESTful APIs")
+						.termsOfServiceUrl("http://localhost:10001").version("1.0")
+						.build())
 				// 分组名称
-				.groupName("2.X版本").select()
+				.groupName("0.0.1版本").select()
 				// 这里指定Controller扫描包路径
 				.apis(RequestHandlerSelectors
-						.basePackage("com.github.xiaoymin.knife4j.controller"))
+						.basePackage("com.kubrick.sbt.web.controller"))
 				.paths(PathSelectors.any()).build();
 		return docket;
 	}
