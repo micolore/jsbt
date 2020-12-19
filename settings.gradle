@@ -2,4 +2,5 @@ rootProject.name = 'sbt'
 include 'sbt-gen'
 include 'sbt-web'
 include 'sbt-agent'
+include 'sbt-tools'
 
