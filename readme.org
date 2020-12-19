@@ -1,0 +1,16 @@
+* my sbt
+
+** project modules
+
+*** sbt-web
+*** sbt-gen
+*** sbt-agent
+
+** Component
+
+*** knife4j 2020-12-19
+    https://doc.xiaominfo.com/knife4j
+
+*** ebatis 2020-12-19
+    https://www.infoq.cn/article/u4Xhw5Q3jfLE1brGhtbR
+    https://github.com/ymm-tech/ebatis

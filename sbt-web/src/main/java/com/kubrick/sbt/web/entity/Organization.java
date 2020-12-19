@@ -1,6 +1,7 @@
 package com.kubrick.sbt.web.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
@@ -12,6 +13,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class Organization extends BaseEntity {
 
 	private String name;

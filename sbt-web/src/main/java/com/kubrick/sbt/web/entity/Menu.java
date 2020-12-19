@@ -1,6 +1,7 @@
 package com.kubrick.sbt.web.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
@@ -8,6 +9,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class Menu extends BaseEntity {
 
 	private static final long serialVersionUID = 4245833784962015367L;
