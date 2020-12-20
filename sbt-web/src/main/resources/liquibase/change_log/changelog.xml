@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="kubrick (generated)" id="1608461049886-1">
+        <createTable tableName="t_menu">
+            <column autoIncrement="true" name="id" remarks="菜单ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="menu_name" remarks="菜单名称" type="VARCHAR(20)"/>
+            <column name="menu_url" remarks="Controller路径" type="VARCHAR(50)"/>
+            <column name="menu_code" remarks="菜单编码" type="VARCHAR(32)"/>
+            <column name="parent_id" remarks="父菜单ID" type="INT"/>
+            <column defaultValueNumeric="0" name="menu_type" remarks="菜单类型：0-菜单1-按钮" type="INT"/>
+            <column defaultValueNumeric="99" name="order_num" remarks="显示序号" type="INT"/>
+            <column name="creator" remarks="创建人" type="VARCHAR(20)"/>
+            <column name="create_time" remarks="创建时间" type="datetime(6)"/>
+            <column name="updator" remarks="修改人" type="VARCHAR(20)"/>
+            <column name="update_time" remarks="修改时间" type="datetime(6)"/>
+            <column defaultValueNumeric="0" name="deleted" remarks="删除状态：0-存在1-已删除" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kubrick (generated)" id="1608461049886-2">
+        <createTable tableName="t_organization">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValueNumeric="0" name="pid" type="INT"/>
+            <column defaultValueNumeric="0" name="deep" type="TINYINT"/>
+            <column defaultValueNumeric="0" name="status" type="TINYINT"/>
+            <column name="create_at" type="TIMESTAMP(19)"/>
+            <column defaultValueNumeric="0" name="create_by" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kubrick (generated)" id="1608461049886-3">
+        <createTable tableName="t_role">
+            <column autoIncrement="true" name="id" remarks="角色id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="role_name" remarks="角色名称" type="VARCHAR(20)"/>
+            <column defaultValueNumeric="0" name="data_scope" remarks="1、全部 2、自己" type="INT"/>
+            <column name="create_at" type="TIMESTAMP(19)"/>
+            <column defaultValueNumeric="0" name="create_by" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kubrick (generated)" id="1608461049886-4">
+        <createTable tableName="t_role_menus">
+            <column autoIncrement="true" name="id" remarks="角色菜单id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="role_id" remarks="角色id" type="INT"/>
+            <column name="menu_id" remarks="菜单id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kubrick (generated)" id="1608461049886-5">
+        <createTable tableName="t_user">
+            <column autoIncrement="true" name="id" remarks="用户id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" remarks="用户名" type="VARCHAR(20)"/>
+            <column name="password" remarks="密码" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="organization" remarks="部门id" type="INT"/>
+            <column defaultValueNumeric="0" name="status" type="TINYINT"/>
+            <column defaultValueNumeric="0" name="create_by" type="BIGINT"/>
+            <column name="create_at" type="TIMESTAMP(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kubrick (generated)" id="1608461049886-6">
+        <createTable tableName="t_user_roles">
+            <column autoIncrement="true" name="id" remarks="用户角色对照ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" remarks="用户ID" type="INT"/>
+            <column name="role_id" remarks="角色ID" type="INT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

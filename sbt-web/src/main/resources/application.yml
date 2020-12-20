@@ -14,7 +14,13 @@ spring:
     host: 127.0.0.1
     password:
     port: 6379
-
+  liquibase:
+    change-log: classpath:liquibase/change_log/master.xml
+    url: jdbc:mysql://localhost:3306/spring-security
+    user: root
+    password: root
+    enabled: true
+    drop-first: false
 # actuator management
 management:
     endpoint:
@@ -27,3 +33,4 @@ management:
 mybatis:
   typeAliasesPackage: com.kubrick.sbt.web.entity
   mapperLocations: classpath:mapper/*.xml
+

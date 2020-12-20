@@ -14,6 +14,8 @@
 *** ebatis 2020-12-19
     https://www.infoq.cn/article/u4Xhw5Q3jfLE1brGhtbR
     https://github.com/ymm-tech/ebatis
+*** liqiubase
+  /Users/kubrick/.m2/repository/org/liquibase/liquibase-core/4.1.1/liquibase-core-4.1.1.jar  --driver=com.mysql.jdbc.Driver --classpath=//Users/kubrick/.m2/repository/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar --changeLogFile=/Users/kubrick/Documents/workspace/java/study/my-sbt/sbt-web/src/main/resources/liqiubase/change_log/db.changelog-master.yaml --url=jdbc:mysql://localhost:3306/spring-security?useSSL=false --username=root --password=root generateChangeLog
 
 *** Spring Boot
 **** Actuator
@@ -24,3 +26,4 @@ http://localhost:10001/actuator/
 http://localhost:10001/actuator/health
 http://localhost:10001/actuator/metrics
 http://localhost:10001/actuator/loggers
+
