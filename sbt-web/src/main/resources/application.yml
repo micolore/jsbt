@@ -15,6 +15,15 @@ spring:
     password:
     port: 6379
 
+# actuator management
+management:
+    endpoint:
+      health:
+        show-details: always
+    endpoints:
+      web:
+        exposure:
+          include: health,info,loggers,metrics,mappings,env,httptrace
 mybatis:
   typeAliasesPackage: com.kubrick.sbt.web.entity
   mapperLocations: classpath:mapper/*.xml
