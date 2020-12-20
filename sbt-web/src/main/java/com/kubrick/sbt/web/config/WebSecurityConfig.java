@@ -32,11 +32,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * 静态资源设置
+	 *  v1 add Knife4j static file and api
 	 */
 	@Override
 	public void configure(WebSecurity webSecurity) {
 		// 不拦截静态资源,所有用户均可访问的资源
-		webSecurity.ignoring().antMatchers("/", "/css/**", "/js/**", "/images/**", "/layui/**");
+		webSecurity.ignoring().antMatchers(
+				"/", "/css/**", "/js/**", "/images/**", "/layui/**",
+				"/v2/api-docs","/doc.html","/webjars/**", "/swagger-resources/**");
 	}
 
 	/**
@@ -44,14 +47,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		/**
-		 * 注释就是使用 csrf 功能
-		 */
-		// http.csrf().disable();
-		/**
+
+		/*
 		 * 解决 in a frame because it set 'X-Frame-Options' to 'DENY' 问题
 		 */
 		http.headers().frameOptions().disable();
+		/*
+		 * 注释就是使用 csrf 功能
+		 */
+		// http.csrf().disable();
+
+		http.headers().contentTypeOptions().disable();
 		// http.anonymous().disable();
 		http.authorizeRequests()
 				/**
