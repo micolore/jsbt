@@ -47,6 +47,7 @@ dependencies {
     liquibaseRuntime rootProject.ext.dependencies["mysql:mysql-connector-java"]
     liquibaseRuntime rootProject.ext.dependencies["org.liquibase:liquibase-core"]
     liquibaseRuntime rootProject.ext.dependencies["org.liquibase:liquibase-groovy-dsl"]
+
 }
 liquibase {
     activities {
