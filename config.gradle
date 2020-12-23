@@ -26,6 +26,6 @@ ext {
                     "org.apache.zookeeper"              : "org.apache.zookeeper:zookeeper:3.4.7"
                     "hystrix-core"                      : "com.netflix.hystrix:1.5.18"
                     "mockito-core"                      : "org.mockito:3.6.28'"
-
+                    "jsr305"                            : "com.google.code.findbugs:3.0.2'
     ]
 }
