@@ -23,6 +23,7 @@ ext {
                     "org.liquibase:liquibase-core"      : "org.liquibase:liquibase-core:3.4.1",
                     "org.liquibase:liquibase-groovy-dsl": "org.liquibase:liquibase-groovy-dsl:2.0.1",
                     "ch.qos.logback:logback-classic"    : "ch.qos.logback:logback-classic:1.2.3",
-                    "org.apache.zookeeper"              : "org.apache.zookeeper:zookeeper:3.4.7"
+                    "org.apache.zookeeper"              : "org.apache.zookeeper:zookeeper:3.4.7",
+                    "org.redisson"                      : "org.redisson.redisson:3.13.6"
     ]
 }
