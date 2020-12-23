@@ -27,5 +27,6 @@ ext {
                     "hystrix-core"                      : "com.netflix.hystrix:1.5.18"
                     "mockito-core"                      : "org.mockito:3.6.28'"
                     "jsr305"                            : "com.google.code.findbugs:3.0.2'
+                    "jackson-databind"                  : "com.fasterxml.jackson.core:2.12.0"
     ]
 }
