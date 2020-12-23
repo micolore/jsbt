@@ -25,5 +25,7 @@ ext {
                     "ch.qos.logback:logback-classic"    : "ch.qos.logback:logback-classic:1.2.3",
                     "org.apache.zookeeper"              : "org.apache.zookeeper:zookeeper:3.4.7"
                     "hystrix-core"                      : "com.netflix.hystrix:1.5.18"
+                    "mockito-core"                      : "org.mockito:3.6.28'"
+
     ]
 }
