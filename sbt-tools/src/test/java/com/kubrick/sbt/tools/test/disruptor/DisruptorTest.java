@@ -1,4 +1,4 @@
-package com.kubrick.sbt.tools.disruptor.test;
+package com.kubrick.sbt.tools.test.disruptor;
 
 import com.kubrick.sbt.tools.disruptor.Order;
 import com.kubrick.sbt.tools.disruptor.OrderFactory;

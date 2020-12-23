@@ -12,4 +12,11 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.lmax', name: 'disruptor', version: '3.4.2'
+    compileOnly rootProject.ext.dependencies["org.projectlombok"]
+    annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
+    testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    implementation rootProject.ext.dependencies["mapstruct"]
+    implementation rootProject.ext.dependencies["mapstruct-jdk8"]
+    implementation rootProject.ext.dependencies["mapstruct-processor"]
 }

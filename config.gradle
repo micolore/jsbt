@@ -19,11 +19,18 @@ ext {
                     "com.lmax:disruptor"                : "com.lmax:disruptor:3.4.2",
                     "com.google.guava:guava"            : "com.google.guava:guava:22.0",
                     "mysql:mysql-connector-java"        : "mysql:mysql-connector-java:5.1.47",
-                    "org.projectlombok:lombok"          : "org.projectlombok:lombok:1.18.4",
+                    "org.projectlombok"                 : "org.projectlombok:lombok:1.18.4",
                     "org.liquibase:liquibase-core"      : "org.liquibase:liquibase-core:3.4.1",
                     "org.liquibase:liquibase-groovy-dsl": "org.liquibase:liquibase-groovy-dsl:2.0.1",
                     "ch.qos.logback:logback-classic"    : "ch.qos.logback:logback-classic:1.2.3",
                     "org.apache.zookeeper"              : "org.apache.zookeeper:zookeeper:3.4.7",
-                    "org.redisson"                      : "org.redisson.redisson:3.13.6"
+                    "org.redisson"                      : "org.redisson:redisson:3.13.6",
+                    "hystrix-core"                      : "com.netflix.hystrix:hystrix-core:1.5.18",
+                    "mockito-core"                      : "org.mockito:mockito-core:3.6.28",
+                    "jsr305"                            : "com.google.code.findbugs:jsr305:3.0.2",
+                    "jackson-databind"                  : "com.fasterxml.jackson.core:jackson-databind:2.12.0",
+                    "mapstruct"                         : "org.mapstruct:mapstruct:1.3.1.Final",
+                    "mapstruct-jdk8"                    : "org.mapstruct:mapstruct-jdk8:1.3.1.Final",
+                    "mapstruct-processor"               : "org.mapstruct:mapstruct-processor:1.3.1.Final"
     ]
 }
