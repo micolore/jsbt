@@ -26,4 +26,9 @@ http://localhost:10001/actuator/
 http://localhost:10001/actuator/health
 http://localhost:10001/actuator/metrics
 http://localhost:10001/actuator/loggers
+**** spring admin
+https://codecentric.github.io/spring-boot-admin/2.0.2/#_what_is_spring_boot_admin
+*** MapStruct
+https://mapstruct.org/
+https://cloud.tencent.com/developer/article/1442823
 
