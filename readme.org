@@ -29,5 +29,5 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-
 **** spring admin
 1. https://codecentric.github.io/spring-boot-admin/2.0.2/#_what_is_spring_boot_admin
 *** MapStruct
-1. https://cloud.tencent<!>.com/developer/article/1442823/.  
+1. https://cloud.tencent.com/developer/article/1442823/
 1. https://mapstruct.org/
