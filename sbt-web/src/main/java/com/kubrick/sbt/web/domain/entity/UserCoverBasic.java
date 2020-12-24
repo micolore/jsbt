@@ -1,4 +1,4 @@
-package com.kubrick.sbt.tools.mapstruct;
+package com.kubrick.sbt.web.domain.entity;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

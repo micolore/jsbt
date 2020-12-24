@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation    rootProject.ext.dependencies["spring-boot-starter-web"]
+    implementation    rootProject.ext.dependencies["spring-boot-admin-server-ui"]
+    implementation    rootProject.ext.dependencies["spring-boot-admin-starter-server"]
+    implementation    rootProject.ext.dependencies["spring-boot-starter-security"]
+}

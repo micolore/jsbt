@@ -47,6 +47,9 @@ dependencies {
     liquibaseRuntime rootProject.ext.dependencies["mysql:mysql-connector-java"]
     liquibaseRuntime rootProject.ext.dependencies["org.liquibase:liquibase-core"]
     liquibaseRuntime rootProject.ext.dependencies["org.liquibase:liquibase-groovy-dsl"]
+    implementation rootProject.ext.dependencies["mapstruct"]
+    implementation rootProject.ext.dependencies["mapstruct-jdk8"]
+    implementation rootProject.ext.dependencies["mapstruct-processor"]
 
 }
 liquibase {

@@ -16,7 +16,4 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
     testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
-    implementation rootProject.ext.dependencies["mapstruct"]
-    implementation rootProject.ext.dependencies["mapstruct-jdk8"]
-    implementation rootProject.ext.dependencies["mapstruct-processor"]
 }

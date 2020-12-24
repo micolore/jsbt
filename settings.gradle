@@ -4,4 +4,6 @@ include 'sbt-web'
 include 'sbt-agent'
 include 'sbt-tools'
 include 'sbt-distributed'
+include 'sbt-admin-web'
+include 'sbt-admin-web-client'
 
