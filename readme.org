@@ -12,23 +12,22 @@
     https://doc.xiaominfo.com/knife4j
 
 *** ebatis 2020-12-19
-    https://www.infoq.cn/article/u4Xhw5Q3jfLE1brGhtbR
-    https://github.com/ymm-tech/ebatis
+    1. https://www.infoq.cn/article/u4Xhw5Q3jfLE1brGhtbR
+    2. https://github.com/ymm-tech/ebatis
 *** liqiubase
-    https://github.com/liquibase/liquibase-gradle-plugin#usage
-    https://www.jdon.com/54035
+    1. https://github.com/liquibase/liquibase-gradle-plugin#usage
+    2. https://www.jdon.com/54035
 *** Spring Boot
 **** Actuator
 Endpoints 文档
 https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 ***** http api
-http://localhost:10001/actuator/
-http://localhost:10001/actuator/health
-http://localhost:10001/actuator/metrics
-http://localhost:10001/actuator/loggers
+1. http://localhost:10001/actuator/
+2. http://localhost:10001/actuator/health
+3. http://localhost:10001/actuator/metrics
+4. http://localhost:10001/actuator/loggers
 **** spring admin
-https://codecentric.github.io/spring-boot-admin/2.0.2/#_what_is_spring_boot_admin
+1. https://codecentric.github.io/spring-boot-admin/2.0.2/#_what_is_spring_boot_admin
 *** MapStruct
-https://mapstruct.org/
-https://cloud.tencent.com/developer/article/1442823
-
+1. https://mapstruct.org/
+2. https://cloud.tencent.com/developer/article/1442823
