@@ -6,4 +6,5 @@ include 'sbt-tools'
 include 'sbt-distributed'
 include 'sbt-admin-web'
 include 'sbt-admin-web-client'
+include 'sbt-swagger-aggregater'
 

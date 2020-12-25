@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation    rootProject.ext.dependencies["spring-boot-starter-web"]
+    implementation    rootProject.ext.dependencies["spring-boot-autoconfigure"]
+    implementation    rootProject.ext.dependencies["hutool-all"]
+    implementation    rootProject.ext.dependencies["javax.servlet-api"]
+    implementation    rootProject.ext.dependencies["swagger-annotations"]
+    implementation    rootProject.ext.dependencies["swagger-models"]
+    implementation    rootProject.ext.dependencies["springfox-swagger2"]
+    compileOnly rootProject.ext.dependencies["org.projectlombok"]
+    annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
+    testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+}

@@ -31,7 +31,7 @@ dependencies {
     implementation rootProject.ext.dependencies["com.alibaba:druid"]
     implementation rootProject.ext.dependencies["junit:junit"]
     implementation rootProject.ext.dependencies["com.alibaba:fastjson"]
-    implementation rootProject.ext.dependencies["cn.hutool:hutool-all"]
+    implementation rootProject.ext.dependencies["hutool-all"]
     implementation rootProject.ext.dependencies["com.github.jsqlparser:jsqlparser"]
     implementation rootProject.ext.dependencies["com.lmax:disruptor"]
     implementation rootProject.ext.dependencies["com.google.guava:guava"]
