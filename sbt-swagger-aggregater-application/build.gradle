@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["spring-boot-starter-web"]
+    implementation rootProject.ext.dependencies["swagger-annotations"]
+    implementation rootProject.ext.dependencies["swagger-models"]
+//    implementation rootProject.ext.dependencies["spring-boot-autoconfigure"]
+    compile project(":sbt-swagger-aggregater")
+//    implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
+    implementation rootProject.ext.dependencies["snakeyaml"]
+}
