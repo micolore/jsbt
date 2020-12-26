@@ -1,5 +1,6 @@
-package com.kubrick.sbt.swagger.app.controller;
+package com.kubrick.sbt.swagger.provider.controller;
 
+import com.kubrick.sbt.swagger.constant.SwaggerConstants;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ public class TestController {
 
 	@GetMapping("/test/{test}")
 	public String test(@PathVariable String test) {
+		System.out.println(SwaggerConstants.API_URI);
 		return "Hello " + test;
 	}
 

@@ -1,8 +1,9 @@
-package com.kubrick.sbt.swagger.app;
+package com.kubrick.sbt.swagger.aggreater;
 
 import com.kubrick.sbt.swagger.annotation.EnableSwagger2Aggregator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author k
@@ -12,11 +13,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/12/26 上午12:28
  */
 @SpringBootApplication
+@ComponentScan(value = "com.kubrick.sbt")
 @EnableSwagger2Aggregator
-public class SwaggerApplication {
+public class SwaggerAggregatorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SwaggerApplication.class, args);
+		SpringApplication.run(SwaggerAggregatorApplication.class, args);
 	}
 
 }

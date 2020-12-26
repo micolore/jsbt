@@ -1,16 +1,25 @@
 server:
-  port: 9090
+  port: 10009
 swagger:
-  title: SBT-Api Docs
-  description: SBT 业务接口服务Api文档
+  title: SBT-Admin Docs
+  group-name: sbt-admin
+  description: SBT 后台管理服务Api文档
   version: 0.0.1
   license: Powered By SBT
-  licenseUrl: http://www.ballcat.cn/
-  terms-of-service-url: http://www.ballcat.cn/
-  host: http://localhost:9090
+  licenseUrl: http://www.micolore.cn/
+  terms-of-service-url: http://www.micolore.cn/
   contact:
-    name: k
-    email: k@gmail.com
-    url: xxx
-  provider:
-    aggregator-origin: http://ballcat-admin:8080
+    name: micolore
+    email: micolore@gmail.com
+    url: https://github.com/micolore
+  authorization:
+    name: SBT OAuth
+    auth-regex: ^.*$
+    authorization-scope-list:
+      - scope: server
+        description: server all
+    token-url-list:
+      - http://localhost:8080/oauth/token
+  aggregator:
+    provider-resources:
+      - {name: sbt-seagger-api,  url: http://localhost:9090/v2/api-docs, swagger-version: 2.0}

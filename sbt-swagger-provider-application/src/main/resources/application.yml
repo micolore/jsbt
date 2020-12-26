@@ -1,0 +1,16 @@
+server:
+  port: 10010
+swagger:
+  title: Swagger-Provider-Api Docs
+  description: Swagger-Provider 业务接口服务Api文档
+  version: 0.0.1
+  license: Powered By Swagger Provider
+  licenseUrl: http://www.micolore.com/
+  terms-of-service-url: http://www.micolore.com/
+  host: http://localhost:10010
+  contact:
+    name: micolore
+    email: micolore@gmail.com
+    url: https://github.com/micolore
+  provider:
+    aggregator-origin: http://localhost:10009
