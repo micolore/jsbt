@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class TestController {
 
-	@ApiOperation("测试地址")
+	@ApiOperation("测试地址-provider")
 	@PostMapping("/test")
 	public String test() {
 		return "Hello word!";

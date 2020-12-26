@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @EnableSwagger2Provider
-@ComponentScan(value = "com.kubrick.sbt")
 public class SwaggerProviderApplication {
 
 	public static void main(String[] args) {

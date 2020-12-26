@@ -13,7 +13,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @date 2020/12/26 上午12:28
  */
 @SpringBootApplication
-@ComponentScan(value = "com.kubrick.sbt")
 @EnableSwagger2Aggregator
 public class SwaggerAggregatorApplication {
 
