@@ -5,6 +5,10 @@ plugins {
 group 'com.kubrick'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+[compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+
 apply from: "config.gradle"
 
 repositories {
