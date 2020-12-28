@@ -10,5 +10,8 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation    rootProject.ext.dependencies["spring-web"]
+    implementation    rootProject.ext.dependencies["spring-boot-autoconfigure"]
+    implementation    rootProject.ext.dependencies["redisson"]
+    implementation    rootProject.ext.dependencies["logback-classic"]
 }
