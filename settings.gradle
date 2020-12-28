@@ -9,4 +9,5 @@ include 'sbt-admin-web-client'
 include 'sbt-swagger-aggregater'
 include 'sbt-swagger-aggregater-application'
 include 'sbt-swagger-provider-application'
+include 'sbt-cache'
 
