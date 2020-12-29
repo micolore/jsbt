@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation    rootProject.ext.dependencies["spring-web"]
+    implementation    rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation    rootProject.ext.dependencies["spring-boot-autoconfigure"]
     implementation    rootProject.ext.dependencies["redisson"]
     implementation    rootProject.ext.dependencies["logback-classic"]
