@@ -1,25 +1,23 @@
-package com.kubrick.sbt.web.domain.entity;
+package com.kubrick.sbt.tools.mapstruct;
 
 import lombok.*;
 
 /**
  * @author k
  * @version 1.0.0
- * @ClassName UserVo
+ * @ClassName UserVoTwo
  * @description: TODO
- * @date 2020/12/24 上午12:04
+ * @date 2020/12/24 上午12:06
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
-public class UserVo {
+public class UserVoTwo {
 
 	private Integer id;
 
 	private String name;
-
-	private String address;
 
 }

@@ -37,9 +37,7 @@ dependencies {
     implementation rootProject.ext.dependencies["guava"]
     implementation rootProject.ext.dependencies["mysql-connector-java"]
     implementation rootProject.ext.dependencies["knife4j-spring-boot-starter"]
-    implementation rootProject.ext.dependencies["mapstruct"]
-    implementation rootProject.ext.dependencies["mapstruct-jdk8"]
-    implementation rootProject.ext.dependencies["mapstruct-processor"]
+
     compile rootProject.ext.dependencies["mysql-connector-java"]
     compileOnly rootProject.ext.dependencies["org.projectlombok"]
     annotationProcessor rootProject.ext.dependencies["org.projectlombok"]

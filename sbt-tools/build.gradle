@@ -7,13 +7,23 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    mapstructVersion = "1.4.1.Final"
+    lombokVersion = "1.18.12"
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+configurations {
+    mapstruct
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.lmax', name: 'disruptor', version: '3.4.2'
-    compileOnly rootProject.ext.dependencies["org.projectlombok"]
-    annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
-    testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
-    testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
 }
