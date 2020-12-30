@@ -24,6 +24,7 @@ public class CacheServiceImpl implements CacheService {
 		System.out.println("get lock start");
 		RLock rl = redissonClient.getLock("rl");
 		System.out.println("get lock success");
+
 	}
 
 }
