@@ -13,7 +13,8 @@
     </resultMap>
 
     <select id="list" resultType="com.kubrick.sbt.web.entity.Organization">
-            select * from t_organization
+        select *
+        from t_organization
     </select>
 </mapper>
 

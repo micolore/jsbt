@@ -16,6 +16,7 @@ ext {
                     "spring-boot-admin-starter-client": "de.codecentric:spring-boot-admin-starter-client:2.3.1",
                     "spring-boot-admin-server-ui"     : "de.codecentric:spring-boot-admin-server-ui:2.3.1",
                     "spring-boot-autoconfigure"       : "org.springframework.boot:spring-boot-autoconfigure:$springBootVersion",
+                    "redisson-spring-boot-starter"    : "org.redisson:redisson-spring-boot-starter:3.13.6",
                     "spring-web"                      : "org.springframework:spring-web:5.2.10.RELEASE",
                     "aspectjweaver"                   : "org.aspectj:aspectjweaver:1.9.5",
                     "druid"                           : "com.alibaba:druid:1.1.0",

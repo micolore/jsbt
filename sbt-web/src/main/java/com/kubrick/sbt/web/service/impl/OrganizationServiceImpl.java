@@ -32,14 +32,15 @@ public class OrganizationServiceImpl implements OrganizationService {
 		return result;
 	}
 
-	public List<Long> recursiveOrganizations(List<Long> result, List<Organization> organizations,
-			Integer organizationId) {
+	public List<Long> recursiveOrganizations(List<Long> result,
+			List<Organization> organizations, Integer organizationId) {
 
 		for (Organization og : organizations) {
 			Integer parentId = og.getPid();
 			Long id = og.getId();
 			if (parentId.equals(organizationId)) {
-				recursiveOrganizations(result, organizations, Integer.valueOf(String.valueOf(id)));
+				recursiveOrganizations(result, organizations,
+						Integer.valueOf(String.valueOf(id)));
 				result.add(id);
 			}
 		}

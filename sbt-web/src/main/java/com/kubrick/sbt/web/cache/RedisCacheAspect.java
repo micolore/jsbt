@@ -38,7 +38,8 @@ public class RedisCacheAspect {
 	public Object cacheInterceptor(ProceedingJoinPoint pjp) throws Throwable {
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
 		// 获取到目标方法
-		Method method = pjp.getTarget().getClass().getMethod(signature.getName(), signature.getParameterTypes());
+		Method method = pjp.getTarget().getClass().getMethod(signature.getName(),
+				signature.getParameterTypes());
 		// 获取方法注解
 		RedisCache redisCache = method.getAnnotation(RedisCache.class);
 		String keyEl = redisCache.key();
@@ -77,14 +78,16 @@ public class RedisCacheAspect {
 				stringRedisTemplate.opsForValue().set(key, JSON.toJSONString(data));
 			}
 			else {
-				stringRedisTemplate.opsForValue().set(key, JSON.toJSONString(data), expireTime, TimeUnit.SECONDS);
+				stringRedisTemplate.opsForValue().set(key, JSON.toJSONString(data),
+						expireTime, TimeUnit.SECONDS);
 			}
 			return data;
 		}
 		else {
 			log.info("from redis get data key:{}", key);
 			// 这里object套一层JSON.parse()是因为有时候存入redis的json字符串get出来后会多一个“\”转义符号导致直接parse失败
-			return JSON.parseObject(JSON.parse(object).toString(), signature.getReturnType());
+			return JSON.parseObject(JSON.parse(object).toString(),
+					signature.getReturnType());
 		}
 
 	}

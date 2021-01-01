@@ -14,7 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
 	@GetMapping("/")
-	public ModelAndView loginPage(@RequestParam(value = "error", required = false) String error,
+	public ModelAndView loginPage(
+			@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
 		ModelAndView mav = new ModelAndView();
 		if (error != null) {
@@ -28,7 +29,8 @@ public class LoginController {
 	}
 
 	@GetMapping("/login")
-	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+	public ModelAndView login(
+			@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
 		ModelAndView mav = new ModelAndView();
 		if (error != null) {

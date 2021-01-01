@@ -10,13 +10,13 @@ repositories {
 }
 
 dependencies {
-    implementation    rootProject.ext.dependencies["spring-web"]
-    implementation    rootProject.ext.dependencies["spring-boot-autoconfigure"]
-    implementation    rootProject.ext.dependencies["hutool-all"]
-    implementation    rootProject.ext.dependencies["javax.servlet-api"]
-    implementation    rootProject.ext.dependencies["swagger-annotations"]
-    implementation    rootProject.ext.dependencies["swagger-models"]
-    implementation    rootProject.ext.dependencies["springfox-swagger2"]
+    implementation rootProject.ext.dependencies["spring-web"]
+    implementation rootProject.ext.dependencies["spring-boot-autoconfigure"]
+    implementation rootProject.ext.dependencies["hutool-all"]
+    implementation rootProject.ext.dependencies["javax.servlet-api"]
+    implementation rootProject.ext.dependencies["swagger-annotations"]
+    implementation rootProject.ext.dependencies["swagger-models"]
+    implementation rootProject.ext.dependencies["springfox-swagger2"]
     compileOnly rootProject.ext.dependencies["org.projectlombok"]
     annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]

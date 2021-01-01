@@ -31,17 +31,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 
 	/**
-	 * 静态资源设置
-	 *  v1 add Knife4j static file and api
-	 *  v2 add actuator
+	 * 静态资源设置 v1 add Knife4j static file and api v2 add actuator
 	 */
 	@Override
 	public void configure(WebSecurity webSecurity) {
 		// 不拦截静态资源,所有用户均可访问的资源
-		webSecurity.ignoring().antMatchers(
-				"/", "/css/**", "/js/**", "/images/**", "/layui/**",
-				"/v2/api-docs","/doc.html","/webjars/**", "/swagger-resources/**",
-				"/actuator/**");
+		webSecurity.ignoring().antMatchers("/", "/css/**", "/js/**", "/images/**",
+				"/layui/**", "/v2/api-docs", "/doc.html", "/webjars/**",
+				"/swagger-resources/**", "/actuator/**");
 	}
 
 	/**
@@ -73,7 +70,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				/**
 				 * 根据账号权限访问
 				 */
-				.access("@rbacPermission.hasPermission(request, authentication)").and().formLogin().loginPage("/")
+				.access("@rbacPermission.hasPermission(request, authentication)").and()
+				.formLogin().loginPage("/")
 				/**
 				 * 登录请求页
 				 */

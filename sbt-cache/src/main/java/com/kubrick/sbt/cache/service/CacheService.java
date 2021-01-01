@@ -9,5 +9,6 @@ package com.kubrick.sbt.cache.service;
  */
 public interface CacheService {
 
-    void testRedisson();
+	void testRedisson();
+
 }

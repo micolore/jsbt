@@ -1,4 +1,5 @@
 package com.kubrick.sbt.gen;
+
 import java.sql.SQLException;
 import java.util.*;
 
@@ -100,16 +101,18 @@ public class MyBatisPlusGenerator {
 		// String[] tables = busTableNames.toArray(new String[busTableNames.size()]);
 		// 1. 全局配置
 		GlobalConfig config = new GlobalConfig();
-		config.setActiveRecord(true).setAuthor("k").setOutputDir(javaPath).setFileOverride(true).setIdType(IdType.AUTO)
-				.setControllerName("%sController").setServiceName("%sService").setServiceImplName("%sServiceImpl")
-				.setMapperName("%sMapper").setXmlName("%sMapper").setSwagger2(true).setBaseResultMap(true)
+		config.setActiveRecord(true).setAuthor("k").setOutputDir(javaPath)
+				.setFileOverride(true).setIdType(IdType.AUTO)
+				.setControllerName("%sController").setServiceName("%sService")
+				.setServiceImplName("%sServiceImpl").setMapperName("%sMapper")
+				.setXmlName("%sMapper").setSwagger2(true).setBaseResultMap(true)
 				.setBaseColumnList(true);
 
 		// 2. 数据源配置
 		DataSourceConfig dsConfig = new DataSourceConfig();
 		// 设置数据库类型
-		dsConfig.setDbType(DbType.MYSQL).setDriverName(driverName).setUrl(url).setUsername(dbName)
-				.setPassword(dbPassword);
+		dsConfig.setDbType(DbType.MYSQL).setDriverName(driverName).setUrl(url)
+				.setUsername(dbName).setPassword(dbPassword);
 
 		// 3. 策略配置globalConfiguration中
 		StrategyConfig stConfig = new StrategyConfig();
@@ -118,18 +121,19 @@ public class MyBatisPlusGenerator {
 				// 指定表名 字段名是否使用下划线
 				// .setsetDbColumnUnderline(true)
 				// 数据库表映射到实体的命名策略
-				.setNaming(NamingStrategy.underline_to_camel).setTablePrefix("t_").setEntityLombokModel(true)
-				.setInclude(tables);
+				.setNaming(NamingStrategy.underline_to_camel).setTablePrefix("t_")
+				.setEntityLombokModel(true).setInclude(tables);
 
 		// 4. 包名策略配置
 		PackageConfig pkConfig = new PackageConfig();
-		pkConfig.setParent(packageName).setMapper("mapper").setService("service").setController("controller")
-				.setEntity("entity");
+		pkConfig.setParent(packageName).setMapper("mapper").setService("service")
+				.setController("controller").setEntity("entity");
 		// .setXml("mapper");
 
 		// 5. 整合配置
 		AutoGenerator ag = new AutoGenerator();
-		ag.setGlobalConfig(config).setDataSource(dsConfig).setStrategy(stConfig).setPackageInfo(pkConfig);
+		ag.setGlobalConfig(config).setDataSource(dsConfig).setStrategy(stConfig)
+				.setPackageInfo(pkConfig);
 
 		// 6. 执行
 		ag.execute();

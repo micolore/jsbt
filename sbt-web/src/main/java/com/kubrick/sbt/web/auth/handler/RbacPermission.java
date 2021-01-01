@@ -22,7 +22,8 @@ public class RbacPermission {
 
 	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
-	public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
+	public boolean hasPermission(HttpServletRequest request,
+			Authentication authentication) {
 		Object principal = authentication.getPrincipal();
 		boolean hasPermission = false;
 		if (principal instanceof User) {

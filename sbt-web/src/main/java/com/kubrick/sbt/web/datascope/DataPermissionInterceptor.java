@@ -16,8 +16,8 @@ import java.util.Properties;
  * @author k
  */
 @RequiredArgsConstructor
-@Intercepts({
-		@Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class, Integer.class }) })
+@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = {
+		Connection.class, Integer.class }) })
 public class DataPermissionInterceptor implements Interceptor {
 
 	private final DataScopeSqlProcessor dataScopeSqlProcessor;
@@ -48,7 +48,8 @@ public class DataPermissionInterceptor implements Interceptor {
 		if (sct == SqlCommandType.SELECT) {
 			mpBs.sql(dataScopeSqlProcessor.parserSingle(mpBs.sql(), dataScopes));
 		}
-		else if (sct == SqlCommandType.INSERT || sct == SqlCommandType.UPDATE || sct == SqlCommandType.DELETE) {
+		else if (sct == SqlCommandType.INSERT || sct == SqlCommandType.UPDATE
+				|| sct == SqlCommandType.DELETE) {
 			mpBs.sql(dataScopeSqlProcessor.parserMulti(mpBs.sql(), dataScopes));
 		}
 

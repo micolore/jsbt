@@ -39,8 +39,9 @@ public class User implements UserDetails {
 
 	}
 
-	public User(String username, String password, Collection<? extends GrantedAuthority> authorities,
-			List<Menu> roleMenus, Integer dataScope, List<Long> organizationIds) {
+	public User(String username, String password,
+			Collection<? extends GrantedAuthority> authorities, List<Menu> roleMenus,
+			Integer dataScope, List<Long> organizationIds) {
 		this.username = username;
 		this.password = password;
 		this.authorities = authorities;

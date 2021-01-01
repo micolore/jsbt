@@ -1,10 +1,8 @@
 package com.kubrick.sbt.cache.config;
 
-import org.redisson.Redisson;
-import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import lombok.Data;
+import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author k
@@ -13,31 +11,40 @@ import org.springframework.context.annotation.Configuration;
  * @description: TODO
  * @date 2020/12/29 上午12:49
  */
-@Configuration
+@ConfigurationProperties(prefix = "spring.redis", ignoreUnknownFields = false)
+@Data
+@ToString
 public class RedissonConfig {
 
-	@Bean
-	public RedissonClient redissonClient() {
-		Config config = new Config();
-		config.useSingleServer()
-		.setAddress("redis://localhost:6379")
-		//发布和订阅连接池大小
-		.setSubscriptionConnectionPoolSize(20)
-		//发布和订阅连接的最小空闲连接数
-		.setSubscriptionConnectionMinimumIdleSize(30)
-		//接池大小
-		.setConnectionPoolSize(50)
-		//最小空闲连接数
-		.setConnectionMinimumIdleSize(10)
-		//命令等待超时
-		.setTimeout(1500)
-		//命令重试发送时间间隔
-		.setRetryInterval(300)
-		//命令失败重试次数
-		.setRetryAttempts(3)
-		.setConnectTimeout(2000)
-		.setIdleConnectionTimeout(3000);
-		return Redisson.create(config);
-	}
+	private int database;
+
+	/**
+	 * 等待节点回复命令的时间。该时间从命令发送成功时开始计时
+	 */
+	private int timeout;
+
+	private String password;
+
+	private String mode;
+
+	/**
+	 * 池配置
+	 */
+	private RedissonPoolConfig pool;
+
+	/**
+	 * 单机信息配置
+	 */
+	private RedissonSingleConfig single;
+
+	/**
+	 * 集群 信息配置
+	 */
+	private RedissonClusterConfig cluster;
+
+	/**
+	 * 哨兵配置
+	 */
+	private RedisSentinelConfig sentinel;
 
 }

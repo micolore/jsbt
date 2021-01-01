@@ -15,7 +15,8 @@ public class MainController {
 	@GetMapping("/main")
 	public ModelAndView toMainPage() {
 		// 获取登录的用户名
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Object principal = SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal();
 		String username = null;
 		if (principal instanceof UserDetails) {
 			username = ((UserDetails) principal).getUsername();

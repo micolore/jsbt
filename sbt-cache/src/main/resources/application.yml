@@ -1,5 +1,37 @@
 server:
-  port: 8080
+  port: 10012
 spring:
   application:
     name: sbt-cache
+  redis:
+    mode: single
+    password: ''
+    database: 0
+    timeout: 3000
+    single:
+      address: localhost:6379
+    cluster:
+      failed-attempts: 3
+      master-connection-pool-size: 64
+      nodes: ''
+      read-mode: SLAVE
+      retry-attempts: 3
+      retry-interval: 1500
+      scan-interval: 1000
+      slave-connection-pool-size: 64
+    pool:
+      conn-timeout: 3000
+      max-active: 8
+      max-idle: 16
+      max-wait: 3000
+      min-idle: 8
+      size: 10
+      so-timeout: 3000
+    sentinel:
+      fail-max: 3
+      master: business-master
+      master-onlyWrite: true
+      nodes: ''
+
+
+

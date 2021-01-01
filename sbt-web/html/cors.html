@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -10,13 +9,14 @@
 <body>
 <div id="form-div">
     <form id="form1">
-        <p>用户名：<input name="email" type="text" id="txtUserName" tabindex="1" size="15" value="" /></p>
-        <p>密　码：<input name="password" type="text" id="TextBox2" tabindex="2" size="16" value="" /></p>
+        <p>用户名：<input name="email" type="text" id="txtUserName" tabindex="1" size="15" value=""/></p>
+        <p>密　码：<input name="password" type="text" id="TextBox2" tabindex="2" size="16" value=""/></p>
         <p><input type="button" value="登录" onclick="login()">&nbsp;<input type="reset" value="重置"></p>
     </form>
 </div>
 </body>
-<script type="text/javascript" src="/Users/kubrick/Documents/workspace/java/study/my-sbt/sbt-web/html/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+        src="/Users/kubrick/Documents/workspace/java/study/my-sbt/sbt-web/html/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
     function login() {
         $.ajax({
@@ -29,13 +29,14 @@
             // url: "http://192.168.1.4/wscrm-admin-api/oauth/token?grant_type=password&password=q8s5h4Qy%2FjsGtXc1P5gfxA%3D%3D&username=admin", //url
             // url: "http://localhost:10001/wscrm-admin-api//api/v1/autoReplyList", //url
             data: $('#form1').serialize(),
-            success: function(result) {
+            success: function (result) {
                 console.log(result); //打印服务端返回的数据(调试用)
-                if(200 == result.resultCode) {
+                if (200 == result.resultCode) {
                     alert("SUCCESS");
-                };
+                }
+                ;
             },
-            error: function() {
+            error: function () {
                 alert("异常！");
             }
         });

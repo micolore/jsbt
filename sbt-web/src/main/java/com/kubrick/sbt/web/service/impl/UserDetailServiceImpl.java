@@ -39,7 +39,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	private OrganizationService organizationService;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username)
+			throws UsernameNotFoundException {
 		User user = userDao.getUserByUsername(username);
 
 		if (user != null) {
@@ -59,7 +60,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 			Integer dataScope = roles.get(0).getDataScope();
 
 			List<Long> organizationIds = organizationService.list(user.getOrganization());
-			return new User(user.getUsername(), user.getPassword(), authorities, menus, dataScope, organizationIds);
+			return new User(user.getUsername(), user.getPassword(), authorities, menus,
+					dataScope, organizationIds);
 		}
 		else {
 			log.info("{} no found", username);
