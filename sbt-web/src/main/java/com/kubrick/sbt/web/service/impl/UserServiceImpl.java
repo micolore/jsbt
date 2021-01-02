@@ -2,7 +2,7 @@ package com.kubrick.sbt.web.service.impl;
 
 import com.kubrick.sbt.web.cache.RedisCache;
 import com.kubrick.sbt.web.dao.UserDao;
-import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

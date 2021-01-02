@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.dao;
 
-import com.kubrick.sbt.web.entity.Organization;
+import com.kubrick.sbt.web.domain.entity.Organization;
 
 import java.util.List;
 

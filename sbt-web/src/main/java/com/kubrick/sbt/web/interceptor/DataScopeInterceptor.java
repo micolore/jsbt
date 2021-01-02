@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.interceptor;
 
 import com.kubrick.sbt.web.datascope.*;
-import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.auth.utils.SecurityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;

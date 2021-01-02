@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["spring-boot-starter-web"]
+    implementation rootProject.ext.dependencies["spring-boot-autoconfigure"]
+    implementation rootProject.ext.dependencies["spring-boot-starter-test"]
+    implementation rootProject.ext.dependencies["redisson-spring-boot-starter"]
+    implementation rootProject.ext.dependencies["spring-boot-starter-data-elasticsearch"]
+    implementation rootProject.ext.dependencies["elasticsearch-rest-high-level-client"]
+    implementation rootProject.ext.dependencies["spring-test"]
+    implementation rootProject.ext.dependencies["logback-classic"]
+    implementation rootProject.ext.dependencies["junit"]
+    compile rootProject.ext.dependencies["mysql-connector-java"]
+    implementation rootProject.ext.dependencies["org.projectlombok"]
+}

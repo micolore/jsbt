@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.OrganizationService;
 import com.kubrick.sbt.web.service.UserService;
 import lombok.extern.slf4j.Slf4j;

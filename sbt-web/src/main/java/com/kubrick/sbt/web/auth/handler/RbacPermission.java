@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.kubrick.sbt.web.entity.Menu;
-import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.domain.entity.Menu;
+import com.kubrick.sbt.web.domain.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;

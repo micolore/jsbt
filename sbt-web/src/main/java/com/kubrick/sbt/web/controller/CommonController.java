@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.controller;
 
 import com.kubrick.sbt.web.annotation.MyLog;
-import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +19,8 @@ public class CommonController {
 	@Autowired
 	private UserService userService;
 
-	@MyLog
 	// @LoginRequired
+	@MyLog
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	@ResponseBody
 	public String hello() {

@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.service.impl;
 
 import com.kubrick.sbt.web.dao.OrganizationDao;
-import com.kubrick.sbt.web.entity.Organization;
+import com.kubrick.sbt.web.domain.entity.Organization;
 import com.kubrick.sbt.web.service.OrganizationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

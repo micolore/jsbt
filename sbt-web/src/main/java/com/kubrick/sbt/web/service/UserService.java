@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.service;
 
-import com.kubrick.sbt.web.entity.User;
+import com.kubrick.sbt.web.domain.entity.User;
 
 import java.util.List;
 

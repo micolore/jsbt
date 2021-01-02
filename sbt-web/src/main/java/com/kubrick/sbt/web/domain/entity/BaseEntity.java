@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.entity;
+package com.kubrick.sbt.web.domain.entity;
 
 import lombok.Data;
 import lombok.ToString;
