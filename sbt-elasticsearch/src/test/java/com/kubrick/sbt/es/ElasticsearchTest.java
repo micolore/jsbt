@@ -1,10 +1,14 @@
 package com.kubrick.sbt.es;
 
 
-import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
-import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.indices.CreateIndexRequest;
+import org.elasticsearch.client.indices.CreateIndexResponse;
+import org.elasticsearch.client.indices.GetIndexRequest;
+import org.elasticsearch.common.settings.Settings;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +33,27 @@ public class ElasticsearchTest {
 
 	@Test
 	public void testCreateIndex() throws IOException {
-		//1. 创建索引请求
-		CreateIndexRequest request = new CreateIndexRequest("move");
-		//2. 客户端执行请求 IndicesClient,请求后获得响应
-		CreateIndexResponse response = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
-		//输出是否创建成功
-		System.out.println(response.isAcknowledged());
+		CreateIndexRequest request = new CreateIndexRequest("scrm_chat");
+		// 分片、备份
+		request.settings(Settings.builder().put("index.number_of_shards", 3).put("index.number_of_replicas", 2));
+		CreateIndexResponse createIndexResponse = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
+		boolean acknowledged = createIndexResponse.isAcknowledged();//指示是否所有节点都已确认请求
+		boolean shardsAcknowledged = createIndexResponse.isShardsAcknowledged();//指示是否在超时之前为索引中的每个分片启动了必需的分片副本数
+		System.out.println("acknowledged:"+acknowledged);
+		System.out.println("shardsAcknowledged:"+shardsAcknowledged);
+		System.out.println(createIndexResponse.index());
+	}
+	@Test
+	public void testExistIndex() throws IOException {
+		GetIndexRequest request = new GetIndexRequest("scrm_chat");
+		boolean exists = restHighLevelClient.indices().exists(request, RequestOptions.DEFAULT);
+		System.out.println(exists);
+	}
+	@Test
+	public void testDeleteIndex() throws IOException {
+		DeleteIndexRequest request = new DeleteIndexRequest("scrm_chat");
+		// 删除
+		AcknowledgedResponse delete = restHighLevelClient.indices().delete(request, RequestOptions.DEFAULT);
+		System.out.println(delete.isAcknowledged());
 	}
 }

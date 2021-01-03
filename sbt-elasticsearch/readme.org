@@ -1,0 +1,11 @@
+* elasticsearch
+
+** docker
+*** images
+docker pull elasticsearch:7.6.2
+*** run
+docker run -it --name myes -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" f29a1ee41030
+** 问题
+*** 1、mapping source must be pairs of fieldnames and properties definition.
+*** 2、Elasticsearch exception [type=class_cast_exception, reason=class java.lang.Long cannot be cast to class java.util.Map (java.lang.Long and java.util.Map are in module java.base of loader 'bootstrap')]
+
