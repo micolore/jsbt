@@ -12,4 +12,5 @@ include 'sbt-swagger-provider-application'
 include 'sbt-cache'
 include 'sbt-elasticsearch'
 include 'sbt-xxl-job'
+include 'sbt-log'
 

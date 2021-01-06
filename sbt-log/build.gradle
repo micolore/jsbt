@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["spring-web"]
+    implementation rootProject.ext.dependencies["aspectjrt"]
+    implementation rootProject.ext.dependencies["hutool-all"]
+    implementation rootProject.ext.dependencies["guava"]
+    implementation rootProject.ext.dependencies["logback-classic"]
+    implementation rootProject.ext.dependencies["UserAgentUtils"]
+    implementation rootProject.ext.dependencies["javax.servlet-api"]
+    implementation rootProject.ext.dependencies["spring-boot-autoconfigure"]
+    implementation rootProject.ext.dependencies["org.projectlombok"]
+    testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
+    compileOnly rootProject.ext.dependencies["org.projectlombok"]
+    annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+}
