@@ -14,7 +14,6 @@ version '0.0.1-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-
 dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-aop"]
@@ -47,6 +46,8 @@ dependencies {
     liquibaseRuntime rootProject.ext.dependencies["mysql-connector-java"]
     liquibaseRuntime rootProject.ext.dependencies["liquibase-core"]
     liquibaseRuntime rootProject.ext.dependencies["liquibase-groovy-dsl"]
+    compile project(":sbt-xxl-job")
+
 }
 liquibase {
     activities {

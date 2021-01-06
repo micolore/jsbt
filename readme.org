@@ -32,3 +32,9 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-
 1. https://2cloud.tencent.com/developer/article/1442823
 2. https://mapstruct.org/
 
+
+*** gradle
+**** build
+   跳过测试gradle build -x test
+
+

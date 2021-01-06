@@ -52,7 +52,8 @@ ext {
                     "springfox-swagger-ui"                  : "io.springfox:springfox-swagger-ui:3.0.0",
                     "knife4j-spring-boot-starter"           : "com.github.xiaoymin:knife4j-spring-boot-starter:2.0.7",
                     "snakeyaml"                             : "org.yaml:snakeyaml:1.27",
-                    "knife4j-spring-ui"                     : "com.github.xiaoymin:knife4j-spring-ui:3.0"
+                    "knife4j-spring-ui"                     : "com.github.xiaoymin:knife4j-spring-ui:3.0",
+                    "xxl-job-core"                          : "com.xuxueli:xxl-job-core:2.2.0"
 
     ]
 }

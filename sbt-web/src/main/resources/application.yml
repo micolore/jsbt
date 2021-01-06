@@ -34,3 +34,11 @@ mybatis:
   typeAliasesPackage: com.kubrick.sbt.web.entity
   mapperLocations: classpath:mapper/*.xml
 
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:18888/xxl-job-admin
+    executor:
+      port: 18887
+      appName: admin-jobs
+      logretentiondays: 30

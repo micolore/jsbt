@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile rootProject.ext.dependencies["mysql-connector-java"]
+    compileOnly rootProject.ext.dependencies["org.projectlombok"]
+    annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
+    testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    implementation rootProject.ext.dependencies["xxl-job-core"]
+    implementation rootProject.ext.dependencies["spring-boot"]
+}
