@@ -55,7 +55,8 @@ ext {
                     "snakeyaml"                             : "org.yaml:snakeyaml:1.27",
                     "knife4j-spring-ui"                     : "com.github.xiaoymin:knife4j-spring-ui:3.0",
                     "xxl-job-core"                          : "com.xuxueli:xxl-job-core:2.2.0",
-                    "UserAgentUtils"                        : "eu.bitwalker:UserAgentUtils:1.21"
+                    "UserAgentUtils"                        : "eu.bitwalker:UserAgentUtils:1.21",
+                    "forest-core"                           : "com.dtflys.forest:spring-boot-starter-forest:1.5.0-RC1"
 
     ]
 }
