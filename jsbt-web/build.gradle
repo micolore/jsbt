@@ -47,7 +47,7 @@ dependencies {
     liquibaseRuntime rootProject.ext.dependencies["mysql-connector-java"]
     liquibaseRuntime rootProject.ext.dependencies["liquibase-core"]
     liquibaseRuntime rootProject.ext.dependencies["liquibase-groovy-dsl"]
-    compile project(":sbt-xxl-job")
+    compile project(":jsbt-xxl-job")
 
 }
 liquibase {

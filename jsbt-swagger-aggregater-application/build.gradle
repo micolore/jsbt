@@ -15,5 +15,5 @@ dependencies {
     implementation rootProject.ext.dependencies["swagger-models"]
     implementation rootProject.ext.dependencies["springfox-swagger-ui"]
     implementation rootProject.ext.dependencies["knife4j-spring-ui"]
-    compile project(":sbt-swagger-aggregater")
+    compile project(":jsbt-swagger-aggregater")
 }
