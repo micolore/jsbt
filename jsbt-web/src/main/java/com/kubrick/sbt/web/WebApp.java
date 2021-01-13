@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author k
  */
 @SpringBootApplication
-@EnableXxlJob
 @MapperScan("com.kubrick.sbt.web.dao")
 @ForestScan(basePackages = "com.kubrick.sbt.web.api")
 public class WebApp {

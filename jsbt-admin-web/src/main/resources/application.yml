@@ -3,7 +3,7 @@ spring:
   security:
     user:
       name: admin
-      password: admin
+      password: scrm!@#qsw
   boot:
     admin:
       ui:

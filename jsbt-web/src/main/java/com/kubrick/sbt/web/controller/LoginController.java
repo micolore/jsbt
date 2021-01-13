@@ -41,8 +41,8 @@ public class LoginController {
       @RequestParam(value = "logout", required = false) String logout) {
     ModelAndView mav = new ModelAndView();
 
-    String baidu = apiClient.getBaidu();
-    System.out.println("apiClient:" + baidu);
+    //String baidu = apiClient.getBaidu();
+    //System.out.println("apiClient:" + baidu);
     if (error != null) {
       mav.addObject("error", "用户名或者密码不正确");
     }
