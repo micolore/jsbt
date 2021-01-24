@@ -1,0 +1,79 @@
+* effective
+
+
+* effective java (I)
+
+** 合适的时候使用单例
+
+** 避免随意使用静态变量
+
+** 避免过多的创建对象
+
+** 使用final修饰符号
+
+** 使用局部变量
+
+** 处理好包装类型和基本数据两者的场所
+
+** 慎用synchronized，尽量减少synchronize方法
+
+** 不要使用finalize方法
+
+** 使用基本数据类型代替对象
+
+** 多线程未在未发生安全前尽量使用 Hashmap、Arraylist
+
+** 合理的创建hashmap
+
+** 减少对变量的重复计算
+
+** 避免不必要的创建
+
+** 在finally块释放资源
+
+** 使用移位来代替'a/b'的操作
+   使用移位来代替'a*b'的操作
+
+** 确定stringbuffer的容量
+
+** 避免使用二维数组
+
+** 避免使用split
+
+** ArrayList & LinkedList
+
+** 使用System.arraycopy ()代替通过来循环复制数组
+
+** 缓存经常使用的对象
+
+** 避免非常大的内存分配
+
+** 慎用异常
+
+** 重用对象
+
+** 不要重复初始化变量
+
+** 及时关闭io
+
+** 不要在循环中使用Try/Catch语句，应把Try/Catch放在循环最外层
+
+** 通过StringBuffer的构造函数来设定它的初始化容量
+
+** HaspMap的遍历
+
+** array(数组)和ArrayList的使用
+
+** 单线程使用 HashMap, ArrayList
+
+** StringBuffer,StringBuilder的区别
+
+
+
+
+
+
+
+
+
+

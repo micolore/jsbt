@@ -15,4 +15,5 @@ include 'jsbt-xxl-job'
 include 'jsbt-log'
 include 'jsbt-api'
 include 'jsbt-apm'
+include 'jsbt-effective-java'
 

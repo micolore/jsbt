@@ -1,6 +1,5 @@
 package com.kubrick.sbt.web;
 
-import com.kubrick.sbt.job.annotation.EnableXxlJob;
 import com.thebeastshop.forest.springboot.annotation.ForestScan;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
