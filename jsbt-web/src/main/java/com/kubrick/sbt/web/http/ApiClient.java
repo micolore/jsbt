@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.api;
+package com.kubrick.sbt.web.http;
 
 import com.dtflys.forest.annotation.Get;
 

@@ -13,4 +13,6 @@ include 'jsbt-cache'
 include 'jsbt-elasticsearch'
 include 'jsbt-xxl-job'
 include 'jsbt-log'
+include 'jsbt-api'
+include 'jsbt-apm'
 
