@@ -13,4 +13,7 @@ dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-admin-starter-client"]
     implementation rootProject.ext.dependencies["spring-boot-starter-security"]
+    implementation rootProject.ext.dependencies["spring-boot-starter-actuator"]
+    implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
+    implementation rootProject.ext.dependencies["logback-classic"]
 }

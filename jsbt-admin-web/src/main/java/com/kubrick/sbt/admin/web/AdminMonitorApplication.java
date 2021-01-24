@@ -9,21 +9,21 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 /**
  * @author k
  * @version 1.0.0
- * @ClassName AdminApplication
+ * @ClassName AdminMonitorApplication
  * @description: TODO
  * @date 2020/12/24 下午8:42
  */
 @SpringBootApplication
 @EnableAdminServer
-public class AdminApplication extends SpringBootServletInitializer {
+public class AdminMonitorApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(AdminApplication.class);
+		return builder.sources(AdminMonitorApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(AdminApplication.class, args);
+		SpringApplication.run(AdminMonitorApplication.class, args);
 	}
 
 }
