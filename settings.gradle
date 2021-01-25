@@ -16,4 +16,5 @@ include 'jsbt-log'
 include 'jsbt-api'
 include 'jsbt-apm'
 include 'jsbt-effective-java'
+include 'jsbt-conf'
 
