@@ -36,7 +36,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-
 **** httpclient
 https://gitee.com/dt_flys/forest
 
-**** mybatis 多租户
+**** mybatis plus 多租户
 
 
 *** gradle
