@@ -14,3 +14,4 @@ swagger:
     url: https://github.com/micolore
   provider:
     aggregator-origin: http://localhost:10009
+

@@ -19,12 +19,13 @@ public class TestController {
 		return "Hello word!";
 	}
 
+	@ApiOperation("测试地址-provider get")
 	@GetMapping("/test/{test}")
 	public String test(@PathVariable String test) {
 		System.out.println(SwaggerConstants.API_URI);
 		return "Hello " + test;
 	}
-
+	@ApiOperation("测试地址-provider formdata")
 	@PostMapping("/formdata")
 	public String test1(@RequestParam("formdata") String formdata) {
 		return formdata;
