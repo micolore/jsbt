@@ -24,6 +24,7 @@ configurations {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.lmax', name: 'disruptor', version: '3.4.2'
+    implementation rootProject.ext.dependencies["guava"]
     implementation "org.mapstruct:mapstruct:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
 }
