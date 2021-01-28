@@ -36,10 +36,11 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-
 **** httpclient
 https://gitee.com/dt_flys/forest
 
+**** mybatis plus 多租户
 
 
 *** gradle
 **** build
-   跳过测试gradle build -x test
+    gradle build -x test
 
 
