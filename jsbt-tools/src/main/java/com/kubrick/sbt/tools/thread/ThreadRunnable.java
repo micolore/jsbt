@@ -7,10 +7,10 @@ package com.kubrick.sbt.tools.thread;
  * @description: TODO
  * @date 2021/1/28 下午11:22
  */
-public class MyTask implements Runnable{
+public class ThreadRunnable implements Runnable{
     @Override
     public void run() {
         Thread thread = Thread.currentThread();
-        System.out.println("myTask :"+thread.getName());
+        System.out.println("ThreadRunnable :"+thread.getName());
     }
 }
