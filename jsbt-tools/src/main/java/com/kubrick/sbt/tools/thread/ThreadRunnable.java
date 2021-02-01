@@ -13,4 +13,5 @@ public class ThreadRunnable implements Runnable{
         Thread thread = Thread.currentThread();
         System.out.println("ThreadRunnable :"+thread.getName());
     }
+
 }
