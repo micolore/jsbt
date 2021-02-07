@@ -37,7 +37,7 @@ public class SessionUtils {
     }
 
     private static SessionAccessToken createSessionAccessToken(RpcAccessToken accessToken) {
-        long expirationTime = System.currentTimeMillis() + accessToken.getExpiresIn() * 1000;
+        long expirationTime = System.currentTimeMillis() + accessToken.getExpiresIn() * 1000L;
         return new SessionAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn(),
                 accessToken.getRefreshToken(), accessToken.getUser(), expirationTime);
     }

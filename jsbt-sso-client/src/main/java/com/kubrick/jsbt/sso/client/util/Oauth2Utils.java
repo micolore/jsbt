@@ -33,7 +33,7 @@ public class Oauth2Utils {
      */
     public static Result<RpcAccessToken> getAccessToken(String serverUrl, String appId, String appSecret, String username,
                                                         String password) {
-        Map<String, String> paramMap = new HashMap<>();
+        Map<String, String> paramMap = new HashMap<>(5);
         paramMap.put(Oauth2Constant.GRANT_TYPE, GrantTypeEnum.PASSWORD.getValue());
         paramMap.put(Oauth2Constant.APP_ID, appId);
         paramMap.put(Oauth2Constant.APP_SECRET, appSecret);
@@ -52,7 +52,7 @@ public class Oauth2Utils {
      * @return
      */
     public static Result<RpcAccessToken> getAccessToken(String serverUrl, String appId, String appSecret, String code) {
-        Map<String, String> paramMap = new HashMap<>();
+        Map<String, String> paramMap = new HashMap<>(4);
         paramMap.put(Oauth2Constant.GRANT_TYPE, GrantTypeEnum.AUTHORIZATION_CODE.getValue());
         paramMap.put(Oauth2Constant.APP_ID, appId);
         paramMap.put(Oauth2Constant.APP_SECRET, appSecret);
@@ -69,7 +69,7 @@ public class Oauth2Utils {
      * @return
      */
     public static Result<RpcAccessToken> refreshToken(String serverUrl, String appId, String refreshToken) {
-        Map<String, String> paramMap = new HashMap<>();
+        Map<String, String> paramMap = new HashMap<>(2);
         paramMap.put(Oauth2Constant.APP_ID, appId);
         paramMap.put(Oauth2Constant.REFRESH_TOKEN, refreshToken);
         return getHttpAccessToken(serverUrl + Oauth2Constant.REFRESH_TOKEN_URL, paramMap);
@@ -78,7 +78,7 @@ public class Oauth2Utils {
     private static Result<RpcAccessToken> getHttpAccessToken(String url, Map<String, String> paramMap) {
         String jsonStr = HttpUtils.get(url, paramMap);
         if (jsonStr == null || jsonStr.isEmpty()) {
-            logger.error("getHttpAccessToken exception, return null. url:{}", url);
+            logger.info("getHttpAccessToken exception, return null. url:{}", url);
             return null;
         }
         return JSONObject.parseObject(jsonStr, new TypeReference<Result<RpcAccessToken>>(){});

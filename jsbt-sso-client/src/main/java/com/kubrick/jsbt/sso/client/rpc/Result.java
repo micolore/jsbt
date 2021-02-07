@@ -14,9 +14,15 @@ public class Result <T> implements Serializable {
 
     private static final long serialVersionUID = 1956544564021082972L;
 
-    public static final int SUCCESS_CODE = 1;// 成功
+    /**
+     *  成功
+     */
+    public static final int SUCCESS_CODE = 1;
 
-    public static final int ERROR_CODE = 9999;// 未知错误
+    /**
+     * 未知错误
+     */
+    public static final int ERROR_CODE = 9999;
 
     /** 成功 */
     @SuppressWarnings("rawtypes")
