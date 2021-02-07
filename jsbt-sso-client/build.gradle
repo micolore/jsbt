@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["javax.servlet-api"]
+    implementation rootProject.ext.dependencies["org.slf4j"]
+    implementation rootProject.ext.dependencies["org.apache.httpcomponents"]
+    implementation rootProject.ext.dependencies["fastjson"]
+}
+
+test {
+    useJUnitPlatform()
+}

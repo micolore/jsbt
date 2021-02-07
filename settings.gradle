@@ -17,4 +17,7 @@ include 'jsbt-api'
 include 'jsbt-apm'
 include 'jsbt-effective-java'
 include 'jsbt-conf'
+include 'jsbt-sso-web-client'
+include 'jsbt-sso-server'
+include 'jsbt-sso-client'
 
