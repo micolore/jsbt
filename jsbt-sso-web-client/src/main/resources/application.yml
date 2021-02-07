@@ -1,0 +1,19 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    root: debug
+spring:
+  freemarker:
+    charset: UTF-8
+    suffix: .html
+    content-type: text/html; charset=utf-8
+    template-loader-path: classpath:/templates
+    request-context-attribute: request
+sso:
+  server:
+    url: http://localhost:8080
+  app:
+    id: demo2
+    secret: 123456
