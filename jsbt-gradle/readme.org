@@ -1,0 +1,4 @@
+* gradle
+
+** build
+1、gradle build -x test

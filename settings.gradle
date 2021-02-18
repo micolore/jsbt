@@ -32,4 +32,5 @@ include 'jsbt-sso-server'
 include 'jsbt-sso-client'
 include 'jsbt-sso-web-client'
 include 'jsbt-net-server'
+include 'jsbt-gradle'
 
