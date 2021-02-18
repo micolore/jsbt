@@ -1,4 +1,15 @@
-rootProject.name = 'jsbt'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url "https://repo.springsource.org/plugins-release" }
+    }
+}
+plugins {
+    id "com.gradle.enterprise" version "3.5.1"
+}
+
 include 'jsbt-gen'
 include 'jsbt-web'
 include 'jsbt-agent'
@@ -20,5 +31,5 @@ include 'jsbt-conf'
 include 'jsbt-sso-server'
 include 'jsbt-sso-client'
 include 'jsbt-sso-web-client'
-
+include 'jsbt-net-server'
 
