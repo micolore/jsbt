@@ -12,6 +12,6 @@ repositories {
 dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
-    compile project(":jsbt-sso-client")
+    compile project(":jsbt-sso-core")
 }
 

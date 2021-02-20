@@ -1,4 +1,4 @@
-* my sbt
+* jsbt project
 
 ** project modules
 
@@ -12,12 +12,15 @@
 *** jsbt-elasticsearch
 *** jsbt-log
 *** jsbt-sso-client
+*** jsbt-sso-server
 *** jsbt-sso-web-client
+*** jsbt-swagger-aggregater
 *** jsbt-swagger-aggregater-application
 *** jsbt-swagger-provider-application
 *** jsbt-tools
 *** jsbt-xxl-job
 *** jsbt-net-server
-*** jsbt-net-server
 *** jsbt-gradle
+*** jsbt-admin-web
+*** jsbt-admin-web-client
 

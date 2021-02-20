@@ -13,7 +13,7 @@ dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
     implementation rootProject.ext.dependencies["fastjson"]
-    compile project(":jsbt-sso-client")
+    compile project(":jsbt-sso-core")
 }
 
 test {
