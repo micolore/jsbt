@@ -12,6 +12,7 @@ repositories {
 dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
+    implementation rootProject.ext.dependencies["spring-boot-starter-thymeleaf"]
     implementation rootProject.ext.dependencies["fastjson"]
     compile project(":jsbt-sso-core")
 }

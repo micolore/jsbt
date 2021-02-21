@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>smart-sso-server</title>
@@ -7,12 +7,12 @@
     <body>
         <h2>smart-sso-server</h2>
 
-        <b>登录用户名</b>：${userName}<br/>
-        
-        <b>端口</b>：${serverPort}<br/>
-        
-        <b>sessionId</b>：${sessionId}<br/>
+        <p th:text="'Hello！, ' + ${userName} + '!'" >233</p>
 
-        <br/><a href="${logoutUrl}">单点退出</a>
+        <p th:text="'port！, ' + ${serverPort}" ></p>
+
+        <p th:text="'sessionId！, ' + ${sessionId}" ></p>
+
+        <br/><a th:href="${logoutUrl}">login out</a>
     </body>
 </html>
