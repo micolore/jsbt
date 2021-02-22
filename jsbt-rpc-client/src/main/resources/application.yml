@@ -1,0 +1,13 @@
+server:
+  port: 10021
+spring:
+  profiles:
+    active: dev
+
+grpc:
+  client:
+    local-grpc-server:
+      host: 127.0.0.1
+      port: 8800
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true

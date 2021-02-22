@@ -60,6 +60,8 @@ ext {
                     "forest-core"                           : "com.dtflys.forest:spring-boot-starter-forest:1.5.0-RC1",
                     "org.slf4j"                             : "org.slf4j:slf4j-api:1.7.30",
                     "org.apache.httpcomponents"             : "org.apache.httpcomponents:httpclient:4.5.13",
-                    "hessian"                               : "com.caucho:hessian:4.0.63"
+                    "hessian"                               : "com.caucho:hessian:4.0.63",
+                    "protobuf-java"                         : "com.google.protobuf:protobuf-java:3.15.0",
+                    "grpc-spring-boot-starter"              : 'net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE'
     ]
 }
