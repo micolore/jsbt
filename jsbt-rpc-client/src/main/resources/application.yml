@@ -3,11 +3,11 @@ server:
 spring:
   profiles:
     active: dev
+
 grpc:
   client:
     local-grpc-server:
-      host: localhost
-      port: 8800
+      address: 'static://127.0.0.1:8800'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
-      keepAliveTimeout: 30
+      negotiationType: plaintext

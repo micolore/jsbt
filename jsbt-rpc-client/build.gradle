@@ -20,6 +20,11 @@ dependencies {
     implementation 'io.grpc:grpc-protobuf:1.35.0'
     implementation 'io.grpc:grpc-stub:1.35.0'
     implementation 'io.grpc:grpc-services:1.35.0'
+    implementation 'junit:junit:4.12'
+    compileOnly rootProject.ext.dependencies["org.projectlombok"]
+    annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
+    testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
+    testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
 }
 
 //apply plugin: 'com.google.protobuf'
