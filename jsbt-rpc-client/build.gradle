@@ -1,10 +1,9 @@
 plugins {
     id 'java'
-    id 'com.google.protobuf' version '0.8.15'
+    //id 'com.google.protobuf' version '0.8.15'
     id 'idea'
 }
 apply plugin: 'java'
-apply plugin: 'com.google.protobuf'
 
 group 'com.kubrick'
 version '1.0-SNAPSHOT'
@@ -16,39 +15,41 @@ repositories {
 dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
-    implementation rootProject.ext.dependencies["grpc-spring-boot-starter"]
+    implementation rootProject.ext.dependencies["grpc-client-spring-boot-starter"]
     implementation 'io.grpc:grpc-netty:1.35.0'
     implementation 'io.grpc:grpc-protobuf:1.35.0'
     implementation 'io.grpc:grpc-stub:1.35.0'
     implementation 'io.grpc:grpc-services:1.35.0'
-
-}
-clean {
-    delete protobuf.generatedFilesBaseDir
-}
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:3.2.0"
-    }
-    plugins {
-        grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
-        }
-    }
-    generateProtoTasks {
-        all()*.plugins {
-            grpc {}
-        }
-    }
-    generatedFilesBaseDir = "$projectDir/gen"
-
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs 'build/generated/source/proto/main/grpc'
-            srcDirs 'build/generated/source/proto/main/java'
-        }
-    }
-}
+//apply plugin: 'com.google.protobuf'
+//
+//clean {
+//    delete protobuf.generatedFilesBaseDir
+//}
+//protobuf {
+//    protoc {
+//        artifact = "com.google.protobuf:protoc:3.2.0"
+//    }
+//    plugins {
+//        grpc {
+//            artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
+//        }
+//    }
+//    generateProtoTasks {
+//        all()*.plugins {
+//            grpc {}
+//        }
+//    }
+//    generatedFilesBaseDir = "$projectDir/gen"
+//}
+//
+//sourceSets {
+//    main {
+//        java {
+//            srcDirs 'build/generated/source/proto/main/grpc'
+//            srcDirs 'build/generated/source/proto/main/java'
+//        }
+//    }
+//}
+//

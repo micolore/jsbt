@@ -1,6 +1,9 @@
-package com.kubrick.jsbt.rpc.client.service;
+package com.kubrick.jsbt.rpc.client.service.impl;
 
-import io.grpc.netty.shaded.io.netty.channel.Channel;
+import com.kubrick.jsbt.rpc.client.service.IGrpcClientService;
+import com.kubrick.jsbt.rpc.lib.GreeterGrpc;
+import com.kubrick.jsbt.rpc.lib.GreeterOuterClass;
+import io.grpc.Channel;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +28,8 @@ public class GrpcClientServiceImpl implements IGrpcClientService {
      */
     @Override
     public String sendMessage(String name) {
-        //GreeterGrpc.GreeterBlockingStub stub = GreeterGrpc.newBlockingStub(serverChannel);
-        //GreeterOuterClass.HelloReply response = stub.sayHello(GreeterOuterClass.HelloRequest.newBuilder().setName(name).build());
-        return "";//response.getMessage();
+        GreeterGrpc.GreeterBlockingStub stub = GreeterGrpc.newBlockingStub(serverChannel);
+        GreeterOuterClass.HelloReply response = stub.sayHello(GreeterOuterClass.HelloRequest.newBuilder().setName(name).build());
+        return response.getMessage();
     }
 }

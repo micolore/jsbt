@@ -62,6 +62,7 @@ ext {
                     "org.apache.httpcomponents"             : "org.apache.httpcomponents:httpclient:4.5.13",
                     "hessian"                               : "com.caucho:hessian:4.0.63",
                     "protobuf-java"                         : "com.google.protobuf:protobuf-java:3.15.0",
-                    "grpc-spring-boot-starter"              : 'net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE'
+                    "grpc-server-spring-boot-starter"       : 'net.devh:grpc-server-spring-boot-starter:2.11.0.RELEASE',
+                    "grpc-client-spring-boot-starter"       : 'net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE'
     ]
 }

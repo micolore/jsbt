@@ -1,19 +1,11 @@
-package com.kubrick.jsbt.rpc.lib;
+package com.kubrick.jsbt.rpc.grpc.server.lib;
 
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingUnaryCall;
+import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 
 /**
  * <pre>
@@ -31,16 +23,16 @@ public final class GreeterGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest,
-      com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply> METHOD_SAY_HELLO =
-      io.grpc.MethodDescriptor.<com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest, com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply>newBuilder()
+  public static final io.grpc.MethodDescriptor<GreeterOuterClass.HelloRequest,
+      GreeterOuterClass.HelloReply> METHOD_SAY_HELLO =
+      io.grpc.MethodDescriptor.<GreeterOuterClass.HelloRequest, GreeterOuterClass.HelloReply>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "Greeter", "SayHello"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest.getDefaultInstance()))
+              GreeterOuterClass.HelloRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply.getDefaultInstance()))
+              GreeterOuterClass.HelloReply.getDefaultInstance()))
           .build();
 
   /**
@@ -78,19 +70,19 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public void sayHello(com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest request,
-        io.grpc.stub.StreamObserver<com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply> responseObserver) {
+    public void sayHello(GreeterOuterClass.HelloRequest request,
+                         io.grpc.stub.StreamObserver<GreeterOuterClass.HelloReply> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_SAY_HELLO, responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             METHOD_SAY_HELLO,
             asyncUnaryCall(
               new MethodHandlers<
-                com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest,
-                com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply>(
+                GreeterOuterClass.HelloRequest,
+                GreeterOuterClass.HelloReply>(
                   this, METHODID_SAY_HELLO)))
           .build();
     }
@@ -111,7 +103,7 @@ public final class GreeterGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected GreeterStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new GreeterStub(channel, callOptions);
@@ -122,8 +114,8 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public void sayHello(com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest request,
-        io.grpc.stub.StreamObserver<com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply> responseObserver) {
+    public void sayHello(GreeterOuterClass.HelloRequest request,
+                         io.grpc.stub.StreamObserver<GreeterOuterClass.HelloReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_SAY_HELLO, getCallOptions()), request, responseObserver);
     }
@@ -144,7 +136,7 @@ public final class GreeterGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected GreeterBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new GreeterBlockingStub(channel, callOptions);
@@ -155,7 +147,7 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply sayHello(com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest request) {
+    public GreeterOuterClass.HelloReply sayHello(GreeterOuterClass.HelloRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_SAY_HELLO, getCallOptions(), request);
     }
@@ -176,7 +168,7 @@ public final class GreeterGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected GreeterFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new GreeterFutureStub(channel, callOptions);
@@ -187,8 +179,8 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply> sayHello(
-        com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<GreeterOuterClass.HelloReply> sayHello(
+        GreeterOuterClass.HelloRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_SAY_HELLO, getCallOptions()), request);
     }
@@ -209,21 +201,21 @@ public final class GreeterGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_SAY_HELLO:
-          serviceImpl.sayHello((com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloRequest) request,
-              (io.grpc.stub.StreamObserver<com.kubrick.jsbt.rpc.lib.GreeterOuterClass.HelloReply>) responseObserver);
+          serviceImpl.sayHello((GreeterOuterClass.HelloRequest) request,
+              (io.grpc.stub.StreamObserver<GreeterOuterClass.HelloReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -234,9 +226,9 @@ public final class GreeterGrpc {
   }
 
   private static final class GreeterDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.kubrick.jsbt.rpc.lib.GreeterOuterClass.getDescriptor();
+      return GreeterOuterClass.getDescriptor();
     }
   }
 

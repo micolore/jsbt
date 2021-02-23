@@ -177,7 +177,7 @@
         <logger name="com.kubrick" level="info"/>
     </springProfile>
 
-    <root level="info">
+    <root level="trace">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG_FILE"/>
         <appender-ref ref="INFO_FILE"/>

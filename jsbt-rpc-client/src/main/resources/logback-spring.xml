@@ -174,10 +174,10 @@
 
     <!--开发环境:打印控制台-->
     <springProfile name="dev">
-        <logger name="com.kubrick" level="info"/>
+        <logger name="com.kubrick" level="debug"/>
     </springProfile>
 
-    <root level="info">
+    <root level="trace">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG_FILE"/>
         <appender-ref ref="INFO_FILE"/>
