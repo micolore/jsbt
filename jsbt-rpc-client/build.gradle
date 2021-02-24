@@ -26,7 +26,7 @@ dependencies {
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
     testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
 }
-
+// build protobuf (basic java &rpc java)
 //apply plugin: 'com.google.protobuf'
 //
 //clean {

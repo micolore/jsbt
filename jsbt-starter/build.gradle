@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-autoconfigure'
+    compile 'org.springframework.boot:spring-boot-configuration-processor'
+}
+
+test {
+    useJUnitPlatform()
+}
