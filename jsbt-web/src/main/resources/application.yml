@@ -42,3 +42,8 @@ xxl:
       port: 18887
       appName: admin-jobs
       logretentiondays: 30
+
+security:
+  oauth2:
+    ignoreUrls:
+      - /api/common/ms

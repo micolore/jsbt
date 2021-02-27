@@ -9,5 +9,7 @@ public class TestFormat {
     public static void main(String[] args) {
         String limitSql = String.format("limit %d", 5);
         System.out.println(limitSql);
+        String str = "Halo Boss ❤️ ~~";
+        System.out.println(str.contains("join"));
     }
 }

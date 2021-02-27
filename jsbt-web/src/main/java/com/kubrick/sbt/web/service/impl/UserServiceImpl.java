@@ -4,33 +4,46 @@ import com.kubrick.sbt.web.cache.RedisCache;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
  * @author k
  */
+@Slf4j
 @Service
+@Scope("threadLocalScope")
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserDao userDao;
+    @Autowired
+    private UserDao userDao;
 
-	/**
-	 * 保存用户
-	 */
-	@Override
-	public void saveUser(User user) {
-		userDao.insertUser(user);
-	}
+    /**
+     * 初始化化
+     */
+    @PostConstruct
+    public void init() {
+        log.info("UserServiceImpl init...");
+    }
 
-	@RedisCache(key = "'userid:' + #id +':'")
-	@Override
-	public List<User> list(int id) {
+    /**
+     * 保存用户
+     */
+    @Override
+    public void saveUser(User user) {
+        userDao.insertUser(user);
+    }
 
-		return userDao.list();
-	}
+    @RedisCache(key = "'userid:' + #id +':'")
+    @Override
+    public List<User> list(int id) {
+
+        return userDao.list();
+    }
 
 }

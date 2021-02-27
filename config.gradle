@@ -63,6 +63,8 @@ ext {
                     "hessian"                               : "com.caucho:hessian:4.0.63",
                     "protobuf-java"                         : "com.google.protobuf:protobuf-java:3.15.0",
                     "grpc-server-spring-boot-starter"       : 'net.devh:grpc-server-spring-boot-starter:2.11.0.RELEASE',
-                    "grpc-client-spring-boot-starter"       : 'net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE'
+                    "grpc-client-spring-boot-starter"       : 'net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE',
+                    "jakarta-xml-bind-api"                  : 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.0'
+
     ]
 }

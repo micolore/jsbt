@@ -31,7 +31,6 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 			AccessDeniedException accessDeniedException)
 			throws IOException, ServletException {
 		boolean isAjax = ControllerTools.isAjaxRequest(request);
-		System.out.println("CustomAccessDeniedHandler handle");
 		if (!response.isCommitted()) {
 			if (isAjax) {
 				String msg = accessDeniedException.getMessage();

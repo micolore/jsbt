@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class AntibrushInterceptor extends HandlerInterceptorAdapter {
 
-    @Autowired
+    //@Autowired
     //private RedisCache redisCache;
 
     @Override

@@ -50,3 +50,5 @@ lib/quasar.jar
 *.ipr
 *.iws
 # gradle end
+#js
+node_modules
