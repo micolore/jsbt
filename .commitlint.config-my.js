@@ -41,7 +41,9 @@ module.exports = {
                 'jvm',
                 'sql',
                 'revert',
-                'merge'
+                'merge',
+                'del',
+                'comment'
             ]
         ]
     }

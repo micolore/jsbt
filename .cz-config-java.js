@@ -6,6 +6,8 @@ module.exports = {
         {value: 'merge',    name: '合并:  代码合并'},
         {value: 'revert',   name: '回滚:  代码回退'},
         {value: 'forget',   name: '遗漏:  少提交代码'},
+        {value: 'del',      name: '删除:  删除不用代码'},
+        {value: 'comment',  name: '注释:  新增注释'},
         {value: 'feat',     name: '需求:  新功能'},
         {value: 'fix',      name: '修复:  修复bug'},
         {value: 'refactor', name: '重构:  重构代码'},
