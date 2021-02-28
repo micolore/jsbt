@@ -1,6 +1,8 @@
 package com.kubrick.sbt.web.dao;
 
 import com.kubrick.sbt.web.datascope.DataPermission;
+import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
+import com.kubrick.sbt.web.datasource.UsingDataSource;
 import com.kubrick.sbt.web.domain.entity.User;
 
 import java.util.List;
@@ -11,23 +13,26 @@ import java.util.List;
 @DataPermission(resources = "t_user")
 public interface UserDao {
 
-	/**
-	 * 根据用户名查找用户
-	 * @param username
-	 * @return
-	 */
-	User getUserByUsername(String username);
+    /**
+     * 根据用户名查找用户
+     *
+     * @param username
+     * @return
+     */
+    User getUserByUsername(String username);
 
-	/**
-	 * 新增用户
-	 * @param user
-	 */
-	void insertUser(User user);
+    /**
+     * 新增用户
+     *
+     * @param user
+     */
+    void insertUser(User user);
 
-	/**
-	 * list user
-	 * @return
-	 */
-	List<User> list();
+    /**
+     * list user
+     *
+     * @return
+     */
+    List<User> list();
 
 }
