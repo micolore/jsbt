@@ -7,6 +7,7 @@ import com.kubrick.sbt.web.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -39,6 +40,7 @@ public class UserServiceImpl implements UserService {
         userDao.insertUser(user);
     }
 
+    @Async
     @RedisCache(key = "'userid:' + #id +':'")
     @Override
     public List<User> list(int id) {

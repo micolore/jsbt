@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletRequest;
  * @author k
  * @version 1.0.0
  * @ClassName GlobalExceptionHandler
- * @description: TODO
+ * @description: 全局异常处理器
  * @date 2021/1/25 下午10:11
  */
-@ControllerAdvice
 @Slf4j
+@ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)

@@ -1,5 +1,6 @@
 package com.kubrick.sbt.web.api;
 
+import com.kubrick.sbt.web.service.UserService;
 import com.kubrick.sbt.web.spring.SpringApplicationContextUtils;
 import com.kubrick.sbt.web.spring.SpringFactoryUtils;
 import com.kubrick.sbt.web.spring.SpringApplicationContextAwareUtils;
@@ -30,9 +31,12 @@ public class CommonApi {
     @RequestMapping(value = "/ms", method = RequestMethod.GET)
     @ResponseBody
     public String ms() {
-        myService.getBean("userServiceImpl");
-        applicationContextAwareUtils.getBean("userServiceImpl");
-        springApplicationContextUtils.getBean("userServiceImpl");
+        UserService userServiceImpl1 = (UserService)myService.getBean("userServiceImpl");
+        userServiceImpl1.list(99);
+        UserService userServiceImpl2 = (UserService)applicationContextAwareUtils.getBean("userServiceImpl");
+        userServiceImpl2.list(101);
+        UserService userServiceImpl3 = (UserService)springApplicationContextUtils.getBean("userServiceImpl");
+        userServiceImpl3.list(102);
         return "ok";
     }
 
