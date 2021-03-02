@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author k
  * @version 1.0.0
- * @ClassName TestController
+ * @ClassName TestDataSourceController
  * @description: TODO
  * @date 2021/2/28 下午6:35
  */
 @RestController
 @RequestMapping(value = "/test")
 @Slf4j
-public class TestController {
+public class TestDataSourceController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
