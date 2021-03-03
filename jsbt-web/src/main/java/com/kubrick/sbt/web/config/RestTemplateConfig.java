@@ -13,7 +13,8 @@ import java.util.Collections;
  * @author k
  * @version 1.0.0
  * @ClassName RestTemplateConfiguration
- * @description: TODO
+ * @description:
+ * 1、RestTemplate
  * @date 2021/2/28 上午11:04
  */
 @Configuration

@@ -1,6 +1,7 @@
 package com.kubrick.sbt.web.datasource;
 
 
+import com.kubrick.sbt.web.annotation.AppDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.annotation.AnnotationAttributes;

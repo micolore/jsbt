@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.cache;
+package com.kubrick.sbt.web.annotation;
 
 import java.lang.annotation.*;
 

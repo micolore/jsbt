@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web;
 
-import com.kubrick.sbt.web.datasource.AppDataSource;
+import com.kubrick.sbt.web.annotation.AppDataSource;
 import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -13,8 +13,6 @@ import java.lang.reflect.Field;
 /**
  * @author k
  */
-//@EnableLog
-//@ForestScan(basePackages = "com.kubrick.sbt.web.api")
 @EnableAsync
 @SpringBootApplication
 @MapperScan("com.kubrick.sbt.web.dao")

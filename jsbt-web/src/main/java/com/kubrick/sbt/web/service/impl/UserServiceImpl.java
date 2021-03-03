@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.service.impl;
 
-import com.kubrick.sbt.web.cache.RedisCache;
+import com.kubrick.sbt.web.annotation.RedisCache;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;

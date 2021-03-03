@@ -31,11 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PermitAllUrlProperties permitAllUrlProperties;
 
-    @Autowired
-    private CustomAccessDeniedHandler customAccessDeniedHandler;
+    private final CustomAccessDeniedHandler customAccessDeniedHandler;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     /**
      * 静态资源设置 v1 add Knife4j static file and api v2 add actuator

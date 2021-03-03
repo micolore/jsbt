@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.interceptor.api;
+package com.kubrick.sbt.web.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

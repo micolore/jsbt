@@ -1,19 +1,10 @@
 package com.kubrick.sbt.web.datasource;
 
 
+import com.kubrick.sbt.web.annotation.UsingDataSource;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Method;
-import java.util.Arrays;
 
 /**
  * @author k
@@ -32,8 +23,8 @@ public class DataSourceAspect {
     }
 
 
-    @Pointcut("@within(com.kubrick.sbt.web.datasource.UsingDataSource) || " +
-            "@annotation(com.kubrick.sbt.web.datasource.UsingDataSource)")
+    @Pointcut("@within(com.kubrick.sbt.web.annotation.UsingDataSource) || " +
+            "@annotation(com.kubrick.sbt.web.annotation.UsingDataSource)")
     public void pointCut() {
 
     }

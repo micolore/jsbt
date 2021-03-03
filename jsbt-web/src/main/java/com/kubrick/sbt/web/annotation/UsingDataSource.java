@@ -1,4 +1,6 @@
-package com.kubrick.sbt.web.datasource;
+package com.kubrick.sbt.web.annotation;
+
+import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
 
 import java.lang.annotation.*;
 

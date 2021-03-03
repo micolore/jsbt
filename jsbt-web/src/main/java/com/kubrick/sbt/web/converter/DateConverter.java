@@ -4,10 +4,7 @@ package com.kubrick.sbt.web.converter;
 import com.kubrick.sbt.tools.date.DateTimeUtils;
 import org.springframework.core.convert.converter.Converter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * @author k

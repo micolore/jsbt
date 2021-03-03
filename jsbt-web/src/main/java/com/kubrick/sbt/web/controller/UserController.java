@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.OrganizationService;
 import com.kubrick.sbt.web.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,16 +20,15 @@ import java.util.List;
  * @description: TODO
  * @date 2020/12/13 上午10:35
  */
-@Controller
 @Slf4j
+@Controller
+@RequiredArgsConstructor
 @RequestMapping("user")
 public class UserController {
 
-	@Autowired
-	private UserService userService;
+	private final UserService userService;
 
-	@Autowired
-	private OrganizationService organizationService;
+	private final OrganizationService organizationService;
 
 	@GetMapping("/list")
 	@ResponseBody

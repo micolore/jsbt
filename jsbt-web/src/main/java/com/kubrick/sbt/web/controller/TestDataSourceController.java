@@ -1,9 +1,9 @@
 package com.kubrick.sbt.web.controller;
 
 import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
-import com.kubrick.sbt.web.datasource.UsingDataSource;
+import com.kubrick.sbt.web.annotation.UsingDataSource;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @description: TODO
  * @date 2021/2/28 下午6:35
  */
+@Slf4j
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/test")
-@Slf4j
 public class TestDataSourceController {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     @GetMapping(value = "/testDev")
     @UsingDataSource(type = SupportDatasourceEnum.DEV_DB)
@@ -39,7 +39,5 @@ public class TestDataSourceController {
     private void showData() {
         jdbcTemplate.queryForList("select * from user").forEach(row -> log.info(row.toString()));
     }
-
-
 }
 

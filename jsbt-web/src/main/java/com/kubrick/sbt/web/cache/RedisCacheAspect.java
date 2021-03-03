@@ -1,6 +1,7 @@
 package com.kubrick.sbt.web.cache;
 
 import com.alibaba.fastjson.JSON;
+import com.kubrick.sbt.web.annotation.RedisCache;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -34,7 +35,7 @@ public class RedisCacheAspect {
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
 
-	@Around("@annotation(com.kubrick.sbt.web.cache.RedisCache)")
+	@Around("@annotation(com.kubrick.sbt.web.annotation.RedisCache)")
 	public Object cacheInterceptor(ProceedingJoinPoint pjp) throws Throwable {
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
 		// 获取到目标方法

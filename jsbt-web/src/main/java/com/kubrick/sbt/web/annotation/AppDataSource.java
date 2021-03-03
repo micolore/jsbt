@@ -1,6 +1,8 @@
-package com.kubrick.sbt.web.datasource;
+package com.kubrick.sbt.web.annotation;
 
 
+import com.kubrick.sbt.web.datasource.DataSourceConfigRegister;
+import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
 import org.springframework.context.annotation.Import;
 import java.lang.annotation.*;
 
