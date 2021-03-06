@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web;
 
-import com.kubrick.sbt.web.annotation.AppDataSource;
+import com.kubrick.sbt.web.annotation.datasource.AppDataSource;
 import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -19,11 +19,11 @@ import java.lang.reflect.Field;
 @ComponentScan("com.kubrick.*")
 @MapperScan("com.kubrick.sbt.web.dao")
 @AppDataSource(datasourceType = {SupportDatasourceEnum.DEFAULT_DB, SupportDatasourceEnum.DEV_DB, SupportDatasourceEnum.PRE_DB, SupportDatasourceEnum.PROD_DB})
-public class WebApp {
+public class WebApplication {
 
     public static void main(String[] args) {
         disableWarning();
-        SpringApplication.run(WebApp.class, args);
+        SpringApplication.run(WebApplication.class, args);
     }
 
     public static void disableWarning() {

@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.annotation;
+package com.kubrick.sbt.web.annotation.log;
 
 import com.kubrick.sbt.web.config.LogFilterWebConfig;
 import org.springframework.context.annotation.Import;

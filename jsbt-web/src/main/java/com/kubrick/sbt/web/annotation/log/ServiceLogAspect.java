@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.annotation;
+package com.kubrick.sbt.web.annotation.log;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -35,7 +35,7 @@ public class ServiceLogAspect {
 
     private static final String dateFormat = "yyyy-MM-dd HH:mm:ss";
 
-    @Pointcut("@annotation(com.kubrick.sbt.web.annotation.ServiceLog)")
+    @Pointcut("@annotation(com.kubrick.sbt.web.annotation.log.ServiceLog)")
     public void logPointCut() {
     }
 

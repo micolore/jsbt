@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.annotation;
+package com.kubrick.sbt.web.annotation.datasource;
 
 import java.lang.annotation.*;
 

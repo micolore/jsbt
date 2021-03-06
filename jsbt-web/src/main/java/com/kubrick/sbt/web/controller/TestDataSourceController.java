@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.controller;
 
 import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
-import com.kubrick.sbt.web.annotation.UsingDataSource;
+import com.kubrick.sbt.web.annotation.datasource.UsingDataSource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;

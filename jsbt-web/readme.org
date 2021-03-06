@@ -1,0 +1,3 @@
+* jsbt-web
+  目标（admin-wen服务相关）
+**

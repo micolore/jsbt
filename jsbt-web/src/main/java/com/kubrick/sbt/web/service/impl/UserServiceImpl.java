@@ -1,13 +1,12 @@
 package com.kubrick.sbt.web.service.impl;
 
-import com.kubrick.sbt.web.annotation.RedisCache;
-import com.kubrick.sbt.web.annotation.ServiceLog;
+import com.kubrick.sbt.web.annotation.redis.RedisCache;
+import com.kubrick.sbt.web.annotation.log.ServiceLog;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,8 @@
-package com.kubrick.sbt.web.datasource;
+package com.kubrick.sbt.web.annotation.datasource;
 
 
-import com.kubrick.sbt.web.annotation.UsingDataSource;
+import com.kubrick.sbt.web.annotation.datasource.UsingDataSource;
+import com.kubrick.sbt.web.datasource.DataSourceContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.*;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +24,8 @@ public class DataSourceAspect {
     }
 
 
-    @Pointcut("@within(com.kubrick.sbt.web.annotation.UsingDataSource) || " +
-            "@annotation(com.kubrick.sbt.web.annotation.UsingDataSource)")
+    @Pointcut("@within(com.kubrick.sbt.web.annotation.datasource.UsingDataSource) || " +
+            "@annotation(com.kubrick.sbt.web.annotation.datasource.UsingDataSource)")
     public void pointCut() {
 
     }
