@@ -44,6 +44,7 @@ dependencies {
 
     compile project(":jsbt-xxl-job")
     compile project(":jsbt-tools")
+    compile project(":jsbt-log")
 
     implementation rootProject.ext.dependencies["junit"]
     testImplementation rootProject.ext.dependencies["spring-boot-starter-test"]

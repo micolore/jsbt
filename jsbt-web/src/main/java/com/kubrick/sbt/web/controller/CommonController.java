@@ -1,6 +1,5 @@
 package com.kubrick.sbt.web.controller;
 
-import com.kubrick.sbt.web.annotation.MyLog;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,6 @@ public class CommonController {
 
     private final UserService userService;
 
-    @MyLog
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
     public String hello() {

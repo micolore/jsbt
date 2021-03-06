@@ -7,7 +7,6 @@ import com.kubrick.sbt.web.spring.SpringApplicationContextAwareUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,8 +29,7 @@ public class CommonApi {
      *
      * @return
      */
-    @RequestMapping(value = "/test_spring_context", method = RequestMethod.GET)
-    @ResponseBody
+    @RequestMapping(value = "/ms", method = RequestMethod.GET)
     public String ms() {
         UserService userServiceImpl1 = (UserService) myService.getBean("userServiceImpl");
         userServiceImpl1.list(99);

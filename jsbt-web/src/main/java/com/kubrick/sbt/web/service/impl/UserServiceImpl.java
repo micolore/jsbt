@@ -1,9 +1,11 @@
 package com.kubrick.sbt.web.service.impl;
 
 import com.kubrick.sbt.web.annotation.RedisCache;
+import com.kubrick.sbt.web.annotation.ServiceLog;
 import com.kubrick.sbt.web.dao.UserDao;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -17,12 +19,12 @@ import java.util.List;
  * @author k
  */
 @Slf4j
-@Service
+@RequiredArgsConstructor
 @Scope("threadLocalScope")
+@Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
 
     /**
      * 初始化化
@@ -41,6 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Async
+    @ServiceLog(value = "查询用户")
     @RedisCache(key = "'userid:' + #id +':'")
     @Override
     public List<User> list(int id) {

@@ -1,4 +1,4 @@
-package com.kubrick.sbt.gen;
+package com.kubrick.sbt.gen.mybatis;
 
 import java.sql.SQLException;
 import java.util.*;

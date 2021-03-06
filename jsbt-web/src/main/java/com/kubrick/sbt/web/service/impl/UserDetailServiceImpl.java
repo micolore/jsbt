@@ -9,8 +9,8 @@ import com.kubrick.sbt.web.domain.entity.Menu;
 import com.kubrick.sbt.web.domain.entity.Role;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.service.OrganizationService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,20 +23,14 @@ import org.springframework.stereotype.Service;
  * @author k
  */
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 
-	@Autowired
-	private UserDao userDao;
-
-	@Autowired
-	private RoleDao roleDao;
-
-	@Autowired
-	private MenuDao menuDao;
-
-	@Autowired
-	private OrganizationService organizationService;
+	private final UserDao userDao;
+	private final RoleDao roleDao;
+	private final MenuDao menuDao;
+	private final OrganizationService organizationService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username)

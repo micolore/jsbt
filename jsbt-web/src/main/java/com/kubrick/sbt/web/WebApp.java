@@ -5,6 +5,7 @@ import com.kubrick.sbt.web.datasource.SupportDatasourceEnum;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import sun.misc.Unsafe;
 
@@ -15,6 +16,7 @@ import java.lang.reflect.Field;
  */
 @EnableAsync
 @SpringBootApplication
+@ComponentScan("com.kubrick.*")
 @MapperScan("com.kubrick.sbt.web.dao")
 @AppDataSource(datasourceType = {SupportDatasourceEnum.DEFAULT_DB, SupportDatasourceEnum.DEV_DB, SupportDatasourceEnum.PRE_DB, SupportDatasourceEnum.PROD_DB})
 public class WebApp {
