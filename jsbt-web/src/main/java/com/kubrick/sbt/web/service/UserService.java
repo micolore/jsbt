@@ -15,6 +15,6 @@ public interface UserService {
 	 */
 	void saveUser(User user);
 
-	List<User> list(int id);
+	List<User> queryAll(int id);
 
 }

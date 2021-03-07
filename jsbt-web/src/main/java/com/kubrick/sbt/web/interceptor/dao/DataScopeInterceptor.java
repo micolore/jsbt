@@ -1,6 +1,6 @@
-package com.kubrick.sbt.web.interceptor;
+package com.kubrick.sbt.web.interceptor.dao;
 
-import com.kubrick.sbt.web.annotation.datasource.DataPermission;
+import com.kubrick.sbt.web.annotation.datascope.DataPermission;
 import com.kubrick.sbt.web.datascope.*;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.auth.utils.SecurityUtils;

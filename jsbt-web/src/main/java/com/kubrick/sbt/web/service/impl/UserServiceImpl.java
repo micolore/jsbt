@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     @ServiceLog(value = "查询用户")
     @RedisCache(key = "'userid:' + #id +':'")
     @Override
-    public List<User> list(int id) {
+    public List<User> queryAll(int id) {
 
         return userDao.list();
     }

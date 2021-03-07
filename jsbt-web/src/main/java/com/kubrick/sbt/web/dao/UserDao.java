@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.dao;
 
-import com.kubrick.sbt.web.annotation.datasource.DataPermission;
+import com.kubrick.sbt.web.annotation.datascope.DataPermission;
 import com.kubrick.sbt.web.domain.entity.User;
 
 import java.util.List;

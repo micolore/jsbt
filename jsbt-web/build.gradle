@@ -42,6 +42,8 @@ dependencies {
     implementation rootProject.ext.dependencies["mysql-connector-java"]
 
 
+
+
     compile project(":jsbt-xxl-job")
     compile project(":jsbt-tools")
     compile project(":jsbt-log")

@@ -33,7 +33,7 @@ public class UserController {
 	@GetMapping("/list")
 	@ResponseBody
 	public JSONObject toHome() {
-		List<User> list = userService.list(12);
+		List<User> list = userService.queryAll(12);
 		log.info("user size:{}", list.size());
 		List<Long> organizationList = organizationService.list(1);
 		log.info("organizationList:{}", organizationList);
