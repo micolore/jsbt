@@ -1,4 +1,4 @@
-package com.kubrick.sbt.cache.config;
+package com.kubrick.sbt.cache.redisson.config;
 
 import lombok.Data;
 import lombok.ToString;

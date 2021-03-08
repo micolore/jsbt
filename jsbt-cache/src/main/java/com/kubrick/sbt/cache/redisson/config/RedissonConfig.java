@@ -1,4 +1,4 @@
-package com.kubrick.sbt.cache.config;
+package com.kubrick.sbt.cache.redisson.config;
 
 import lombok.Data;
 import lombok.ToString;
@@ -11,9 +11,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @description: TODO
  * @date 2020/12/29 上午12:49
  */
-@ConfigurationProperties(prefix = "spring.redis", ignoreUnknownFields = false)
 @Data
 @ToString
+@ConfigurationProperties(prefix = "spring.redis", ignoreUnknownFields = false)
 public class RedissonConfig {
 
 	private int database;

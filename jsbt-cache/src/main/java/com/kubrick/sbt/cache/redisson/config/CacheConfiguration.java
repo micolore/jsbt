@@ -1,4 +1,4 @@
-package com.kubrick.sbt.cache.config;
+package com.kubrick.sbt.cache.redisson.config;
 
 import io.micrometer.core.instrument.util.StringUtils;
 import org.redisson.Redisson;
@@ -46,6 +46,7 @@ public class CacheConfiguration {
 		@ConditionalOnProperty(name = "spring.redis.mode", havingValue = "single")
 		RedissonClient redissonSingle() throws Exception {
 			Config config = new Config();
+			//config.setTransportMode(TransportMode.NIO);
 			Codec codec = (Codec) ClassUtils
 					.forName(CODEC, ClassUtils.getDefaultClassLoader()).newInstance();
 			config.setCodec(codec);

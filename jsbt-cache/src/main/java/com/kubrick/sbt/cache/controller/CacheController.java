@@ -1,9 +1,8 @@
 package com.kubrick.sbt.cache.controller;
 
 import com.kubrick.sbt.cache.service.CacheService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,15 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping
 @RestController
+@RequiredArgsConstructor
 public class CacheController {
 
-	@Autowired
-	private CacheService cacheService;
+    private final CacheService cacheService;
 
-	@GetMapping("/cache")
-	public String test() {
-		cacheService.testRedisson();
-		return "Hello cache!";
-	}
+    @GetMapping("/cache")
+    public String test() {
+        cacheService.testRedisson();
+        return "Hello cache!";
+    }
 
 }

@@ -1,9 +1,9 @@
 package com.kubrick.sbt.cache.service.impl;
 
 import com.kubrick.sbt.cache.service.CacheService;
+import lombok.RequiredArgsConstructor;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +14,10 @@ import org.springframework.stereotype.Service;
  * @date 2020/12/29 上午1:02
  */
 @Service
+@RequiredArgsConstructor
 public class CacheServiceImpl implements CacheService {
 
-	@Autowired
-	private RedissonClient redissonClient;
+	private final RedissonClient redissonClient;
 
 	@Override
 	public void testRedisson() {

@@ -13,6 +13,7 @@ dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-autoconfigure"]
     implementation rootProject.ext.dependencies["redisson-spring-boot-starter"]
+
     implementation rootProject.ext.dependencies["redisson"]
     implementation rootProject.ext.dependencies["logback-classic"]
     compile rootProject.ext.dependencies["mysql-connector-java"]
