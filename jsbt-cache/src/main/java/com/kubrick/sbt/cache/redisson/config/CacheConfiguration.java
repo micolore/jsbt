@@ -1,6 +1,7 @@
 package com.kubrick.sbt.cache.redisson.config;
 
 import io.micrometer.core.instrument.util.StringUtils;
+import lombok.RequiredArgsConstructor;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.client.codec.Codec;
@@ -27,12 +28,12 @@ import java.util.List;
  */
 @EnableConfigurationProperties(RedissonConfig.class)
 @Configuration
+@RequiredArgsConstructor
 public class CacheConfiguration {
 
 	private final String CODEC = "org.redisson.codec.JsonJacksonCodec";
 
-	@Autowired
-	RedissonConfig redisProperties;
+	final RedissonConfig redisProperties;
 
 	@Configuration
 	@ConditionalOnClass({ Redisson.class })

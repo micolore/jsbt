@@ -3,3 +3,7 @@
 ** redis
 ** Memcached
 ** local
+*** modules
+**** manager web for cache info
+**** statistics cache key
+     分析redis rdb 生成的csv文件（sqlite）

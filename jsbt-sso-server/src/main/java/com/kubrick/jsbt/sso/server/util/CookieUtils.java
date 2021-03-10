@@ -26,7 +26,7 @@ public class CookieUtils {
      */
     public static String getCookie(HttpServletRequest request, String name) {
         Cookie[] cookies = request.getCookies();
-        if (cookies == null || StringUtils.isEmpty(name)) {
+        if (cookies == null || !StringUtils.hasText(name)) {
             return null;
         }
 
@@ -64,9 +64,9 @@ public class CookieUtils {
     /**
      * 清除cookie
      *
-     * @param request
+     * @param name
      * @param response
-     * @param string
+     * @param path
      */
     public static void removeCookie(String name, String path, HttpServletResponse response) {
 
