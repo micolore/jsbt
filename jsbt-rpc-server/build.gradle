@@ -15,8 +15,13 @@ repositories {
 
 dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
+    implementation rootProject.ext.dependencies["spring-boot-starter"]
     implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
     implementation rootProject.ext.dependencies["grpc-server-spring-boot-starter"]
+    implementation rootProject.ext.dependencies["spring-security-core"]
+    implementation rootProject.ext.dependencies["spring-security-config"]
+    implementation rootProject.ext.dependencies["spring-security-web"]
+    implementation rootProject.ext.dependencies["spring-boot-starter-security"]
     implementation 'io.grpc:grpc-netty:1.35.0'
     implementation 'io.grpc:grpc-protobuf:1.35.0'
     implementation 'io.grpc:grpc-stub:1.35.0'

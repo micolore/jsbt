@@ -5,6 +5,7 @@ import com.kubrick.jsbt.rpc.grpc.server.lib.GreeterOuterClass;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.springframework.security.access.annotation.Secured;
 
 /**
  * @author k
@@ -23,6 +24,7 @@ public class GreeterService extends GreeterGrpc.GreeterImplBase {
      * @param request
      * @param responseObserver
      */
+    @Secured("ROLE_GREET")
     @Override
     public void sayHello(GreeterOuterClass.HelloRequest request, StreamObserver<GreeterOuterClass.HelloReply> responseObserver) {
         String message = "Hello " + request.getName();

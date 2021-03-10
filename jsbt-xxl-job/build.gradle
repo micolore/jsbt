@@ -16,5 +16,5 @@ dependencies {
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
     testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
     implementation rootProject.ext.dependencies["xxl-job-core"]
-    implementation rootProject.ext.dependencies["spring-boot"]
+    implementation rootProject.ext.dependencies["spring-boot-starter"]
 }

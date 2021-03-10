@@ -11,3 +11,4 @@ grpc:
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
+auth.username: kubrick
