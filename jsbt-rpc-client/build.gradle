@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    //id 'com.google.protobuf' version '0.8.15'
+    id 'com.google.protobuf' version '0.8.15'
     id 'idea'
 }
 apply plugin: 'java'
@@ -26,35 +26,35 @@ dependencies {
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
     testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
 }
-// build protobuf (basic java &rpc java)
-//apply plugin: 'com.google.protobuf'
-//
-//clean {
-//    delete protobuf.generatedFilesBaseDir
-//}
-//protobuf {
-//    protoc {
-//        artifact = "com.google.protobuf:protoc:3.2.0"
-//    }
-//    plugins {
-//        grpc {
-//            artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
-//        }
-//    }
-//    generateProtoTasks {
-//        all()*.plugins {
-//            grpc {}
-//        }
-//    }
-//    generatedFilesBaseDir = "$projectDir/gen"
-//}
-//
-//sourceSets {
-//    main {
-//        java {
-//            srcDirs 'build/generated/source/proto/main/grpc'
-//            srcDirs 'build/generated/source/proto/main/java'
-//        }
-//    }
-//}
-//
+//build protobuf (basic java &rpc java)
+apply plugin: 'com.google.protobuf'
+
+clean {
+    delete protobuf.generatedFilesBaseDir
+}
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.2.0"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/gen"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'build/generated/source/proto/main/grpc'
+            srcDirs 'build/generated/source/proto/main/java'
+        }
+    }
+}
+

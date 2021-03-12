@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kubrick'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["netty-tcnative-boringssl-static"]
+    implementation rootProject.ext.dependencies["grpc-netty"]
+    implementation rootProject.ext.dependencies["grpc-protobuf"]
+    implementation rootProject.ext.dependencies["grpc-stub"]
+    implementation rootProject.ext.dependencies["grpc-services"]
+    implementation rootProject.ext.dependencies["netty-all"]
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -37,4 +37,5 @@ include 'jsbt-rpc-core'
 include 'jsbt-rpc-client'
 include 'jsbt-rpc-server'
 include 'jsbt-starter'
+include 'jsbt-rpc-tls'
 

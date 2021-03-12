@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "com.kubrick.jsbt.rpc.lib";
+option java_package = "com.kubrick.jsbt.rpc.tls.proto";
 
 // The greeter service definition.
 service Greeter {

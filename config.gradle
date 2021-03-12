@@ -2,7 +2,7 @@ ext {
     springBootVersion = "2.4.0"
     dependencies = [
             //springboot starter
-            "spring-boot-starter"                           : "org.springframework.boot:spring-boot:$springBootVersion",
+            "spring-boot-starter"                   : "org.springframework.boot:spring-boot:$springBootVersion",
             "spring-boot-starter-web"               : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             "spring-boot-starter-aop"               : "org.springframework.boot:spring-boot-starter-aop:$springBootVersion",
             "spring-boot-starter-data-redis"        : "org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion",
@@ -26,7 +26,7 @@ ext {
             // spring security
             "spring-security-oauth2"                : "org.springframework.security.oauth:spring-security-oauth2:2.5.0.RELEASE",
             "spring-security-web"                   : "org.springframework.security:spring-security-web:5.4.1",
-            "spring-security-core"                   : "org.springframework.security:spring-security-web:5.4.1",
+            "spring-security-core"                  : "org.springframework.security:spring-security-web:5.4.1",
             "spring-security-config"                : "org.springframework.security:spring-security-core:5.4.1",
             "spring-security-test"                  : "org.springframework.security:spring-security-test:5.3.2.RELEASE",
 
@@ -117,6 +117,15 @@ ext {
             "hessian"                               : "com.caucho:hessian:4.0.63",
             "grpc-server-spring-boot-starter"       : 'net.devh:grpc-server-spring-boot-starter:2.11.0.RELEASE',
             "grpc-client-spring-boot-starter"       : 'net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE',
+            "grpc-netty"                            : 'io.grpc:grpc-netty:1.11.0',
+            "grpc-protobuf"                         : 'io.grpc:grpc-protobuf:1.11.0',
+            "grpc-stub"                             : 'io.grpc:grpc-stub:1.11.0',
+            "grpc-services"                         : 'io.grpc:grpc-services:1.11.0',
+
+            // netty
+            "netty-all"                             : 'io.netty:netty-all:4.1.59.Final',
+            "netty-tcnative-boringssl-static"       : 'io.netty:netty-tcnative-boringssl-static:2.0.35.Final',
+
 
     ]
 }

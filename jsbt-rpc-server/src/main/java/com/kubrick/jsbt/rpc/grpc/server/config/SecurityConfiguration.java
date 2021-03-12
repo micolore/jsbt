@@ -29,7 +29,8 @@ import java.util.List;
  * @author k
  * @version 1.0.0
  * @ClassName SecurityConfiguration
- * @description: TODO
+ * @description:
+ * 1、rest api 与rpc 的访问怎么进行判断其执行优先级？
  * @date 2021/3/10 下午8:25
  */
 @Slf4j
