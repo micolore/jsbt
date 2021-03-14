@@ -126,6 +126,8 @@ ext {
             "netty-all"                             : 'io.netty:netty-all:4.1.59.Final',
             "netty-tcnative-boringssl-static"       : 'io.netty:netty-tcnative-boringssl-static:2.0.35.Final',
 
+            //bytecode
+            "cglib"                                 : "cglib:cglib:3.3.0"
 
     ]
 }
