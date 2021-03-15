@@ -39,4 +39,5 @@ include 'jsbt-rpc-server'
 include 'jsbt-starter'
 include 'jsbt-rpc-tls'
 include 'jsbt-basis'
+include 'jsbt-spring'
 
