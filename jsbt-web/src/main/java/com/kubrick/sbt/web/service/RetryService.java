@@ -24,4 +24,7 @@ public interface RetryService {
 
     @Recover
     void recoverRetryHttp(ArithmeticException exception);
+
+    Boolean guavaRetry() throws Exception;
+
 }

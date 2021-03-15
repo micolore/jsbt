@@ -24,8 +24,11 @@ public class CommonApi {
      * @return
      */
     @RequestMapping(value = "/ms", method = RequestMethod.GET)
-    public String ms() {
+    public String ms() throws Exception {
         retryService.retryHttp();
+
+        retryService.guavaRetry();
+
 
         return "ok";
     }

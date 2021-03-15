@@ -33,6 +33,7 @@ dependencies {
     implementation rootProject.ext.dependencies["jsqlparser"]
     implementation rootProject.ext.dependencies["disruptor"]
     implementation rootProject.ext.dependencies["guava"]
+    implementation rootProject.ext.dependencies["guava-retrying"]
     implementation rootProject.ext.dependencies["knife4j-spring-boot-starter"]
     implementation rootProject.ext.dependencies["forest-core"]
     implementation rootProject.ext.dependencies["jakarta-xml-bind-api"]

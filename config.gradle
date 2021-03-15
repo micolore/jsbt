@@ -73,8 +73,11 @@ ext {
 
             // tools
             "hutool-all"                            : "cn.hutool:hutool-all:5.5.0",
-            "guava"                                 : "com.google.guava:guava:22.0",
             "UserAgentUtils"                        : "eu.bitwalker:UserAgentUtils:1.21",
+
+            // guava
+            "guava"                                 : "com.google.guava:guava:22.0",
+            "guava-retrying"                        : "com.github.rholder:guava-retrying:2.0.0",
 
             // dev
             "org.projectlombok"                     : "org.projectlombok:lombok:1.18.4",
