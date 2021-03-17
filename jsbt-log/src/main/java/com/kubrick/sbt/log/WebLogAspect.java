@@ -13,11 +13,14 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -101,7 +104,7 @@ public class WebLogAspect {
         Object result = point.proceed();
         String header = request.getHeader("User-Agent");
         UserAgent userAgent = UserAgent.parseUserAgentString(header);
-        String reqParam = preHandle(point,request);
+        String reqParam = preHandle(point, request);
 
         final WebLog l = WebLog.builder().threadId(Long.toString(Thread.currentThread().getId()))
                 .threadName(Thread.currentThread().getName()).ip(getIp(request)).url(request.getRequestURL().toString())
@@ -137,19 +140,26 @@ public class WebLogAspect {
             return Collections.emptyMap();
         }
         Map<String, Object> map = Maps.newHashMap();
+        // 注意要过滤掉指定类型对象，防止堆溢出
         for (int i = 0; i < names.length; i++) {
+            Object arg = args[i];
+            if (arg instanceof BindingResult
+                    || arg instanceof HttpServletRequest
+                    || arg instanceof HttpServletResponse
+                    || arg instanceof MultipartFile) {
+                continue;
+            }
             map.put(names[i], args[i]);
         }
         return map;
     }
 
     /**
-     *
      * @param joinPoint
      * @param request
      * @return
      */
-    private String preHandle(ProceedingJoinPoint joinPoint,HttpServletRequest request) {
+    private String preHandle(ProceedingJoinPoint joinPoint, HttpServletRequest request) {
 
         String reqParam = "";
         Signature signature = joinPoint.getSignature();

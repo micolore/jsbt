@@ -16,11 +16,10 @@ dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-logging"]
     implementation rootProject.ext.dependencies["grpc-client-spring-boot-starter"]
-    implementation 'io.grpc:grpc-netty:1.35.0'
-    implementation 'io.grpc:grpc-protobuf:1.35.0'
-    implementation 'io.grpc:grpc-stub:1.35.0'
-    implementation 'io.grpc:grpc-services:1.35.0'
-    implementation 'junit:junit:4.12'
+    implementation rootProject.ext.dependencies["grpc-netty"]
+    implementation rootProject.ext.dependencies["grpc-protobuf"]
+    implementation rootProject.ext.dependencies["grpc-stub"]
+    implementation rootProject.ext.dependencies["grpc-services"]
     compileOnly rootProject.ext.dependencies["org.projectlombok"]
     annotationProcessor rootProject.ext.dependencies["org.projectlombok"]
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]
