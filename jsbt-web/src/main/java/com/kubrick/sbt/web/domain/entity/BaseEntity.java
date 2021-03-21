@@ -13,20 +13,22 @@ import java.time.LocalDateTime;
 @ToString
 public abstract class BaseEntity implements Serializable {
 
-	private static final long serialVersionUID = 4034437877924885763L;
+    private static final long serialVersionUID = 4034437877924885763L;
 
-	protected Long id;
+    protected Long id;
 
-	protected Integer status;
+    protected Integer status;
 
-	protected LocalDateTime createAt;
+    protected LocalDateTime createAt;
 
-	protected LocalDateTime updateAt;
+    protected LocalDateTime updateAt;
 
-	protected Long createBy;
+    protected Long createBy;
 
-	protected Long updateBy;
+    protected Long updateBy;
 
-	protected Boolean deleted = false;
+    protected Long deleteBy;
+
+    protected LocalDateTime deleteAt;
 
 }

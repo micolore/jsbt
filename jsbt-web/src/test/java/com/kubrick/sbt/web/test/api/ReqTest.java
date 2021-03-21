@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.test.api;
 
-import com.kubrick.sbt.web.utils.ReqDedupHelper;
+import com.kubrick.sbt.web.common.utils.ReqDedupHelper;
 import org.junit.Test;
 
 /**

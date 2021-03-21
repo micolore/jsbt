@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.config;
 
-import com.kubrick.sbt.web.converter.DateConverter;
-import com.kubrick.sbt.web.interceptor.mvc.MyAuthInterceptor;
+import com.kubrick.sbt.web.common.converter.DateConverter;
+import com.kubrick.sbt.web.common.interceptor.mvc.MyAuthInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

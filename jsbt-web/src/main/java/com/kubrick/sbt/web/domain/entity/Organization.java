@@ -14,7 +14,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
-@TableName("t_organization")
+@TableName("sys_organization")
 @EqualsAndHashCode(callSuper = true)
 public class Organization extends BaseEntity {
 

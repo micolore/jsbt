@@ -11,7 +11,7 @@ import lombok.ToString;
 @Data
 @ToString
 @EqualsAndHashCode(callSuper = true)
-@TableName("t_menu")
+@TableName("sys_menu")
 public class Menu extends BaseEntity {
 
 	private static final long serialVersionUID = 4245833784962015367L;

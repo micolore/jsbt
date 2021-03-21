@@ -14,7 +14,7 @@
 
     <select id="list" resultType="com.kubrick.sbt.web.domain.entity.Organization">
         select *
-        from t_organization
+        from sys_organization
     </select>
 </mapper>
 

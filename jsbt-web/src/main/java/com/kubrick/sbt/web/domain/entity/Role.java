@@ -10,7 +10,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
-@TableName("t_role")
+@TableName("sys_role")
 @EqualsAndHashCode(callSuper = true)
 public class Role extends BaseEntity {
 

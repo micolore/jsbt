@@ -1,7 +1,7 @@
 package com.kubrick.sbt.web.service.impl;
 
-import com.kubrick.sbt.web.annotation.log.ServiceLog;
-import com.kubrick.sbt.web.annotation.redis.RedisCache;
+import com.kubrick.sbt.web.common.annotation.log.ServiceLog;
+import com.kubrick.sbt.web.common.annotation.redis.RedisCache;
 import com.kubrick.sbt.web.domain.entity.User;
 import com.kubrick.sbt.web.mapper.UserMapper;
 import com.kubrick.sbt.web.service.UserService;

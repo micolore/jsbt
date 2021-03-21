@@ -13,11 +13,14 @@
     </resultMap>
     <!-- 根据角色获取菜单列表 -->
     <select id="getRoleMenuByRoles" resultMap="menu">
-        select * from t_menu m,t_role_menus rm where m.deleted=0 and m.id=rm.menu_id
-        and rm.role_id in
-        <foreach collection="roles" item="role" open="(" separator="," close=")">
-            #{role.id}
-        </foreach>
+        select * from sys_menu m,sys_role_menus rm where m.delete_by=0 and m.id=rm.menu_id
+
+        <if test="roles !=null and roles.size()>0 ">
+            and rm.role_id in
+            <foreach collection="roles" item="role" open="(" separator="," close=")">
+                #{role.id}
+            </foreach>
+        </if>
 
     </select>
 </mapper>

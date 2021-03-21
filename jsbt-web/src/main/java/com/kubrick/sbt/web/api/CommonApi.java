@@ -1,7 +1,5 @@
 package com.kubrick.sbt.web.api;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kubrick.sbt.web.domain.NewUser;
 import com.kubrick.sbt.web.domain.entity.Menu;
 import com.kubrick.sbt.web.mapper.MenuMapper;
 import com.kubrick.sbt.web.service.RetryService;
@@ -9,9 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author k
@@ -39,25 +34,7 @@ public class CommonApi {
         Menu menu = menuMapper.selectById(1);
         System.out.println("menu" + menu.toString());
 
-
         return "ok";
     }
 
-    @RequestMapping(value = "/hello_react", method = RequestMethod.GET)
-    public String helloReact() throws Exception {
-
-        List<NewUser> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            NewUser user = new NewUser();
-            user.setName("kubrick");
-            user.setEmail("xiaomin@sina.com");
-            user.setPhone("20");
-            user.setUsername("s" + i);
-            list.add(user);
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonString = mapper.writeValueAsString(list);
-
-        return jsonString;
-    }
 }

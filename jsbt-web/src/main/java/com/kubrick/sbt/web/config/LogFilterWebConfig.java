@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.config;
 
-import com.kubrick.sbt.web.filter.LogFilter;
+import com.kubrick.sbt.web.common.filter.LogFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 

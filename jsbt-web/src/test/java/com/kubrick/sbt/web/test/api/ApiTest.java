@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -79,5 +81,20 @@ public class ApiTest {
     ResponseEntity<JSONObject> exchange =
         restTemplate.exchange(url, HttpMethod.GET, entity, JSONObject.class);
     System.out.println(exchange.getBody());
+  }
+
+  /**
+   * 加密
+   */
+  @Test
+  public void encrypt() {
+    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    for (int i = 0; i < 1; ++i) {
+      // 每次生成的密码都不一样
+      String encryptedPassword = passwordEncoder.encode("123456");
+      System.out.println(encryptedPassword);
+      System.out.println(passwordEncoder.matches("Passw0rd", encryptedPassword)); // true
+      System.out.println(passwordEncoder.matches("Password", encryptedPassword)); // false
+    }
   }
 }

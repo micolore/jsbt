@@ -1,19 +1,19 @@
 package com.kubrick.sbt.web.config;
 
 import cn.hutool.core.util.ArrayUtil;
-import com.kubrick.sbt.web.auth.handler.CustomAccessDeniedHandler;
-import com.kubrick.sbt.web.interceptor.PermitAllUrlProperties;
+import com.kubrick.sbt.web.common.auth.handler.*;
+import com.kubrick.sbt.web.common.interceptor.PermitAllUrlProperties;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -24,15 +24,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * 方法级安全注解 @EnableGlobalMethodSecurity
  */
 @Configurable
-@EnableWebSecurity
 @RequiredArgsConstructor
+@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PermitAllUrlProperties permitAllUrlProperties;
-
     private final CustomAccessDeniedHandler customAccessDeniedHandler;
-
+    private final CustomSuccessHandler customSuccessHandler;
+    private final CustomLogoutSuccessHandler customLogoutSuccessHandler;
+    private final CustomFailureHandler customFailureHandler;
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final UserDetailsService userDetailsService;
 
     /**
@@ -44,8 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         webSecurity.ignoring().antMatchers("/", "/css/**", "/js/**", "/images/**",
                 "/layui/**", "/v2/api-docs", "/doc.html", "/webjars/**",
                 "/swagger-resources/**", "/actuator/**");
-
-
     }
 
     /**
@@ -54,61 +54,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
-        /*
-         * 解决 in a frame because it set 'X-Frame-Options' to 'DENY' 问题
-         */
-        http.headers().frameOptions().disable();
-        /*
-         * 注释就是使用 csrf 功能
-         */
-        // http.csrf().disable();
-        http.headers().contentTypeOptions().disable();
-
-        // http.anonymous().disable();
-        http.authorizeRequests()
-                /**
-                 * 不拦截登录相关方法
-                 */
-                .antMatchers(ArrayUtil.toArray(permitAllUrlProperties.getIgnoreUrls(), String.class)).permitAll()
-                // .antMatchers("/user").hasRole("ADMIN") // user接口只有ADMIN角色的可以访问
-                // .anyRequest()
-                // .authenticated()// 任何尚未匹配的URL只需要验证用户即可访问
-                .anyRequest()
-                /**
-                 * 根据账号权限访问
-                 */
-                .access("@rbacPermission.hasPermission(request, authentication)").and()
-                .formLogin().loginPage("/")
-                /**
-                 * 登录请求页
-                 */
-                .loginPage("/login")
-                /**
-                 * 登录POST请求路径
-                 */
-                .loginProcessingUrl("/login")
-                /**
-                 * 用户名
-                 */
-                .usernameParameter("username")
-                /**
-                 * 登录密码参数
-                 */
-                .passwordParameter("password")
-                /**
-                 * 默认登录成功页面
-                 */
-                .defaultSuccessUrl("/main").and().exceptionHandling()
-                /**
-                 * 无权限处理器
-                 */
-                .accessDeniedHandler(customAccessDeniedHandler).and().logout()
-                /**
-                 * 退出登录成功URL
-                 */
-                .logoutSuccessUrl("/login?logout");
-
+        http
+                .authenticationProvider(authenticationProvider())
+                .httpBasic()
+                //未登录
+                .authenticationEntryPoint(customAuthenticationEntryPoint)
+                .and()
+                .authorizeRequests()
+                //.antMatchers(ArrayUtil.toArray(permitAllUrlProperties.getIgnoreUrls(), String.class)).permitAll()
+                .anyRequest().authenticated() //必须授权才能范围
+                .and()
+                .formLogin() //使用自带的登录
+                .permitAll()
+                //登录失败
+                .failureHandler(customFailureHandler)
+                //登录成功
+                .successHandler(customSuccessHandler)
+                .and()
+                .exceptionHandling()
+                //没有权限
+                .accessDeniedHandler(customAccessDeniedHandler)
+                .and()
+                .logout()
+                //退出成功
+                .logoutSuccessHandler(customLogoutSuccessHandler)
+                .permitAll();
+        //开启跨域访问
+        http.cors().disable();
+        //开启模拟请求，比如API POST测试工具的测试，不开启时，API POST为报403错误
+        http.csrf().disable();
     }
+
 
     /**
      * 自定义获取用户信息接口
@@ -127,6 +103,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
 
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
     }
 
 }

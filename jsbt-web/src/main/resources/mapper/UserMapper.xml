@@ -13,19 +13,19 @@
 
     <select id="getUserByUsername" resultMap="user">
         select *
-        from t_user
+        from sys_user
         where username = #{username}
     </select>
 
     <insert id="insertUser" parameterType="com.kubrick.sbt.web.domain.entity.User" keyProperty="id" useGeneratedKeys="true">
-        insert into t_user (username, password, create_by)
+        insert into sys_user (username, password, create_by)
         values (#{username}, #{password}, #{createBy})
     </insert>
 
     <select id="list" resultType="com.kubrick.sbt.web.domain.entity.User">
 
         select *
-        from t_user
+        from sys_user
 
     </select>
 </mapper>

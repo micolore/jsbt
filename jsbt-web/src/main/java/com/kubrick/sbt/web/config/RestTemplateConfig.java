@@ -1,6 +1,6 @@
 package com.kubrick.sbt.web.config;
 
-import com.kubrick.sbt.web.interceptor.api.RestTemplateInterceptor;
+import com.kubrick.sbt.web.common.interceptor.api.RestTemplateInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
