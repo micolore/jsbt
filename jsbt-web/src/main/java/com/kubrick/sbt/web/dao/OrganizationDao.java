@@ -13,6 +13,5 @@ import java.util.List;
  */
 public interface OrganizationDao {
 
-	List<Organization> list();
 
 }

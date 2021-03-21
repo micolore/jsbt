@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author k 说明 :实体基础类,包含共有属性
@@ -19,9 +19,9 @@ public abstract class BaseEntity implements Serializable {
 
 	protected Integer status;
 
-	protected LocalDate createAt;
+	protected LocalDateTime createAt;
 
-	protected LocalDate updateAt;
+	protected LocalDateTime updateAt;
 
 	protected Long createBy;
 

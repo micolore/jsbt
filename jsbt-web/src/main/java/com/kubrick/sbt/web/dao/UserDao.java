@@ -11,26 +11,5 @@ import java.util.List;
 @DataPermission(resources = "t_user")
 public interface UserDao {
 
-    /**
-     * 根据用户名查找用户
-     *
-     * @param username
-     * @return
-     */
-    User getUserByUsername(String username);
-
-    /**
-     * 新增用户
-     *
-     * @param user
-     */
-    void insertUser(User user);
-
-    /**
-     * list user
-     *
-     * @return
-     */
-    List<User> list();
 
 }

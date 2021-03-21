@@ -3,6 +3,7 @@ package com.kubrick.sbt.web.domain.entity;
 import java.util.Collection;
 import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author k
  */
 @Data
+@TableName("t_user")
 public class User implements UserDetails {
 
 	private static final long serialVersionUID = -9005214545793249372L;

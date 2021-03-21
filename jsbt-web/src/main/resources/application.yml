@@ -40,4 +40,5 @@ security:
   oauth2:
     ignoreUrls:
       - /api/common/ms
+      - /api/common/hello_react
       - /login/**

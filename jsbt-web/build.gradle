@@ -39,6 +39,7 @@ dependencies {
     implementation rootProject.ext.dependencies["jakarta-xml-bind-api"]
 
     implementation rootProject.ext.dependencies["mybatis-spring-boot-starter"]
+    implementation rootProject.ext.dependencies["mybatis-plus-boot-starter"]
     implementation rootProject.ext.dependencies["druid"]
     compile rootProject.ext.dependencies["mysql-connector-java"]
     implementation rootProject.ext.dependencies["mysql-connector-java"]

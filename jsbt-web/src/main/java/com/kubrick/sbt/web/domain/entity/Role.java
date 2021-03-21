@@ -1,5 +1,6 @@
 package com.kubrick.sbt.web.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -9,6 +10,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
+@TableName("t_role")
 @EqualsAndHashCode(callSuper = true)
 public class Role extends BaseEntity {
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kubrick.sbt.web.dao.OrganizationDao">
+<mapper namespace="com.kubrick.sbt.web.mapper.OrganizationMapper">
     <resultMap type="com.kubrick.sbt.web.domain.entity.Organization" id="organization">
         <id property="id" column="id"/>
         <result property="name" column="name"/>

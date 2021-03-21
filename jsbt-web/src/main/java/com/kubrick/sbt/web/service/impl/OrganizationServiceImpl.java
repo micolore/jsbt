@@ -2,7 +2,9 @@ package com.kubrick.sbt.web.service.impl;
 
 import com.kubrick.sbt.web.dao.OrganizationDao;
 import com.kubrick.sbt.web.domain.entity.Organization;
+import com.kubrick.sbt.web.mapper.OrganizationMapper;
 import com.kubrick.sbt.web.service.OrganizationService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,14 +21,14 @@ import java.util.List;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class OrganizationServiceImpl implements OrganizationService {
 
-	@Autowired
-	private OrganizationDao organizationDao;
+	private final OrganizationMapper organizationMapper;
 
 	@Override
 	public List<Long> list(Integer organizationId) {
-		List<Organization> organizations = organizationDao.list();
+		List<Organization> organizations = organizationMapper.list();
 		List<Long> result = new ArrayList<>();
 		recursiveOrganizations(result, organizations, organizationId);
 		return result;

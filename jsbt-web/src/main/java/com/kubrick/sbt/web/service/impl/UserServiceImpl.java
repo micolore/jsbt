@@ -1,9 +1,9 @@
 package com.kubrick.sbt.web.service.impl;
 
-import com.kubrick.sbt.web.annotation.redis.RedisCache;
 import com.kubrick.sbt.web.annotation.log.ServiceLog;
-import com.kubrick.sbt.web.dao.UserDao;
+import com.kubrick.sbt.web.annotation.redis.RedisCache;
 import com.kubrick.sbt.web.domain.entity.User;
+import com.kubrick.sbt.web.mapper.UserMapper;
 import com.kubrick.sbt.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao;
+    private final UserMapper userMapper;
 
     /**
      * 初始化化
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void saveUser(User user) {
-        userDao.insertUser(user);
+        userMapper.insertUser(user);
     }
 
     @Async
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryAll(int id) {
 
-        return userDao.list();
+        return userMapper.list();
     }
 
 }

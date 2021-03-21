@@ -1,3 +1,4 @@
 * jsbt-web
   目标（admin-wen服务相关）
-**
+** 前端页面由angular的一个框架开发
+

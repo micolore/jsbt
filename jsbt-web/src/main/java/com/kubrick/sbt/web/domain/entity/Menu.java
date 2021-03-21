@@ -1,5 +1,6 @@
 package com.kubrick.sbt.web.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import lombok.ToString;
 @Data
 @ToString
 @EqualsAndHashCode(callSuper = true)
+@TableName("t_menu")
 public class Menu extends BaseEntity {
 
 	private static final long serialVersionUID = 4245833784962015367L;
