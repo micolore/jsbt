@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * @date 2020/12/13 下午12:31
  */
 @Data
-public class CustomerUserDetails implements UserDetails {
+public class CustomerUserDetails implements UserDetails, Serializable {
 
     private static final long serialVersionUID = -9005214545793249372L;
 
@@ -38,6 +39,14 @@ public class CustomerUserDetails implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     private List<Long> organizationIds;
+
+
+    public CustomerUserDetails(String username, String password,
+                               Collection<? extends GrantedAuthority> authorities) {
+        this.username = username;
+        this.password = password;
+        this.authorities = authorities;
+    }
 
     public CustomerUserDetails(String username, String password,
                                Collection<? extends GrantedAuthority> authorities, List<Menu> roleMenus,

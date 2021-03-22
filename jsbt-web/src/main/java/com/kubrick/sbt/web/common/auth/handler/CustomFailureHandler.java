@@ -19,7 +19,7 @@ import java.io.PrintWriter;
  * @author k
  * @version 1.0.0
  * @ClassName CustomFailureHandler
- * @description: 自定义异常处理
+ * @description: 自定义异常处理-登录失败
  * @date 2021/3/21 下午10:53
  */
 @Component

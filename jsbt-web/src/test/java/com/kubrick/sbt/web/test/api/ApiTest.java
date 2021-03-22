@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -96,5 +97,14 @@ public class ApiTest {
       System.out.println(passwordEncoder.matches("Passw0rd", encryptedPassword)); // true
       System.out.println(passwordEncoder.matches("Password", encryptedPassword)); // false
     }
+  }
+
+  @Test
+  public void stringUtilsTest(){
+    boolean b = StringUtils.substringMatch("token11111", 0, "token");
+    String delete = StringUtils.delete("token11111", "token");
+    System.out.println(b);
+    System.out.println(delete);
+
   }
 }

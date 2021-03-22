@@ -31,7 +31,7 @@ public class HttpConstant {
     public static String respForbidden() {
         try {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", HttpStatus.FORBIDDEN);
+            map.put("code", HttpStatus.FORBIDDEN.value());
             map.put("message", "权限不足！");
             return objectMapper.writeValueAsString(map);
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class HttpConstant {
     public static String respUnauthorized(AuthenticationException ex) {
         try {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", HttpStatus.UNAUTHORIZED);
+            map.put("code", HttpStatus.UNAUTHORIZED.value());
             map.put("message", "身份信息不匹配！");
             if (ex instanceof UsernameNotFoundException || ex instanceof BadCredentialsException) {
                 map.put("message", "用户名或密码错误");
@@ -62,7 +62,7 @@ public class HttpConstant {
     public static String respLoginOk(Authentication authentication) {
         try {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", HttpStatus.OK);
+            map.put("code", HttpStatus.OK.value());
             map.put("message", "登陆成功");
             map.put("authentication", authentication);
             return objectMapper.writeValueAsString(map);
@@ -75,7 +75,7 @@ public class HttpConstant {
     public static String respLogOutOk(Authentication authentication) {
         try {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", HttpStatus.OK);
+            map.put("code", HttpStatus.OK.value());
             map.put("message", "退出成功！");
             map.put("authentication", authentication);
             return objectMapper.writeValueAsString(map);
@@ -87,7 +87,7 @@ public class HttpConstant {
     public static String respNotLogin() {
         try {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", HttpStatus.OK);
+            map.put("code", HttpStatus.OK.value());
             map.put("message", "未登陆！");
             return objectMapper.writeValueAsString(map);
         } catch (Exception e) {

@@ -32,6 +32,8 @@ ext {
             "spring-security-core"                      : "org.springframework.security:spring-security-web:5.4.1",
             "spring-security-config"                    : "org.springframework.security:spring-security-core:5.4.1",
             "spring-security-test"                      : "org.springframework.security:spring-security-test:5.3.2.RELEASE",
+            "spring-security-jwt"                       : "org.springframework.security:spring-security-jwt:1.1.1.RELEASE",
+
 
             // spring cloud
             "nacos-config-spring-boot-starter"          : "com.alibaba.boot:nacos-config-spring-boot-starter:0.2.7",
@@ -112,6 +114,11 @@ ext {
 
             //java web
             "javax.servlet-api"                         : "javax.servlet:javax.servlet-api:4.0.1",
+            "java-jwt"                                  : "com.auth0:java-jwt:3.13.0",
+            "jjwt"                                      : "io.jsonwebtoken:jjwt:0.9.1",
+            "jjwt-api"                                  : "io.jsonwebtoken:jjwt-api:0.10.6",
+            "jjwt-impl"                                 : "io.jsonwebtoken:jjwt-impl:0.10.6",
+            "jjwt-jackson"                              : "io.jsonwebtoken:jjwt-jackson:0.10.6",
 
             // swagger
             "swagger-annotations"                       : "io.swagger:swagger-annotations:1.6.2",

@@ -1,19 +1,21 @@
 package com.kubrick.sbt.web.config;
 
-import cn.hutool.core.util.ArrayUtil;
 import com.kubrick.sbt.web.common.auth.handler.*;
 import com.kubrick.sbt.web.common.interceptor.PermitAllUrlProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -36,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomFailureHandler customFailureHandler;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final UserDetailsService userDetailsService;
+    ;
 
     /**
      * 静态资源设置 v1 add Knife4j static file and api v2 add actuator
@@ -60,9 +63,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //未登录
                 .authenticationEntryPoint(customAuthenticationEntryPoint)
                 .and()
+                //基于token，所以不需要session
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
                 //.antMatchers(ArrayUtil.toArray(permitAllUrlProperties.getIgnoreUrls(), String.class)).permitAll()
-                .anyRequest().authenticated() //必须授权才能范围
+                .anyRequest().access("@myPermissionServiceImpl.hasPermission(request, authentication)")
+                //必须授权才能范围
                 .and()
                 .formLogin() //使用自带的登录
                 .permitAll()
@@ -83,15 +89,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().disable();
         //开启模拟请求，比如API POST测试工具的测试，不开启时，API POST为报403错误
         http.csrf().disable();
+
+        //http.addFilterAt(myAuthenticationFilter(), MyUsernamePasswordAuthenticationFilter.class);
+        //http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
+
     }
 
-
-    /**
-     * 自定义获取用户信息接口
-     */
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    @Bean
+    MyUsernamePasswordAuthenticationFilter myAuthenticationFilter() throws Exception {
+        MyUsernamePasswordAuthenticationFilter filter = new MyUsernamePasswordAuthenticationFilter();
+        filter.setAuthenticationManager(authenticationManagerBean());
+        filter.setAuthenticationSuccessHandler(customSuccessHandler);
+        filter.setAuthenticationFailureHandler(customFailureHandler);
+        return filter;
     }
 
     /**
@@ -105,6 +115,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    /**
+     * 自定义获取用户信息接口
+     */
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        //auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
+
+    /**
+     * 同上
+     *
+     * @return
+     */
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
@@ -112,5 +135,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
+
 
 }
