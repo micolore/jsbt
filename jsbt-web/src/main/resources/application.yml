@@ -72,8 +72,3 @@ security:
       - /api/common/ms
       - /api/common/hello_react
       - /login/**
-jwt:
-  header: Authorization
-  token-start-with: Bearer
-  base64-secret: XXXXXXXXXXXXXXXX
-  token-validity-in-seconds: 14400000

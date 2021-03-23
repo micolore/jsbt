@@ -1,4 +1,4 @@
-package com.kubrick.sbt.web.common.auth.handler;
+package com.kubrick.sbt.web.common.auth.filter;
 
 import com.kubrick.sbt.web.common.utils.RsaUtil;
 import org.springframework.security.authentication.AuthenticationManager;

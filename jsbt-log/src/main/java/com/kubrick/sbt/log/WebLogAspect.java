@@ -76,6 +76,8 @@ public class WebLogAspect {
 
     /**
      * 切入点
+     * 1、指定包名下面
+     * 2、指定实现类下面
      */
     //@Pointcut(""
     //        + "execution(* com.kubrick.sbt.*.api.*Api.*(..)) ||"
@@ -114,7 +116,7 @@ public class WebLogAspect {
                 .timeCost(System.currentTimeMillis() - startTime).userAgent(header)
                 .browser(userAgent.getBrowser().toString()).os(userAgent.getOperatingSystem().toString()).build();
 
-        log.info("Request Log Info : {}", l.toString());
+        log.info("RequestLog:{}", l.toString());
 
         return result;
     }
@@ -136,7 +138,7 @@ public class WebLogAspect {
             return Collections.emptyMap();
         }
         if (names.length != args.length) {
-            log.warn("{}方法参数名和参数值数量不一致", methodSignature.getName());
+            log.warn("{}-方法参数名和参数值数量不一致", methodSignature.getName());
             return Collections.emptyMap();
         }
         Map<String, Object> map = Maps.newHashMap();

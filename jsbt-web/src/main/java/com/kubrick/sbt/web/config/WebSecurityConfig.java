@@ -1,14 +1,15 @@
 package com.kubrick.sbt.web.config;
 
+import com.kubrick.sbt.web.common.auth.filter.JWTAuthenticationFilter;
+import com.kubrick.sbt.web.common.auth.filter.JWTAuthorizationFilter;
+import com.kubrick.sbt.web.common.auth.filter.MyUsernamePasswordAuthenticationFilter;
 import com.kubrick.sbt.web.common.auth.handler.*;
 import com.kubrick.sbt.web.common.interceptor.PermitAllUrlProperties;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,7 +26,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * annotations 注解[@RolesAllowed..] 是否可用. 4、开启 Spring Security
  * 方法级安全注解 @EnableGlobalMethodSecurity
  */
-@Configurable
+@Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
@@ -38,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomFailureHandler customFailureHandler;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final UserDetailsService userDetailsService;
-    ;
+
 
     /**
      * 静态资源设置 v1 add Knife4j static file and api v2 add actuator
@@ -91,7 +92,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         //http.addFilterAt(myAuthenticationFilter(), MyUsernamePasswordAuthenticationFilter.class);
-        //http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
+        http.addFilter(new JWTAuthenticationFilter(authenticationManagerBean()))
+                // 添加JWT鉴权拦截器
+                .addFilter(new JWTAuthorizationFilter(authenticationManagerBean()));
 
     }
 
@@ -135,6 +138,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
-
 
 }

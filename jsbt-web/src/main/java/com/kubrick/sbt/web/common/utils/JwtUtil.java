@@ -42,7 +42,7 @@ public class JwtUtil {
     /**
      * JWT 生成密钥使用的密码
      */
-    private static final String JWT_RULE = "jsbt-web";
+    private static final String JWT_RULE = "qowxoasodfwodswoak12oao2mma29kzms92pqsodiedidkwdwqpskldiskjdywjs";
     /**
      * JWT 添加至HTTP HEAD中的前缀
      */
@@ -245,7 +245,7 @@ public class JwtUtil {
                 .setIssuedAt(now)
                 //过期时间
                 .setExpiration(time)
-                .signWith(SignatureAlgorithm.HS256, SECRET)
+                .signWith(SECRET)
                 .compact();
         //jwt前面一般都会加Bearer
         return TOKEN_PREFIX + jwt;

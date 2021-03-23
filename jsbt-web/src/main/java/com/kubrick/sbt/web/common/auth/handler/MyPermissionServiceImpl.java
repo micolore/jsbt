@@ -27,6 +27,6 @@ public class MyPermissionServiceImpl implements MyPermissionService {
             Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
             return authorities.contains(new SimpleGrantedAuthority(request.getRequestURI()));
         }
-        return false;
+        return true;
     }
 }
