@@ -16,12 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 public class SourceAccessInterceptor implements HandlerInterceptor {
 
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-			Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
 		// 反射获取方法上的LoginRequired注解
 		HandlerMethod handlerMethod = (HandlerMethod) handler;
-		LoginRequired loginRequired = handlerMethod.getMethod()
-				.getAnnotation(LoginRequired.class);
+		LoginRequired loginRequired = handlerMethod.getMethod().getAnnotation(LoginRequired.class);
 		if (loginRequired == null) {
 			return true;
 		}
@@ -32,14 +31,14 @@ public class SourceAccessInterceptor implements HandlerInterceptor {
 	}
 
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response,
-			Object handler, ModelAndView modelAndView) throws Exception {
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
 
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
-			Object handler, Exception ex) throws Exception {
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
 
 	}
 

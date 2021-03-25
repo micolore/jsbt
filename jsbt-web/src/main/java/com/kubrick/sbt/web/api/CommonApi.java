@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author k
- * @version 1.0.0
- * @ClassName CommonApi
+ * @version 1.0.0 @ClassName CommonApi
  * @description: TODO
  * @date 2021/1/14 上午2:18
  */
@@ -20,21 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/common")
 public class CommonApi {
 
-    private final RetryService retryService;
-    private final MenuMapper menuMapper;
+	private final RetryService retryService;
 
-    /**
-     * @return
-     */
-    @RequestMapping(value = "/ms", method = RequestMethod.GET)
-    public String ms() throws Exception {
-        //retryService.retryHttp();
-        //retryService.guavaRetry();
+	private final MenuMapper menuMapper;
 
-        Menu menu = menuMapper.selectById(1);
-        System.out.println("menu" + menu.toString());
+	/**
+	 * @return */
+	@RequestMapping(value = "/ms", method = RequestMethod.GET)
+	public String ms() throws Exception {
+		// retryService.retryHttp();
+		// retryService.guavaRetry();
 
-        return "ok";
-    }
+		Menu menu = menuMapper.selectById(1);
+		System.out.println("menu" + menu.toString());
+
+		return "ok";
+	}
 
 }

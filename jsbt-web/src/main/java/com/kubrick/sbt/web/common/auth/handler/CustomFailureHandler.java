@@ -25,13 +25,15 @@ import java.io.PrintWriter;
 @Component
 public class CustomFailureHandler implements AuthenticationFailureHandler {
 
-    @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException ex) throws IOException, ServletException {
-        String resp = HttpConstant.respUnauthorized(ex);
-        response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
-        PrintWriter out = response.getWriter();
-        out.write(resp);
-        out.flush();
-        out.close();
-    }
+	@Override
+	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException ex) throws IOException, ServletException {
+		String resp = HttpConstant.respUnauthorized(ex);
+		response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
+		PrintWriter out = response.getWriter();
+		out.write(resp);
+		out.flush();
+		out.close();
+	}
+
 }

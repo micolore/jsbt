@@ -16,11 +16,14 @@ import java.io.IOException;
  * @date 2021/2/28 上午11:03
  */
 public class RestTemplateInterceptor implements ClientHttpRequestInterceptor {
-    @Override
-    public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-        request.getHeaders().set("traceId", MdcUtil.get());
 
-        return execution.execute(request, body);
+	@Override
+	public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+			throws IOException {
+		request.getHeaders().set("traceId", MdcUtil.get());
 
-    }
+		return execution.execute(request, body);
+
+	}
+
 }

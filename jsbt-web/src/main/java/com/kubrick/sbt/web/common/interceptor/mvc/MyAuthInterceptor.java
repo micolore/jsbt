@@ -14,18 +14,18 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MyAuthInterceptor extends HandlerInterceptorAdapter {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
-        String requestUrl = request.getRequestURI();
-        if (checkAuth(requestUrl)) {
-            return true;
-        }
-        return false;
-    }
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		String requestUrl = request.getRequestURI();
+		if (checkAuth(requestUrl)) {
+			return true;
+		}
+		return false;
+	}
 
-    private boolean checkAuth(String requestUrl) {
-        return true;
-    }
+	private boolean checkAuth(String requestUrl) {
+		return true;
+	}
 
 }

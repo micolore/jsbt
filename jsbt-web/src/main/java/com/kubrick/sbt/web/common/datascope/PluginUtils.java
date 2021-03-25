@@ -58,8 +58,7 @@ public abstract class PluginUtils {
 	 * @param boundSql BoundSql
 	 * @param additionalParameters additionalParameters
 	 */
-	public static void setAdditionalParameter(BoundSql boundSql,
-			Map<String, Object> additionalParameters) {
+	public static void setAdditionalParameter(BoundSql boundSql, Map<String, Object> additionalParameters) {
 		additionalParameters.forEach(boundSql::setAdditionalParameter);
 	}
 
@@ -67,12 +66,10 @@ public abstract class PluginUtils {
 		return new MPBoundSql(boundSql);
 	}
 
-	public static MPStatementHandler mpStatementHandler(
-			StatementHandler statementHandler) {
+	public static MPStatementHandler mpStatementHandler(StatementHandler statementHandler) {
 		statementHandler = realTarget(statementHandler);
 		MetaObject object = SystemMetaObject.forObject(statementHandler);
-		return new MPStatementHandler(
-				SystemMetaObject.forObject(object.getValue("delegate")));
+		return new MPStatementHandler(SystemMetaObject.forObject(object.getValue("delegate")));
 	}
 
 	/**
@@ -145,8 +142,7 @@ public abstract class PluginUtils {
 		}
 
 		public void parameterMappings(List<ParameterMapping> parameterMappings) {
-			boundSql.setValue("parameterMappings",
-					Collections.unmodifiableList(parameterMappings));
+			boundSql.setValue("parameterMappings", Collections.unmodifiableList(parameterMappings));
 		}
 
 		public Object parameterObject() {

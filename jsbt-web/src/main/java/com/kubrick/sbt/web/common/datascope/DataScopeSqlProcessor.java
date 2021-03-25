@@ -41,8 +41,7 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 		processSelectBody(select.getSelectBody(), dataScopes);
 		List<WithItem> withItemsList = select.getWithItemsList();
 		if (withItemsList != null && withItemsList.size() != 0) {
-			withItemsList
-					.forEach(selectBody -> processSelectBody(selectBody, dataScopes));
+			withItemsList.forEach(selectBody -> processSelectBody(selectBody, dataScopes));
 		}
 	}
 
@@ -59,10 +58,8 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 		}
 		else {
 			SetOperationList operationList = (SetOperationList) selectBody;
-			if (operationList.getSelects() != null
-					&& operationList.getSelects().size() > 0) {
-				operationList.getSelects()
-						.forEach(item -> processSelectBody(item, dataScopes));
+			if (operationList.getSelects() != null && operationList.getSelects().size() > 0) {
+				operationList.getSelects().forEach(item -> processSelectBody(item, dataScopes));
 			}
 		}
 	}
@@ -83,8 +80,7 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 	@Override
 	protected void processUpdate(Update update, int index, String sql, Object obj) {
 		List<DataScope> dataScopes = (List<DataScope>) obj;
-		update.setWhere(
-				this.injectExpression(update.getWhere(), update.getTable(), dataScopes));
+		update.setWhere(this.injectExpression(update.getWhere(), update.getTable(), dataScopes));
 	}
 
 	/**
@@ -94,23 +90,20 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 	@Override
 	protected void processDelete(Delete delete, int index, String sql, Object obj) {
 		List<DataScope> dataScopes = (List<DataScope>) obj;
-		delete.setWhere(
-				this.injectExpression(delete.getWhere(), delete.getTable(), dataScopes));
+		delete.setWhere(this.injectExpression(delete.getWhere(), delete.getTable(), dataScopes));
 	}
 
 	/**
 	 * 处理 PlainSelect
 	 */
-	protected void processPlainSelect(PlainSelect plainSelect,
-			List<DataScope> dataScopes) {
+	protected void processPlainSelect(PlainSelect plainSelect, List<DataScope> dataScopes) {
 		FromItem fromItem = plainSelect.getFromItem();
 		Expression where = plainSelect.getWhere();
 		processWhereSubSelect(where, dataScopes);
 		if (fromItem instanceof Table) {
 			Table fromTable = (Table) fromItem;
 			// #1186 github
-			plainSelect.setWhere(
-					injectExpression(plainSelect.getWhere(), fromTable, dataScopes));
+			plainSelect.setWhere(injectExpression(plainSelect.getWhere(), fromTable, dataScopes));
 		}
 		else {
 			processFromItem(fromItem, dataScopes);
@@ -154,8 +147,7 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 				InExpression expression = (InExpression) where;
 				ItemsList itemsList = expression.getRightItemsList();
 				if (itemsList instanceof SubSelect) {
-					processSelectBody(((SubSelect) itemsList).getSelectBody(),
-							dataScopes);
+					processSelectBody(((SubSelect) itemsList).getSelectBody(), dataScopes);
 				}
 			}
 			else if (where instanceof ExistsExpression) {
@@ -214,8 +206,7 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 	protected void processJoin(Join join, List<DataScope> dataScopes) {
 		if (join.getRightItem() instanceof Table) {
 			Table fromTable = (Table) join.getRightItem();
-			join.setOnExpression(
-					injectExpression(join.getOnExpression(), fromTable, dataScopes));
+			join.setOnExpression(injectExpression(join.getOnExpression(), fromTable, dataScopes));
 		}
 	}
 
@@ -226,15 +217,13 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 	 * @param dataScopes
 	 * @return 修改后的 where/or 条件
 	 */
-	private Expression injectExpression(Expression currentExpression, Table table,
-			List<DataScope> dataScopes) {
+	private Expression injectExpression(Expression currentExpression, Table table, List<DataScope> dataScopes) {
 		// TODO 重写 dataPermissionHandler
 		// TODO 当用户检索到 dataScope 所属字段时，需要判断该值是否在 scope 中，然后将其合并
 		String tableName = table.getName();
-		Expression dataFilterExpression = dataScopes.stream()
-				.filter(x -> x.getTableNames().contains(tableName))
-				.map(x -> x.getExpression(tableName, table.getAlias()))
-				.filter(Objects::nonNull).reduce(AndExpression::new).orElse(null);
+		Expression dataFilterExpression = dataScopes.stream().filter(x -> x.getTableNames().contains(tableName))
+				.map(x -> x.getExpression(tableName, table.getAlias())).filter(Objects::nonNull)
+				.reduce(AndExpression::new).orElse(null);
 
 		if (currentExpression == null) {
 			return dataFilterExpression;
@@ -243,8 +232,7 @@ public class DataScopeSqlProcessor extends JsqlParserSupport {
 			return currentExpression;
 		}
 		if (currentExpression instanceof OrExpression) {
-			return new AndExpression(new Parenthesis(currentExpression),
-					dataFilterExpression);
+			return new AndExpression(new Parenthesis(currentExpression), dataFilterExpression);
 		}
 		else {
 			return new AndExpression(currentExpression, dataFilterExpression);

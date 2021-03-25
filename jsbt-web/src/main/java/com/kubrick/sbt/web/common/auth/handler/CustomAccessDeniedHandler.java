@@ -16,8 +16,8 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
 /**
- * 处理无权请求
- * spring HttpStatus
+ * 处理无权请求 spring HttpStatus
+ *
  * @author k
  */
 @Slf4j
@@ -26,8 +26,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response,
-			AccessDeniedException accessDeniedException)
-			throws IOException, ServletException {
+			AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		boolean isAjax = ControllerTools.isAjaxRequest(request);
 		if (!response.isCommitted()) {
 			if (isAjax) {
@@ -37,8 +36,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 				ControllerTools.print(response, accessDenyMsg);
 			}
 			else {
-				request.setAttribute(WebAttributes.ACCESS_DENIED_403,
-						accessDeniedException);
+				request.setAttribute(WebAttributes.ACCESS_DENIED_403, accessDeniedException);
 				response.setStatus(HttpStatus.FORBIDDEN.value());
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/403");
 				dispatcher.forward(request, response);
@@ -53,8 +51,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 			return "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
 		}
 
-		public static void print(HttpServletResponse response, String msg)
-				throws IOException {
+		public static void print(HttpServletResponse response, String msg) throws IOException {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json; charset=utf-8");
 			PrintWriter writer = response.getWriter();

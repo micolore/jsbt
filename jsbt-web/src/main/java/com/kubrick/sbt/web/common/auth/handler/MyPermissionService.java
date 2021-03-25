@@ -13,5 +13,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface MyPermissionService {
 
-    boolean hasPermission(HttpServletRequest request, Authentication authentication);
+	boolean hasPermission(HttpServletRequest request, Authentication authentication);
+
 }

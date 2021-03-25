@@ -8,19 +8,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * @author k
- * @version 1.0.0
- * @ClassName AccessLimit
- * @description:
- * 1、接口重复访问限制
+ * @version 1.0.0 @ClassName AccessLimit
+ * @description: 1、接口重复访问限制
  * @date 2021/2/1 下午7:02
  */
 @Retention(RUNTIME)
 @Target(METHOD)
 public @interface AccessLimit {
 
-    int seconds();
+	int seconds();
 
-    int maxCount();
+	int maxCount();
 
-    boolean needLogin() default true;
+	boolean needLogin() default true;
+
 }

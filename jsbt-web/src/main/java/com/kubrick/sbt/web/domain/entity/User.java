@@ -12,14 +12,14 @@ import lombok.EqualsAndHashCode;
 @TableName("sys_user")
 public class User extends BaseEntity {
 
-    private static final long serialVersionUID = -9005214545793249373L;
+	private static final long serialVersionUID = -9005214545793249373L;
 
-    private Long id;
+	private Long id;
 
-    private String username;
+	private String username;
 
-    private String password;
+	private String password;
 
-    private Integer organization;
+	private Integer organization;
 
 }

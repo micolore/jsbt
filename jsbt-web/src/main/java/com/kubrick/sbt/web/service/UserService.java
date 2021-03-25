@@ -10,15 +10,14 @@ import java.util.List;
  */
 public interface UserService {
 
-    /**
-     * 保存用户
-     *
-     * @param user
-     */
-    void saveUser(User user);
+	/**
+	 * 保存用户
+	 * @param user
+	 */
+	void saveUser(User user);
 
-    List<User> queryAll(int id);
+	List<User> queryAll(int id);
 
-    void login(String username, String password, String code, HttpServletRequest request);
+	void login(String username, String password, String code, HttpServletRequest request);
 
 }

@@ -34,57 +34,60 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDetailServiceImpl userDetailService;
-    private final BCryptPasswordEncoder bcryptPasswordEncoder;
-    private final UserMapper userMapper;
+	private final UserDetailServiceImpl userDetailService;
 
-    /**
-     * 初始化化
-     */
-    @PostConstruct
-    public void init() {
-        log.info("UserServiceImpl init...");
-    }
+	private final BCryptPasswordEncoder bcryptPasswordEncoder;
 
-    /**
-     * 保存用户
-     */
-    @Override
-    public void saveUser(User user) {
-        userMapper.insertUser(user);
-    }
+	private final UserMapper userMapper;
 
-    @Async
-    @ServiceLog(value = "查询用户")
-    @RedisCache(key = "'userid:' + #id +':'")
-    @Override
-    public List<User> queryAll(int id) {
+	/**
+	 * 初始化化
+	 */
+	@PostConstruct
+	public void init() {
+		log.info("UserServiceImpl init...");
+	}
 
-        return userMapper.list();
-    }
+	/**
+	 * 保存用户
+	 */
+	@Override
+	public void saveUser(User user) {
+		userMapper.insertUser(user);
+	}
 
-    @Override
-    public void login(String username, String password, String code, HttpServletRequest request) {
-        // 获取UserDetails
-        UserDetails userDetails = userDetailService.loadUserByUsername(username);
-        // 判断用户是否被禁用
-        if (userDetails.isEnabled()) {
-            // 前端获取的密码通过passwordEncoder与数据库中的密码对比
-            if (userDetails != null && bcryptPasswordEncoder.matches(password, userDetails.getPassword())) {
-                // 更新security登录用户对象
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                // 将authenticationToken放入spring security全局中
-                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-                // 生成Token
-                String token = JwtTokenUtil.createToken(username, "admin");
-                // 将token和头部信息存入map中，登录成功后带给前端。
-                HashMap<String, String> tokenMap = new HashMap<>();
-                tokenMap.put("token", token);
-                System.out.println(tokenMap);
-            }
-            System.out.println("用户名或密码错误");
-        }
-        System.out.println("该账号也被禁用,请联系管理员!");
-    }
+	@Async
+	@ServiceLog(value = "查询用户")
+	@RedisCache(key = "'userid:' + #id +':'")
+	@Override
+	public List<User> queryAll(int id) {
+
+		return userMapper.list();
+	}
+
+	@Override
+	public void login(String username, String password, String code, HttpServletRequest request) {
+		// 获取UserDetails
+		UserDetails userDetails = userDetailService.loadUserByUsername(username);
+		// 判断用户是否被禁用
+		if (userDetails.isEnabled()) {
+			// 前端获取的密码通过passwordEncoder与数据库中的密码对比
+			if (userDetails != null && bcryptPasswordEncoder.matches(password, userDetails.getPassword())) {
+				// 更新security登录用户对象
+				UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+						userDetails, null, userDetails.getAuthorities());
+				// 将authenticationToken放入spring security全局中
+				SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+				// 生成Token
+				String token = JwtTokenUtil.createToken(username, "admin");
+				// 将token和头部信息存入map中，登录成功后带给前端。
+				HashMap<String, String> tokenMap = new HashMap<>();
+				tokenMap.put("token", token);
+				System.out.println(tokenMap);
+			}
+			System.out.println("用户名或密码错误");
+		}
+		System.out.println("该账号也被禁用,请联系管理员!");
+	}
 
 }

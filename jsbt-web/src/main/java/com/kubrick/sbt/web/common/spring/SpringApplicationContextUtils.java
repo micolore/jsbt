@@ -16,15 +16,16 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class SpringApplicationContextUtils implements ApplicationListener<ContextRefreshedEvent> {
-    private ApplicationContext applicationContext;
 
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
-        applicationContext = event.getApplicationContext();
-    }
+	private ApplicationContext applicationContext;
 
-    public <T> T getBean(String beanName) {
-        return (T) applicationContext.getBean(beanName);
-    }
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		applicationContext = event.getApplicationContext();
+	}
+
+	public <T> T getBean(String beanName) {
+		return (T) applicationContext.getBean(beanName);
+	}
 
 }

@@ -27,8 +27,7 @@ public abstract class JsqlParserSupport {
 			return processParser(statement, 0, sql, obj);
 		}
 		catch (JSQLParserException e) {
-			throw new RuntimeException(
-					String.format("Failed to process, Error SQL: %s", sql), e);
+			throw new RuntimeException(String.format("Failed to process, Error SQL: %s", sql), e);
 		}
 	}
 
@@ -51,8 +50,7 @@ public abstract class JsqlParserSupport {
 			return sb.toString();
 		}
 		catch (JSQLParserException e) {
-			throw new RuntimeException(
-					String.format("Failed to process, Error SQL: %s", sql), e);
+			throw new RuntimeException(String.format("Failed to process, Error SQL: %s", sql), e);
 		}
 	}
 
@@ -61,8 +59,7 @@ public abstract class JsqlParserSupport {
 	 * @param statement JsqlParser Statement
 	 * @return sql
 	 */
-	protected String processParser(Statement statement, int index, String sql,
-			Object obj) {
+	protected String processParser(Statement statement, int index, String sql, Object obj) {
 		if (log.isDebugEnabled()) {
 			log.debug("SQL to parse, SQL: " + sql);
 		}

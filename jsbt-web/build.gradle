@@ -1,10 +1,12 @@
 plugins {
     id 'java'
+    id 'io.spring.javaformat' version  '0.0.27'
     id 'org.springframework.boot' version "2.3.5.RELEASE"
     id "io.spring.dependency-management" version "1.0.10.RELEASE"
 }
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'io.spring.javaformat'
 
 group 'com.kubrick'
 version '0.0.1-SNAPSHOT'
@@ -13,6 +15,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    implementation group: 'io.spring.javaformat', name: 'spring-javaformat-gradle-plugin', version: '0.0.27', ext: 'pom'
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-starter-aop"]
     implementation rootProject.ext.dependencies["spring-boot-starter-actuator"]
@@ -48,6 +51,7 @@ dependencies {
     implementation rootProject.ext.dependencies["druid"]
     compile rootProject.ext.dependencies["mysql-connector-java"]
     implementation rootProject.ext.dependencies["mysql-connector-java"]
+    compile 'com.google.googlejavaformat:google-java-format:1.8'
 
     compile project(":jsbt-xxl-job")
     compile project(":jsbt-tools")
@@ -62,3 +66,4 @@ dependencies {
     testAnnotationProcessor rootProject.ext.dependencies["org.projectlombok"]
 
 }
+

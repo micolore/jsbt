@@ -25,7 +25,7 @@ public class CorsConfig {
 		corsConfiguration.setAllowCredentials(true);
 
 		/* 允许访问的客户端域名 */
-		 corsConfiguration.addAllowedOrigin("*");
+		corsConfiguration.addAllowedOrigin("*");
 
 		/* 允许服务端访问的客户端请求头 */
 		corsConfiguration.addAllowedHeader("*");

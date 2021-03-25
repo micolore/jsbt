@@ -21,13 +21,15 @@ import java.io.PrintWriter;
 @Component
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        String resp = HttpConstant.respNotLogin();
-        response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
-        PrintWriter out = response.getWriter();
-        out.write(resp);
-        out.flush();
-        out.close();
-    }
+	@Override
+	public void commence(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException authException) throws IOException, ServletException {
+		String resp = HttpConstant.respNotLogin();
+		response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
+		PrintWriter out = response.getWriter();
+		out.write(resp);
+		out.flush();
+		out.close();
+	}
+
 }

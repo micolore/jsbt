@@ -21,87 +21,93 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2021/3/22 上午12:52
  */
 public class MyUsernamePasswordAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
-    public static final String SPRING_SECURITY_FORM_USERNAME_KEY = "username";
-    public static final String SPRING_SECURITY_FORM_PASSWORD_KEY = "password";
-    private String usernameParameter = SPRING_SECURITY_FORM_USERNAME_KEY;
-    private String passwordParameter = SPRING_SECURITY_FORM_PASSWORD_KEY;
-    private boolean postOnly = true;
-    private String privateKey = "jsbt";
 
-    public MyUsernamePasswordAuthenticationFilter() {
-        super(new AntPathRequestMatcher("/oauth/token", "POST"));
-    }
+	public static final String SPRING_SECURITY_FORM_USERNAME_KEY = "username";
 
-    @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException {
-        if (postOnly && !request.getMethod().equals("POST")) {
-            throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
-        }
-        String username = obtainUsername(request);
-        String password = obtainPassword(request);
-        try {
-            password = RsaUtil.decrypt(password, privateKey);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+	public static final String SPRING_SECURITY_FORM_PASSWORD_KEY = "password";
 
-        if (username == null) {
-            username = "";
-        }
+	private String usernameParameter = SPRING_SECURITY_FORM_USERNAME_KEY;
 
-        if (password == null) {
-            password = "";
-        }
+	private String passwordParameter = SPRING_SECURITY_FORM_PASSWORD_KEY;
 
-        username = username.trim();
+	private boolean postOnly = true;
 
-        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+	private String privateKey = "jsbt";
 
-        // Allow subclasses to set the "details" property
-        setDetails(request, authRequest);
+	public MyUsernamePasswordAuthenticationFilter() {
+		super(new AntPathRequestMatcher("/oauth/token", "POST"));
+	}
 
-        return super.getAuthenticationManager().authenticate(authRequest);
-    }
+	@Override
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+			throws AuthenticationException {
+		if (postOnly && !request.getMethod().equals("POST")) {
+			throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
+		}
+		String username = obtainUsername(request);
+		String password = obtainPassword(request);
+		try {
+			password = RsaUtil.decrypt(password, privateKey);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
-    @Override
-    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
-        super.setAuthenticationManager(authenticationManager);
-    }
+		if (username == null) {
+			username = "";
+		}
 
-    protected String obtainPassword(HttpServletRequest request) {
-        return request.getParameter(passwordParameter).replaceAll(" ", "+");
-    }
+		if (password == null) {
+			password = "";
+		}
 
-    protected String obtainUsername(HttpServletRequest request) {
-        return request.getParameter(usernameParameter);
-    }
+		username = username.trim();
 
-    protected void setDetails(HttpServletRequest request,
-                              UsernamePasswordAuthenticationToken authRequest) {
-        authRequest.setDetails(authenticationDetailsSource.buildDetails(request));
-    }
+		UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
 
-    public void setPostOnly(boolean postOnly) {
-        this.postOnly = postOnly;
-    }
+		// Allow subclasses to set the "details" property
+		setDetails(request, authRequest);
 
-    public final String getUsernameParameter() {
-        return usernameParameter;
-    }
+		return super.getAuthenticationManager().authenticate(authRequest);
+	}
 
-    public void setUsernameParameter(String usernameParameter) {
-        Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
-        this.usernameParameter = usernameParameter;
-    }
+	@Override
+	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+		super.setAuthenticationManager(authenticationManager);
+	}
 
-    public final String getPasswordParameter() {
-        return passwordParameter;
-    }
+	protected String obtainPassword(HttpServletRequest request) {
+		return request.getParameter(passwordParameter).replaceAll(" ", "+");
+	}
 
-    public void setPasswordParameter(String passwordParameter) {
-        Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
-        this.passwordParameter = passwordParameter;
-    }
+	protected String obtainUsername(HttpServletRequest request) {
+		return request.getParameter(usernameParameter);
+	}
+
+	protected void setDetails(HttpServletRequest request, UsernamePasswordAuthenticationToken authRequest) {
+		authRequest.setDetails(authenticationDetailsSource.buildDetails(request));
+	}
+
+	public void setPostOnly(boolean postOnly) {
+		this.postOnly = postOnly;
+	}
+
+	public final String getUsernameParameter() {
+		return usernameParameter;
+	}
+
+	public void setUsernameParameter(String usernameParameter) {
+		Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
+		this.usernameParameter = usernameParameter;
+	}
+
+	public final String getPasswordParameter() {
+		return passwordParameter;
+	}
+
+	public void setPasswordParameter(String passwordParameter) {
+		Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
+		this.passwordParameter = passwordParameter;
+	}
 
 }

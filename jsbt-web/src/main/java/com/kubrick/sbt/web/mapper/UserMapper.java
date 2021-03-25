@@ -13,26 +13,24 @@ import java.util.List;
  * @date 2021/3/21 下午4:48
  */
 public interface UserMapper extends BaseMapper<User> {
-    /**
-     * 根据用户名查找用户
-     *
-     * @param username
-     * @return
-     */
-    User getUserByUsername(String username);
 
-    /**
-     * 新增用户
-     *
-     * @param user
-     */
-    void insertUser(User user);
+	/**
+	 * 根据用户名查找用户
+	 * @param username
+	 * @return
+	 */
+	User getUserByUsername(String username);
 
-    /**
-     * list user
-     *
-     * @return
-     */
-    List<User> list();
+	/**
+	 * 新增用户
+	 * @param user
+	 */
+	void insertUser(User user);
+
+	/**
+	 * list user
+	 * @return
+	 */
+	List<User> list();
 
 }

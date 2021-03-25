@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("common")
 public class CommonController {
 
-    private final UserService userService;
+	private final UserService userService;
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    @ResponseBody
-    public String hello() {
-        System.out.println("hello");
-        User user = new User();
-        user.setPassword("123");
-        user.setUsername("k");
-        userService.saveUser(user);
-        return "ok";
-    }
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@ResponseBody
+	public String hello() {
+		System.out.println("hello");
+		User user = new User();
+		user.setPassword("123");
+		user.setUsername("k");
+		userService.saveUser(user);
+		return "ok";
+	}
 
 }

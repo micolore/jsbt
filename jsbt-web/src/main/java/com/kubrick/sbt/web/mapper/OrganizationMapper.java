@@ -16,6 +16,6 @@ import java.util.List;
 @Component("organizationMapper")
 public interface OrganizationMapper extends BaseMapper<Organization> {
 
-    List<Organization> list();
+	List<Organization> list();
 
 }

@@ -13,30 +13,30 @@ import java.util.Collections;
  * @author k
  * @version 1.0.0
  * @ClassName RestTemplateConfiguration
- * @description:
- * 1、RestTemplate
+ * @description: 1、RestTemplate
  * @date 2021/2/28 上午11:04
  */
 @Configuration
 public class RestTemplateConfig {
 
-    @Bean
-    public RestTemplate restTemplate(ClientHttpRequestFactory factory) {
-        RestTemplate restTemplate = new RestTemplate(factory);
-        restTemplate.setInterceptors(Collections.singletonList(restTemplateInterceptor()));
-        return restTemplate;
-    }
+	@Bean
+	public RestTemplate restTemplate(ClientHttpRequestFactory factory) {
+		RestTemplate restTemplate = new RestTemplate(factory);
+		restTemplate.setInterceptors(Collections.singletonList(restTemplateInterceptor()));
+		return restTemplate;
+	}
 
-    @Bean
-    public RestTemplateInterceptor restTemplateInterceptor() {
-        return new RestTemplateInterceptor();
-    }
+	@Bean
+	public RestTemplateInterceptor restTemplateInterceptor() {
+		return new RestTemplateInterceptor();
+	}
 
-    @Bean
-    public ClientHttpRequestFactory simpleClientHttpRequestFactory() {
-        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-        factory.setReadTimeout(5000);
-        factory.setConnectTimeout(5000);
-        return factory;
-    }
+	@Bean
+	public ClientHttpRequestFactory simpleClientHttpRequestFactory() {
+		SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+		factory.setReadTimeout(5000);
+		factory.setConnectTimeout(5000);
+		return factory;
+	}
+
 }

@@ -14,8 +14,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ThreadLocalBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        beanFactory.registerScope("threadLocalScope", new ThreadLocalScope());
-    }
+
+	@Override
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+		beanFactory.registerScope("threadLocalScope", new ThreadLocalScope());
+	}
+
 }

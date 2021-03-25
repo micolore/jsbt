@@ -21,13 +21,15 @@ import java.io.PrintWriter;
 @Component
 public class CustomLogoutSuccessHandler implements LogoutSuccessHandler {
 
-    @Override
-    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        String resp = HttpConstant.respLogOutOk(authentication);
-        response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
-        PrintWriter out = response.getWriter();
-        out.write(resp);
-        out.flush();
-        out.close();
-    }
+	@Override
+	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+			throws IOException, ServletException {
+		String resp = HttpConstant.respLogOutOk(authentication);
+		response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
+		PrintWriter out = response.getWriter();
+		out.write(resp);
+		out.flush();
+		out.close();
+	}
+
 }

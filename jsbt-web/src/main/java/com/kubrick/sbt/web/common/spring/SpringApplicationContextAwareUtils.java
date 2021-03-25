@@ -16,15 +16,16 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class SpringApplicationContextAwareUtils implements ApplicationContextAware {
-    private ApplicationContext applicationContext;
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
+	private ApplicationContext applicationContext;
 
-    public <T> T getBean(String beanName) {
-        return (T) applicationContext.getBean(beanName);
-    }
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+	}
+
+	public <T> T getBean(String beanName) {
+		return (T) applicationContext.getBean(beanName);
+	}
 
 }

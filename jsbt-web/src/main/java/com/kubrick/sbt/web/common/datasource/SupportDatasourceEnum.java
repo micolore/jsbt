@@ -14,21 +14,29 @@ import lombok.Getter;
 @Getter
 public enum SupportDatasourceEnum {
 
-    DEFAULT_DB("jdbc:mysql://localhost:3306/jsbt_web?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root", "spring-security"),
+	DEFAULT_DB("jdbc:mysql://localhost:3306/jsbt_web?useUnicode=true&characterEncoding=utf8&useSSL=false", "root",
+			"root", "spring-security"),
 
-    PROD_DB("jdbc:mysql://localhost:3306/db_prod?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root", "db_prod"),
+	PROD_DB("jdbc:mysql://localhost:3306/db_prod?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root",
+			"db_prod"),
 
-    DEV_DB("jdbc:mysql://localhost:3306/db_dev?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root", "db_dev"),
+	DEV_DB("jdbc:mysql://localhost:3306/db_dev?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root",
+			"db_dev"),
 
-    PRE_DB("jdbc:mysql://localhost:3306/db_pre?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root", "db_pre");
+	PRE_DB("jdbc:mysql://localhost:3306/db_pre?useUnicode=true&characterEncoding=utf8&useSSL=false", "root", "root",
+			"db_pre");
 
-    String url;
-    String username;
-    String password;
-    String databaseName;
+	String url;
 
-    @Override
-    public String toString() {
-        return super.toString().toLowerCase();
-    }
+	String username;
+
+	String password;
+
+	String databaseName;
+
+	@Override
+	public String toString() {
+		return super.toString().toLowerCase();
+	}
+
 }

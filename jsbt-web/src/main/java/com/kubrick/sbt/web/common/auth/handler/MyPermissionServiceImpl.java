@@ -19,14 +19,15 @@ import java.util.Collection;
 @Service
 public class MyPermissionServiceImpl implements MyPermissionService {
 
-    @Override
-    public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
-        Object principal = authentication.getPrincipal();
-        if (principal instanceof CustomerUserDetails) {
-            CustomerUserDetails userDetails = (CustomerUserDetails) principal;
-            Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
-            return authorities.contains(new SimpleGrantedAuthority(request.getRequestURI()));
-        }
-        return true;
-    }
+	@Override
+	public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
+		Object principal = authentication.getPrincipal();
+		if (principal instanceof CustomerUserDetails) {
+			CustomerUserDetails userDetails = (CustomerUserDetails) principal;
+			Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+			return authorities.contains(new SimpleGrantedAuthority(request.getRequestURI()));
+		}
+		return true;
+	}
+
 }

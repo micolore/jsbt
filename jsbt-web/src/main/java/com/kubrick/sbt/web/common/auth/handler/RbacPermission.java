@@ -21,23 +21,22 @@ import org.springframework.util.AntPathMatcher;
 @Component("rbacPermission")
 public class RbacPermission {
 
-    private AntPathMatcher antPathMatcher = new AntPathMatcher();
+	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
-    public boolean hasPermission(HttpServletRequest request,
-                                 Authentication authentication) {
-        Object principal = authentication.getPrincipal();
-        boolean hasPermission = false;
-        if (principal instanceof User) {
-            List<Menu> menus = ((CustomerUserDetails) principal).getRoleMenus();
-            log.debug("menu size:{}", menus.size());
-            for (Menu menu : menus) {
-                if (antPathMatcher.match(menu.getMenuUrl(), request.getRequestURI())) {
-                    hasPermission = true;
-                    break;
-                }
-            }
-        }
-        return hasPermission;
-    }
+	public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
+		Object principal = authentication.getPrincipal();
+		boolean hasPermission = false;
+		if (principal instanceof User) {
+			List<Menu> menus = ((CustomerUserDetails) principal).getRoleMenus();
+			log.debug("menu size:{}", menus.size());
+			for (Menu menu : menus) {
+				if (antPathMatcher.match(menu.getMenuUrl(), request.getRequestURI())) {
+					hasPermission = true;
+					break;
+				}
+			}
+		}
+		return hasPermission;
+	}
 
 }

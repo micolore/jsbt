@@ -4,6 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * 数据权限注解，注解在 Mapper类 或者 对应方法上 用于提供该 com.moppo.server.mapper 对应表，所需控制的实体信息
+ *
  * @author k
  */
 @Target({ ElementType.TYPE, ElementType.METHOD })

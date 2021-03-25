@@ -22,55 +22,56 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(MissingServletRequestParameterException.class)
-    @ResponseBody
-    public GeneralResponse handleMissingServletRequestParameterException(MissingServletRequestParameterException e,
-                                                                         HttpServletRequest request) {
-        String message = "缺失请求参数" + e.getParameterName();
-        return ackTransfer(request, message, HttpStatus.BAD_REQUEST.value(), e);
-    }
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+	@ResponseBody
+	public GeneralResponse handleMissingServletRequestParameterException(MissingServletRequestParameterException e,
+			HttpServletRequest request) {
+		String message = "缺失请求参数" + e.getParameterName();
+		return ackTransfer(request, message, HttpStatus.BAD_REQUEST.value(), e);
+	}
 
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    @ResponseBody
-    public GeneralResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e,
-                                                                     HttpServletRequest request) {
-        String message = "请求参数" + e.getName() + "类型错误";
-        return ackTransfer(request, message, HttpStatus.BAD_REQUEST.value(), e);
-    }
+	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
+	@ResponseBody
+	public GeneralResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e,
+			HttpServletRequest request) {
+		String message = "请求参数" + e.getName() + "类型错误";
+		return ackTransfer(request, message, HttpStatus.BAD_REQUEST.value(), e);
+	}
 
-    @ExceptionHandler(HttpMessageConversionException.class)
-    @ResponseBody
-    public GeneralResponse handleHttpMessageNotReadableException(HttpMessageConversionException e,
-                                                                 HttpServletRequest request) {
-        String message = "参数类型错误";
-        return ackTransfer(request, message, HttpStatus.BAD_REQUEST.value(), e);
-    }
+	@ExceptionHandler(HttpMessageConversionException.class)
+	@ResponseBody
+	public GeneralResponse handleHttpMessageNotReadableException(HttpMessageConversionException e,
+			HttpServletRequest request) {
+		String message = "参数类型错误";
+		return ackTransfer(request, message, HttpStatus.BAD_REQUEST.value(), e);
+	}
 
-    /**
-     * Default Exception Handler
-     */
-    @ExceptionHandler(Exception.class)
-    @ResponseBody
-    public GeneralResponse handleException(Exception e, HttpServletRequest request) {
-        return ackTransfer(request, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value(), e, true);
-    }
+	/**
+	 * Default Exception Handler
+	 */
+	@ExceptionHandler(Exception.class)
+	@ResponseBody
+	public GeneralResponse handleException(Exception e, HttpServletRequest request) {
+		return ackTransfer(request, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value(), e, true);
+	}
 
-    private GeneralResponse ackTransfer(HttpServletRequest request, String message, int code, Exception e,
-                                        boolean printStackTrace) {
-        GeneralResponse response = AckTransfer.fail(message, code);
-        if (printStackTrace) {
-            log.error(message, e);
-        } else {
-            log.error(message);
-        }
-        return response;
-    }
+	private GeneralResponse ackTransfer(HttpServletRequest request, String message, int code, Exception e,
+			boolean printStackTrace) {
+		GeneralResponse response = AckTransfer.fail(message, code);
+		if (printStackTrace) {
+			log.error(message, e);
+		}
+		else {
+			log.error(message);
+		}
+		return response;
+	}
 
-    /**
-     * transfer ACK
-     */
-    private GeneralResponse ackTransfer(HttpServletRequest request, String message, int code, Exception e) {
-        return ackTransfer(request, message, code, e, false);
-    }
+	/**
+	 * transfer ACK
+	 */
+	private GeneralResponse ackTransfer(HttpServletRequest request, String message, int code, Exception e) {
+		return ackTransfer(request, message, code, e, false);
+	}
 
 }

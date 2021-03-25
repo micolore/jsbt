@@ -56,8 +56,7 @@ public class MyDataScope implements DataScope {
 	 */
 	@Override
 	public Expression getExpression(String tableName, Alias tableAlias) {
-		Column column = new Column(
-				tableAlias == null ? columnId : tableAlias.getName() + "." + columnId);
+		Column column = new Column(tableAlias == null ? columnId : tableAlias.getName() + "." + columnId);
 		ExpressionList expressionList = new ExpressionList();
 		/**
 		 *

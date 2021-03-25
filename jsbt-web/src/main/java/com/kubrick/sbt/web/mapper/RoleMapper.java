@@ -14,10 +14,11 @@ import java.util.List;
  */
 public interface RoleMapper extends BaseMapper<Role> {
 
-    /**
-     * 根据用户id获取用户
-     * @param id
-     * @return
-     */
-    List<Role> getUserRoleByUserId(Long id);
+	/**
+	 * 根据用户id获取用户
+	 * @param id
+	 * @return
+	 */
+	List<Role> getUserRoleByUserId(Long id);
+
 }

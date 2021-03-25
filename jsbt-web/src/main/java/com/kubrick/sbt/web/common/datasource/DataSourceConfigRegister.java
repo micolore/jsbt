@@ -1,6 +1,5 @@
 package com.kubrick.sbt.web.common.datasource;
 
-
 import com.kubrick.sbt.web.common.annotation.datasource.AppDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.ImportSelector;
@@ -19,19 +18,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSourceConfigRegister implements ImportSelector {
 
-    @Override
-    public String[] selectImports(AnnotationMetadata annotationMetadata) {
-        AnnotationAttributes attributes = AnnotationAttributes.fromMap(annotationMetadata.getAnnotationAttributes(AppDataSource.class.getName()));
-        log.debug("DataSourceConfig import...");
-        if (null != attributes) {
-            Object object = attributes.get("datasourceType");
-            SupportDatasourceEnum[] supportDatasourceEnums = (SupportDatasourceEnum[]) object;
-            for (SupportDatasourceEnum supportDatasourceEnum : supportDatasourceEnums) {
-                DataSourceContextHolder.addDatasource(supportDatasourceEnum);
-            }
-        }
-        return new String[0];
-    }
-
+	@Override
+	public String[] selectImports(AnnotationMetadata annotationMetadata) {
+		AnnotationAttributes attributes = AnnotationAttributes
+				.fromMap(annotationMetadata.getAnnotationAttributes(AppDataSource.class.getName()));
+		log.debug("DataSourceConfig import...");
+		if (null != attributes) {
+			Object object = attributes.get("datasourceType");
+			SupportDatasourceEnum[] supportDatasourceEnums = (SupportDatasourceEnum[]) object;
+			for (SupportDatasourceEnum supportDatasourceEnum : supportDatasourceEnums) {
+				DataSourceContextHolder.addDatasource(supportDatasourceEnum);
+			}
+		}
+		return new String[0];
+	}
 
 }

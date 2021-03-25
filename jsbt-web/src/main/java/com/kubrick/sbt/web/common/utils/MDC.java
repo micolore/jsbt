@@ -9,13 +9,14 @@ package com.kubrick.sbt.web.common.utils;
  */
 public class MDC {
 
-    private static final ThreadLocal THREAD_LOCAL = new ThreadLocal();
+	private static final ThreadLocal THREAD_LOCAL = new ThreadLocal();
 
-    public static String get() {
-        return (String) THREAD_LOCAL.get();
-    }
+	public static String get() {
+		return (String) THREAD_LOCAL.get();
+	}
 
-    public static void put(String traceId) {
-        THREAD_LOCAL.set(traceId);
-    }
+	public static void put(String traceId) {
+		THREAD_LOCAL.set(traceId);
+	}
+
 }

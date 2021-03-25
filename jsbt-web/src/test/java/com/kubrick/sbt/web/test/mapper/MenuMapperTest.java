@@ -21,19 +21,21 @@ import javax.sql.DataSource;
 @SpringBootTest
 public class MenuMapperTest {
 
-    @Autowired
-    private DataSource dataSource;
-    @Autowired
-    private MenuMapper menuMapper;
+	@Autowired
+	private DataSource dataSource;
 
-    @Test
-    public void testDataSource() {
-        System.out.println(dataSource);
-    }
+	@Autowired
+	private MenuMapper menuMapper;
 
-    @Test
-    public void listMenu() {
-        Menu menu = menuMapper.selectById(1);
-        System.out.println("listMenu:" + menu);
-    }
+	@Test
+	public void testDataSource() {
+		System.out.println(dataSource);
+	}
+
+	@Test
+	public void listMenu() {
+		Menu menu = menuMapper.selectById(1);
+		System.out.println("listMenu:" + menu);
+	}
+
 }

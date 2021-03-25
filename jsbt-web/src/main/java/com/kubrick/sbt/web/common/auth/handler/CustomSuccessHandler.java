@@ -20,13 +20,15 @@ import java.io.PrintWriter;
 @Component
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        String resp = HttpConstant.respLoginOk(authentication);
-        response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
-        PrintWriter out = response.getWriter();
-        out.write(resp);
-        out.flush();
-        out.close();
-    }
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+			Authentication authentication) throws IOException {
+		String resp = HttpConstant.respLoginOk(authentication);
+		response.setContentType(HttpConstant.HTTP_HEADER_CONTENT_TYPE_JSON);
+		PrintWriter out = response.getWriter();
+		out.write(resp);
+		out.flush();
+		out.close();
+	}
+
 }

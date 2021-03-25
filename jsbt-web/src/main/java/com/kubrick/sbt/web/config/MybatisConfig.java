@@ -22,22 +22,20 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.kubrick.sbt.web.mapper")
 public class MybatisConfig {
 
-    @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor() {
-        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        PaginationInnerInterceptor innerInterceptor = new PaginationInnerInterceptor();
-        innerInterceptor.setDbType(DbType.MYSQL);
-        innerInterceptor.setOverflow(true);
-        interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
-        interceptor.addInnerInterceptor(innerInterceptor);
-        return interceptor;
-    }
+	@Bean
+	public MybatisPlusInterceptor mybatisPlusInterceptor() {
+		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+		PaginationInnerInterceptor innerInterceptor = new PaginationInnerInterceptor();
+		innerInterceptor.setDbType(DbType.MYSQL);
+		innerInterceptor.setOverflow(true);
+		interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
+		interceptor.addInnerInterceptor(innerInterceptor);
+		return interceptor;
+	}
 
-    @Bean
-    public ConfigurationCustomizer configurationCustomizer() {
-        return mybatisConfiguration -> mybatisConfiguration.setUseGeneratedShortKey(false);
-    }
-
+	@Bean
+	public ConfigurationCustomizer configurationCustomizer() {
+		return mybatisConfiguration -> mybatisConfiguration.setUseGeneratedShortKey(false);
+	}
 
 }
-

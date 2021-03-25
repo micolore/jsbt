@@ -20,12 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class IndexController {
 
-    private final UserService userService;
+	private final UserService userService;
 
-    @PostMapping("/login")
-    public String login(@RequestBody User user, HttpServletRequest request) {
-        userService.login(user.getUsername(), user.getPassword(), "", request);
-        return "ok";
-    }
+	@PostMapping("/login")
+	public String login(@RequestBody User user, HttpServletRequest request) {
+		userService.login(user.getUsername(), user.getPassword(), "", request);
+		return "ok";
+	}
 
 }

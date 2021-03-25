@@ -2,9 +2,7 @@ package com.kubrick.sbt.web.common.annotation.redis;
 
 import java.lang.annotation.*;
 
-/**
- * @author k
- */
+/** @author k */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented

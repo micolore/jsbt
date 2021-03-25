@@ -26,8 +26,8 @@ import java.util.*;
  */
 @Slf4j
 @Component
-@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = {
-		Connection.class, Integer.class }) })
+@Intercepts({
+		@Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class, Integer.class }) })
 public class DataScopeInterceptor implements Interceptor {
 
 	private final static String SQL_SELECT_FIELD = "select";
@@ -40,14 +40,11 @@ public class DataScopeInterceptor implements Interceptor {
 	public Object intercept(Invocation invocation) throws Throwable {
 
 		StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
-		MetaObject metaObject = MetaObject.forObject(statementHandler,
-				SystemMetaObject.DEFAULT_OBJECT_FACTORY,
-				SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,
-				new DefaultReflectorFactory());
+		MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY,
+				SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY, new DefaultReflectorFactory());
 
 		// 先拦截到RoutingStatementHandler，里面有个StatementHandler类型的delegate变量，其实现类是BaseStatementHandler，然后就到BaseStatementHandler的成员变量mappedStatement
-		MappedStatement mappedStatement = (MappedStatement) metaObject
-				.getValue("delegate.mappedStatement");
+		MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
 
 		// id为执行的mapper方法的全路径名，如com.uv.dao.UserMapper.insertUser
 		String id = mappedStatement.getId();
@@ -68,8 +65,8 @@ public class DataScopeInterceptor implements Interceptor {
 			}
 			BoundSql boundSql = statementHandler.getBoundSql();
 			String sql = boundSql.getSql();
-			Class<?> classType = Class.forName(mappedStatement.getId().substring(0,
-					mappedStatement.getId().lastIndexOf(".")));
+			Class<?> classType = Class
+					.forName(mappedStatement.getId().substring(0, mappedStatement.getId().lastIndexOf(".")));
 			String[] resources = new String[] {};
 			DataPermission annotation = classType.getAnnotation(DataPermission.class);
 			if (annotation != null) {
@@ -92,8 +89,7 @@ public class DataScopeInterceptor implements Interceptor {
 				};
 				log.info("DataScopeInterceptor originalSql:{}", sql);
 				DataScopeSqlProcessor dataScopeSqlProcessor = new DataScopeSqlProcessor();
-				String newSql = dataScopeSqlProcessor.parserSingle(sql,
-						dataPermissionHandler.dataScopes());
+				String newSql = dataScopeSqlProcessor.parserSingle(sql, dataPermissionHandler.dataScopes());
 				Field field = boundSql.getClass().getDeclaredField("sql");
 				field.setAccessible(true);
 				field.set(boundSql, newSql);

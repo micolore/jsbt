@@ -13,8 +13,10 @@ import org.springframework.context.annotation.Bean;
  */
 @ConditionalOnWebApplication
 public class LogFilterWebConfig {
-    @Bean
-    public LogFilter timerFilter() {
-        return new LogFilter();
-    }
+
+	@Bean
+	public LogFilter timerFilter() {
+		return new LogFilter();
+	}
+
 }

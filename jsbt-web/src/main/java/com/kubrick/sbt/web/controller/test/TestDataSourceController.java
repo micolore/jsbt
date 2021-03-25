@@ -22,22 +22,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/test")
 public class TestDataSourceController {
 
-    private final JdbcTemplate jdbcTemplate;
+	private final JdbcTemplate jdbcTemplate;
 
-    @GetMapping(value = "/testDev")
-    @UsingDataSource(type = SupportDatasourceEnum.DEV_DB)
-    public void testDev() {
-        showData();
-    }
+	@GetMapping(value = "/testDev")
+	@UsingDataSource(type = SupportDatasourceEnum.DEV_DB)
+	public void testDev() {
+		showData();
+	}
 
-    @GetMapping(value = "/testPre")
-    @UsingDataSource(type = SupportDatasourceEnum.PRE_DB)
-    public void testPre() {
-        showData();
-    }
+	@GetMapping(value = "/testPre")
+	@UsingDataSource(type = SupportDatasourceEnum.PRE_DB)
+	public void testPre() {
+		showData();
+	}
 
-    private void showData() {
-        jdbcTemplate.queryForList("select * from user").forEach(row -> log.info(row.toString()));
-    }
+	private void showData() {
+		jdbcTemplate.queryForList("select * from user").forEach(row -> log.info(row.toString()));
+	}
+
 }
-

@@ -23,11 +23,11 @@ import java.util.List;
 @ConfigurationProperties(prefix = "security.oauth2")
 public class PermitAllUrlProperties {
 
-    private List<String> ignoreUrls = new ArrayList<>();
+	private List<String> ignoreUrls = new ArrayList<>();
 
-    /**
-     * 是否禁止嵌入iframe
-     */
-    private boolean iframeDeny = true;
+	/**
+	 * 是否禁止嵌入iframe
+	 */
+	private boolean iframeDeny = true;
 
 }

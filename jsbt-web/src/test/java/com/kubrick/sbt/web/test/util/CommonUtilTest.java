@@ -12,14 +12,15 @@ import org.junit.Test;
  */
 public class CommonUtilTest {
 
-    /**
-     * 测试jwt
-     */
-    @Test
-    public void testJwt() {
-        String token = JwtUtil.buildJWT("1");
-        System.out.println(token);
-        System.out.println(JwtUtil.checkJWT(token));
-        System.out.println(JwtUtil.getJwtID(token));
-    }
+	/**
+	 * 测试jwt
+	 */
+	@Test
+	public void testJwt() {
+		String token = JwtUtil.buildJWT("1");
+		System.out.println(token);
+		System.out.println(JwtUtil.checkJWT(token));
+		System.out.println(JwtUtil.getJwtID(token));
+	}
+
 }

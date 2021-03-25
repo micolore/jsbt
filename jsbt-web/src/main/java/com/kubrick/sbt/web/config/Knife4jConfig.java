@@ -23,16 +23,13 @@ public class Knife4jConfig {
 	@Bean(value = "defaultApi")
 	public Docket defaultApi2() {
 		Docket docket = new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(new ApiInfoBuilder().title("sbt  RESTful APIs")
-						.description("# sbt RESTful APIs")
-						.termsOfServiceUrl("http://localhost:10001").version("1.0")
-						.build())
+				.apiInfo(new ApiInfoBuilder().title("sbt  RESTful APIs").description("# sbt RESTful APIs")
+						.termsOfServiceUrl("http://localhost:10001").version("1.0").build())
 				// 分组名称
 				.groupName("0.0.1版本").select()
 				// 这里指定Controller扫描包路径
-				.apis(RequestHandlerSelectors
-						.basePackage("com.kubrick.sbt.web.controller"))
-				.paths(PathSelectors.any()).build();
+				.apis(RequestHandlerSelectors.basePackage("com.kubrick.sbt.web.controller")).paths(PathSelectors.any())
+				.build();
 		return docket;
 	}
 
