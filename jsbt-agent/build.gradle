@@ -8,9 +8,38 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
 
 apply plugin: 'java'
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.ow2.asm', name: 'asm', version: '9.1'
+    implementation group: 'asm', name: 'asm', version: '3.3.1'
+    implementation group: 'org.ow2.asm', name: 'asm-analysis', version: '9.1'
+    implementation group: 'org.ow2.asm', name: 'asm-tree', version: '9.1'
+    implementation group: 'asm', name: 'asm-util', version: '3.3.1'
+    implementation group: 'org.ow2.asm', name: 'asm-commons', version: '9.1'
+    testImplementation group: 'org.ow2.asm', name: 'asm-test', version: '9.1'
+
+}
+
+jar {
+    manifestContentCharset 'utf-8'
+    metadataCharset 'utf-8'
+    manifest.attributes(
+            'Premain-Class': 'com.kubrick.sbt.agent.UdAgent',
+            'Can-Redefine-Classes': true,
+            'Can-Retransform-Classes': true
+    )
+    manifest.attributes('com.kubrick.sbt.agent',
+            'Specification-Title': 'Gradle Wrapper Override Agent',
+            'Specification-Version': version ?: 'UNKNOWN',
+            'Specification-Vendor': 'http://github.com/ddimtirov/gwo-agent',
+            'Implementation-Title': "$project.group:$project.name",
+            'Implementation-Version': System.getenv('GIT_COMMIT') ?: 'UNKNOWN',
+            'Implementation-Vendor': System.getenv('JITPACK') ? 'https://jitpack.io' : 'UNKNOWN'
+    )
+    enabled = false
 }

@@ -1,0 +1,3 @@
+* shell command
+  gradle jar
+**  拦截系统内部所有方法执行时间耗时
