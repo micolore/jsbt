@@ -21,6 +21,8 @@ dependencies {
     implementation rootProject.ext.dependencies["jackson-annotations"]
     implementation rootProject.ext.dependencies["logback-classic"]
     implementation rootProject.ext.dependencies["junit"]
+    implementation group: 'org.apache.lucene', name: 'lucene-queryparser', version: '8.8.1'
+
     compile rootProject.ext.dependencies["mysql-connector-java"]
     implementation rootProject.ext.dependencies["org.projectlombok"]
     testCompileOnly rootProject.ext.dependencies["org.projectlombok"]

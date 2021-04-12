@@ -10,7 +10,8 @@ apply plugin: 'io.spring.javaformat'
 
 group 'com.kubrick'
 version '0.0.1-SNAPSHOT'
-
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 repositories {
     mavenCentral()
 }

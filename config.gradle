@@ -147,7 +147,10 @@ ext {
             "netty-tcnative-boringssl-static"           : 'io.netty:netty-tcnative-boringssl-static:2.0.35.Final',
 
             //bytecode
-            "cglib"                                     : "cglib:cglib:3.3.0"
+            "cglib"                                     : "cglib:cglib:3.3.0",
+
+            "poi-ooxml"                                 : "org.apache.poi:poi-ooxml:5.0.0",
+            "poi"                                       : "org.apache.poi:poi:5.0.0"
 
     ]
 }

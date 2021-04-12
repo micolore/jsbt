@@ -1,6 +1,7 @@
 package com.kubrick.sbt.es;
 
 
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -55,5 +56,7 @@ public class ElasticsearchTest {
 		// 删除
 		AcknowledgedResponse delete = restHighLevelClient.indices().delete(request, RequestOptions.DEFAULT);
 		System.out.println(delete.isAcknowledged());
+
 	}
+
 }
