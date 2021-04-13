@@ -1,14 +1,15 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version "2.3.5.RELEASE"
 }
 
 group 'com.kubrick'
-version '1.0-SNAPSHOT'
-
+version '0.0.1'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 repositories {
     mavenCentral()
 }
-
 dependencies {
     implementation rootProject.ext.dependencies["spring-boot-starter-web"]
     implementation rootProject.ext.dependencies["spring-boot-autoconfigure"]

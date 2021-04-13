@@ -1,5 +1,7 @@
 spring:
   elasticsearch:
     rest:
-      uris: http://localhost:9200
+      #uris: http://localhost:9200
+      #uris: http://192.168.1.4:9100
+      uris: http://scrm-bus-es:9200
       connection-timeout: 1000
