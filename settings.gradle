@@ -42,4 +42,6 @@ include 'jsbt-basis'
 include 'jsbt-spring'
 include 'jsbt-nacos'
 include 'jsbt-nio'
+include 'jsbt-sharding'
+include 'jsbt-pulsar'
 

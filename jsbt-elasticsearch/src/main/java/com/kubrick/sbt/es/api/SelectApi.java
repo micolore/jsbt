@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author k
  * @version 1.0.0 @ClassName SelectApi
@@ -23,8 +28,14 @@ public class SelectApi {
   @RequestMapping(value = "/getIndexInfo", method = RequestMethod.GET)
   public String getIndexInfo() throws Exception {
 
-    String list = esService.selectIndexInfo("61470452106@c.us", "61470068923@c.us");
+    //    String list = esService.selectIndexInfo("61470452106@c.us", "61470068923@c.us");
+    //    String list = esService.selectIndexInfo("", "");
+    LocalDateTime localDateTime = LocalDateTime.of(2020, 02, 01, 0, 0, 0);
+    LocalDateTime localDateTimeT = LocalDateTime.of(2020, 02, 01, 23, 59, 59);
 
-    return list;
+    List<Map> list = esService.recordRangeHourTwo(localDateTime, localDateTimeT);
+
+    System.out.println(list);
+    return null;
   }
 }

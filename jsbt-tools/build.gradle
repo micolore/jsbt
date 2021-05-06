@@ -23,7 +23,11 @@ configurations {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'com.lmax', name: 'disruptor', version: '3.4.2'
+
+    implementation rootProject.ext.dependencies["hutool-all"]
+    implementation rootProject.ext.dependencies["disruptor"]
+    implementation rootProject.ext.dependencies["commons-lang3"]
+
     implementation rootProject.ext.dependencies["guava"]
     implementation rootProject.ext.dependencies["poi"]
     implementation rootProject.ext.dependencies["poi-ooxml"]

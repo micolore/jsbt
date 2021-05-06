@@ -13,17 +13,19 @@ import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.Operator;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.rest.RestStatus;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.sort.FieldSortBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -159,4 +161,99 @@ public class EsService {
       e.printStackTrace();
     }
   }
+
+
+  /**
+   * 以小时范围查询聊天记录
+   * @return
+   * @throws IOException
+   */
+  public List<Map> recordRangeHour(LocalDateTime begin, LocalDateTime end) throws IOException {
+    // 1、创建search请求
+    SearchRequest searchRequest = new SearchRequest(EsConstant.INDEX);
+    // searchRequest.types(EsConstant.TYPE);
+    // 2、用SearchSourceBuilder来构造查询请求体 ,请仔细查看它的方法，构造各种查询的方法都在这。
+    SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+    // 集合查询
+    BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
+    // 时间条件
+    RangeQueryBuilder sendTimeQueryBuilder = QueryBuilders.rangeQuery("send_time");
+    long fromMilli = begin.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+    sendTimeQueryBuilder.gte(fromMilli);
+    long toMilli = end.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+    sendTimeQueryBuilder.lte(toMilli);
+    queryBuilder.must(sendTimeQueryBuilder);
+    sourceBuilder.query(queryBuilder);
+    // 设置一个可选的超时时间，以控制允许搜索的时间。
+    sourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+    // 指定排序
+    sourceBuilder.sort(new FieldSortBuilder("send_time").order(SortOrder.DESC));
+    sourceBuilder.size(1000000);
+    // 将请求体加入到请求中
+    searchRequest.source(sourceBuilder);
+    // 3、发送请求
+    SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+    // 4、处理响应
+    // 搜索结果状态信息
+    RestStatus status = searchResponse.status();
+    log.info(String.valueOf(status.getStatus()));
+    // 处理搜索命中文档结果
+    SearchHits hits = searchResponse.getHits();
+    SearchHit[] searchHits = hits.getHits();
+    List<Map> mapList = new ArrayList<>();
+    for (SearchHit hit : searchHits) {
+      // 取_source字段值
+      mapList.add(hit.getSourceAsMap());
+    }
+    return mapList;
+  }
+
+  /**
+   * 以小时范围查询聊天记录
+   * @return
+   * @throws IOException
+   */
+  public List<Map> recordRangeHourTwo(LocalDateTime begin, LocalDateTime end) throws IOException {
+    // 1、创建search请求
+    SearchRequest searchRequest = new SearchRequest(EsConstant.INDEX);
+    // searchRequest.types(EsConstant.TYPE);
+    // 2、用SearchSourceBuilder来构造查询请求体 ,请仔细查看它的方法，构造各种查询的方法都在这。
+    SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+    // 集合查询
+    BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
+    // 时间条件
+    RangeQueryBuilder sendTimeQueryBuilder = QueryBuilders.rangeQuery("send_time");
+//    queryBuilder.must(QueryBuilders.termQuery("tenant_id", 777));
+//    queryBuilder.must(QueryBuilders.termsQuery("current_whats_id","6287863299716@c.us"));
+    queryBuilder.must(sendTimeQueryBuilder);
+    long fromMilli = begin.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+    sendTimeQueryBuilder.gte(fromMilli);
+    long toMilli = end.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+    sendTimeQueryBuilder.lte(toMilli);
+    sourceBuilder.query(queryBuilder);
+    // 设置一个可选的超时时间，以控制允许搜索的时间。
+    sourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+    // 指定排序
+    sourceBuilder.sort(new FieldSortBuilder("send_time").order(SortOrder.DESC));
+    sourceBuilder.size(1000000);
+    // 将请求体加入到请求中
+    searchRequest.source(sourceBuilder);
+    // 3、发送请求
+    SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+    // 4、处理响应
+    // 搜索结果状态信息
+    RestStatus status = searchResponse.status();
+    log.info(String.valueOf(status.getStatus()));
+    // 处理搜索命中文档结果
+    SearchHits hits = searchResponse.getHits();
+    SearchHit[] searchHits = hits.getHits();
+    List<Map> mapList = new ArrayList<>();
+    for (SearchHit hit : searchHits) {
+      // 取_source字段值
+      mapList.add(hit.getSourceAsMap());
+
+    }
+    return mapList;
+  }
+
 }

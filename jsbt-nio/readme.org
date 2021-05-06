@@ -1,0 +1,11 @@
+* java nio
+
+** comment
+
+*** channel
+*** buffer
+*** scatter/gather
+*** pipe
+
+*** 模式
+读写模式的切换如何实现？
